@@ -99,6 +99,19 @@ public class OrdemServico {
     }
 
     /**
+     * Remove um Serviço da lista de Serviços com base no id
+     *
+     * @param id o id do Serviço a ser removido
+     */
+    public void removeServico(int id){
+        for (Servico s : this.listaServicos){
+            if (s.getId() == id){
+                this.listaServicos.remove(s);
+            }
+        }
+    }
+
+    /**
      * Retorna o Técnico responsável pela Ordem de Serviço
      *
      * @return o Técnico responsável pela Ordem de Serviço

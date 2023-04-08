@@ -42,6 +42,19 @@ public class Montagem extends Servico{
     }
 
     /**
+     * Remove um Componente da lista com base no id
+     *
+     * @param id o id do Componente a ser removido
+     */
+    public void removerComponente(int id){
+        for (Componente c : this.componentesUsados){
+            if (c.getId() == id){
+                this.componentesUsados.remove(c);
+            }
+        }
+    }
+
+    /**
      * Retorna a lista de componentes para a realização da Montagem.
      *
      * @return a lista de componentes para a realização da Montagem.
