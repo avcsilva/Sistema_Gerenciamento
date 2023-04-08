@@ -2,11 +2,39 @@ package com.pbl.sistema_gerenciamento.model;
 
 /**
  * Superclasse Serviço que representará uma tarefa a ser realizada por um Técnico em sua Ordem de Serviço.
- * Definido por seu preço e custo.
+ * Definido por seu preço, custo e id.
  */
 public class Servico {
+    private int id;
     private Double preco;
     private Double custo;
+
+    /**
+     * Cria um Serviço com seu id definido
+     *
+     * @param id o id do Serviço
+     */
+    public Servico(int id) {
+        this.id = id;
+    }
+
+    /**
+     * Retorna o id do Serviço
+     *
+     * @return o id do Serviço
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * Define o id do Serviço
+     *
+     * @param id o id do Serviço
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
 
     /**
      * Retorna o preço do Serviço

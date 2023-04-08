@@ -3,20 +3,42 @@ package com.pbl.sistema_gerenciamento.model;
 /**
  * Classe Componente que representa um componente que poderá ser utilizado
  * para a realização de um Serviço de Montagem.
+ * Definido por seu preço, custo e id.
  */
 public class Componente {
+    private int id;
     private Double preco;
     private Double custo;
 
     /**
      * Cria um novo Componente com seu preço e custo definidos
      *
+     * @param id o id do Componente
      * @param preco o preço do Componente
      * @param custo o custo do Componente
      */
-    public Componente(Double preco, Double custo) {
+    public Componente(int id, Double preco, Double custo) {
+        this.id = id;
         this.preco = preco;
         this.custo = custo;
+    }
+
+    /**
+     * Retorna o id do Componente
+     *
+     * @return o id do Componente
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * Define o id do Componente
+     *
+     * @param id o id do Componente
+     */
+    public void setId(int id) {
+        this.id = id;
     }
 
     /**

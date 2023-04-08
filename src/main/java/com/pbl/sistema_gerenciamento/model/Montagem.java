@@ -17,7 +17,8 @@ public class Montagem extends Servico{
      *
      * @param comp a lista de componentes para a realização do serviço
      */
-    public Montagem(ArrayList<Componente> comp) {
+    public Montagem(int id, ArrayList<Componente> comp) {
+        super(id);
         this.setPreco(0.0);
         this.setCusto(0.0);
         this.componentesUsados = comp;

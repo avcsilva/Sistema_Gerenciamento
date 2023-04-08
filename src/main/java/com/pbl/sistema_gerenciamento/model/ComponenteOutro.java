@@ -3,7 +3,7 @@ package com.pbl.sistema_gerenciamento.model;
 /**
  * Subclasse ComponenteOutro que extende a superclasse Componente.
  * Representa componentes extras ou que não são usuais aos Serviços de Montagem. Não são armazenados em estoque.
- * São definidos por seu preço, custo e descrição.
+ * São definidos por seu preço, custo, descrição e id.
  */
 public class ComponenteOutro extends Componente{
     private String descricao;
@@ -11,12 +11,13 @@ public class ComponenteOutro extends Componente{
     /**
      * Cria um novo ComponenteOutro com seu preço, custo e descrição definidos.
      *
+     * @param id o id do ComponenteOutro
      * @param preco o preço do ComponenteOutro
      * @param custo o custo do ComponenteOutro
      * @param descricao a descrição do ComponenteOutro
      */
-    public ComponenteOutro(Double preco, Double custo, String descricao) {
-        super(preco, custo);
+    public ComponenteOutro(int id, Double preco, Double custo, String descricao) {
+        super(id, preco, custo);
         this.descricao = descricao;
     }
 

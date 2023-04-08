@@ -19,7 +19,8 @@ public class Instalacao extends Servico{
      * @param programas a lista de programas a serem instalados
      * @param sistema o sistema operacional a ser utilizado
      */
-    public Instalacao(Double preco, Double custo, ArrayList<String> programas, String sistema) {
+    public Instalacao(int id, Double preco, Double custo, ArrayList<String> programas, String sistema) {
+        super(id);
         this.setPreco(preco);
         this.setCusto(custo);
         this.listaProgramas = programas;
