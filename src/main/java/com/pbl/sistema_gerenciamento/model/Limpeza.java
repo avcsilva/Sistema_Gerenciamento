@@ -1,7 +1,19 @@
 package com.pbl.sistema_gerenciamento.model;
 
-public class Limpeza extends Servico {
+/**
+ * Subclasse Limpeza que extende a superclasse Serviço.
+ * Representa um Serviço relacionado à limpeza de um computador. Definido por seu preço e custo.
+ */
+public class Limpeza extends Servico{
+
+    /**
+     * Cria um Serviço de Limpeza com seu preço e custo definidos.
+     *
+     * @param preco o preço da Limpeza
+     * @param custo o custo da Limpeza
+     */
     public Limpeza(Double preco, Double custo) {
-        super(preco, custo);
+        this.setPreco(preco);
+        this.setCusto(custo);
     }
 }
