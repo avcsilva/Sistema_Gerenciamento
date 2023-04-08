@@ -9,6 +9,7 @@ public class Limpeza extends Servico{
     /**
      * Cria um Serviço de Limpeza com seu preço e custo definidos.
      *
+     * @param id o id do Serviço
      * @param preco o preço da Limpeza
      * @param custo o custo da Limpeza
      */
