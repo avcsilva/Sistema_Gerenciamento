@@ -4,7 +4,7 @@ package   com.pbl.sistema_gerenciamento.model;
  * Superclasse Usuário, que representará possíveis utilizadores do sistema.
  * Definido por um id, nome e e-mail.
  */
-public class Usuario {
+public abstract class Usuario {
     private int id;
     private String nome;
     private String email;

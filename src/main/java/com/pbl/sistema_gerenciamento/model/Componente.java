@@ -5,7 +5,7 @@ package com.pbl.sistema_gerenciamento.model;
  * para a realização de um Serviço de Montagem.
  * Definido por seu preço, custo e id.
  */
-public class Componente {
+public abstract class Componente {
     private int id;
     private Double preco;
     private Double custo;
