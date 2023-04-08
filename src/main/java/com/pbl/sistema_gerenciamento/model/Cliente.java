@@ -6,7 +6,7 @@ package com.pbl.sistema_gerenciamento.model;
  */
 public class Cliente {
 
-    private String id;
+    private int id;
 
     private String nome;
 
@@ -25,7 +25,7 @@ public class Cliente {
      * @param email o e-mail do Cliente
      * @param endereco o endereço do Cliente
      */
-    public Cliente(String id, String nome, String endereco, String telefone, String email) {
+    public Cliente(int id, String nome, String endereco, String telefone, String email) {
         this.id = id;
         this.nome = nome;
         this.endereco = endereco;
@@ -38,7 +38,7 @@ public class Cliente {
      *
      * @return o id do Cliente
      */
-    public String getId() {
+    public int getId() {
         return id;
     }
 
@@ -47,7 +47,7 @@ public class Cliente {
      *
      * @param id o id do Cliente
      */
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -10,7 +10,7 @@ import java.util.Date;
  * preço, custo e método de pagamento.
  */
 public class OrdemServico {
-    private String id;
+    private int id;
     private ArrayList<Servico> listaServicos;
     private Tecnico tecnico;
     private String status;
@@ -30,7 +30,7 @@ public class OrdemServico {
      * @param cliente o Cliente pelo qual a Ordem de Serviço foi requisitada
      * @param criacao a data de criação da Ordem de Serviço
      */
-    public OrdemServico(String id, ArrayList<Servico> lista, Cliente cliente, Date criacao) {
+    public OrdemServico(int id, ArrayList<Servico> lista, Cliente cliente, Date criacao) {
         this.id = id;
         this.listaServicos = lista;
         this.cliente = cliente;
@@ -49,7 +49,7 @@ public class OrdemServico {
      * Retorna o id da Ordem de Serviço
      * @return o id da Ordem de Serviço
      */
-    public String getId() {
+    public int getId() {
         return id;
     }
 
@@ -58,7 +58,7 @@ public class OrdemServico {
      *
      * @param id o id da Ordem de Serviço
      */
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

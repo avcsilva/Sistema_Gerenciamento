@@ -5,7 +5,7 @@ package   com.pbl.sistema_gerenciamento.model;
  * Definido por um id, nome e e-mail.
  */
 public class Usuario {
-    private String id;
+    private int id;
     private String nome;
     private String email;
 
@@ -16,7 +16,7 @@ public class Usuario {
      * @param nome o nome do Usuário
      * @param email o e-mail do Usuário
      */
-    public Usuario(String id, String nome, String email) {
+    public Usuario(int id, String nome, String email) {
         this.id = id;
         this.nome = nome;
         this.email = email;
@@ -27,7 +27,7 @@ public class Usuario {
      *
      * @return o id do Usuário
      */
-    public String getId() {
+    public int getId() {
         return id;
     }
 
@@ -36,7 +36,7 @@ public class Usuario {
      *
      * @param id o id do Usuário
      */
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

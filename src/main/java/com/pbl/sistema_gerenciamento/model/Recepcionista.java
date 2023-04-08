@@ -13,7 +13,7 @@ public class Recepcionista extends Usuario{
      * @param nome o nome do Recepcionista
      * @param email o e-mail do Recepcionista
      */
-    public Recepcionista(String id, String nome, String email) {
+    public Recepcionista(int id, String nome, String email) {
         super(id, nome, email);
     }
 }
