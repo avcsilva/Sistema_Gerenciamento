@@ -17,16 +17,14 @@ public class Cliente {
     private String email;
 
     /**
-     * Cria um Cliente com id, nome, telefone, e-mail e endereço definidos
+     * Cria um Cliente com nome, telefone, e-mail e endereço definidos
      *
-     * @param id o id do Cliente
      * @param nome o nome do Cliente
      * @param telefone o telefone do Cliente
      * @param email o e-mail do Cliente
      * @param endereco o endereço do Cliente
      */
-    public Cliente(int id, String nome, String endereco, String telefone, String email) {
-        this.id = id;
+    public Cliente(String nome, String endereco, String telefone, String email) {
         this.nome = nome;
         this.endereco = endereco;
         this.telefone = telefone;

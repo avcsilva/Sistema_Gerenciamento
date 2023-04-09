@@ -13,14 +13,13 @@ public class ComponentePC extends Componente{
     /**
      * Cria um novo ComponentePC com preço, custo, nome e fabricante definidos.
      *
-     * @param id o id do ComponentePC
      * @param preco o preço do ComponentePC
      * @param custo o custo do ComponentePC
      * @param nome o nome do ComponentePC
      * @param fabricante o fabricante do ComponentePC
      */
-    public ComponentePC(int id, Double preco, Double custo, String nome, String fabricante) {
-        super(id, preco, custo);
+    public ComponentePC(Double preco, Double custo, String nome, String fabricante) {
+        super(preco, custo);
         this.nome = nome;
         this.fabricante = fabricante;
     }

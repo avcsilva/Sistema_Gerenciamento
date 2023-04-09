@@ -13,12 +13,10 @@ public abstract class Componente {
     /**
      * Cria um novo Componente com seu preço e custo definidos
      *
-     * @param id o id do Componente
      * @param preco o preço do Componente
      * @param custo o custo do Componente
      */
-    public Componente(int id, Double preco, Double custo) {
-        this.id = id;
+    public Componente(Double preco, Double custo) {
         this.preco = preco;
         this.custo = custo;
     }

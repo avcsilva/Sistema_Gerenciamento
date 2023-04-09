@@ -9,12 +9,10 @@ public class Limpeza extends Servico{
     /**
      * Cria um Serviço de Limpeza com seu preço e custo definidos.
      *
-     * @param id o id do Serviço
      * @param preco o preço da Limpeza
      * @param custo o custo da Limpeza
      */
-    public Limpeza(int id, Double preco, Double custo) {
-        super(id);
+    public Limpeza(Double preco, Double custo) {
         this.setPreco(preco);
         this.setCusto(custo);
     }

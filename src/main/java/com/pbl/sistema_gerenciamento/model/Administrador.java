@@ -8,13 +8,12 @@ package com.pbl.sistema_gerenciamento.model;
 public class Administrador extends Usuario{
 
     /**
-     * Cria um Administrador com id, nome e e-mail definidos
+     * Cria um Administrador com nome e e-mail definidos.
      *
-     * @param id o id do Administrador
-     * @param nome o nome do Administrador
-     * @param email o e-mail do Administrador
+     * @param nome  o nome do Usuário
+     * @param email o e-mail do Usuário
      */
-    public Administrador(int id, String email, String nome) {
-        super(id, email, nome);
+    public Administrador(String nome, String email) {
+        super(nome, email);
     }
 }

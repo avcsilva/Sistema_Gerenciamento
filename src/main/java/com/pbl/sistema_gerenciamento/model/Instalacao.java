@@ -14,14 +14,12 @@ public class Instalacao extends Servico{
     /**
      * Cria um novo Serviço de Instalação com preço, custo, lista de programas e sistema operacional definidos
      *
-     * @param id o id do Serviço
      * @param preco o preço da Instalação
      * @param custo o custo da Instalação
      * @param programas a lista de programas a serem instalados
      * @param sistema o sistema operacional a ser utilizado
      */
-    public Instalacao(int id, Double preco, Double custo, ArrayList<String> programas, String sistema) {
-        super(id);
+    public Instalacao(Double preco, Double custo, ArrayList<String> programas, String sistema) {
         this.setPreco(preco);
         this.setCusto(custo);
         this.listaProgramas = programas;

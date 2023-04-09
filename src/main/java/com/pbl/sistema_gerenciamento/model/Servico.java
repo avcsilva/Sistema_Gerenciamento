@@ -10,15 +10,6 @@ public abstract class Servico {
     private Double custo;
 
     /**
-     * Cria um Serviço com seu id definido
-     *
-     * @param id o id do Serviço
-     */
-    public Servico(int id) {
-        this.id = id;
-    }
-
-    /**
      * Retorna o id do Serviço
      *
      * @return o id do Serviço

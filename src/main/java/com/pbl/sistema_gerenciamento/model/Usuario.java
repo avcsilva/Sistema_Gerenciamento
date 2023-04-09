@@ -10,14 +10,12 @@ public abstract class Usuario {
     private String email;
 
     /**
-     * Cria um Usuário com id, nome e e-mail definidos.
+     * Cria um Usuário com nome e e-mail definidos.
      *
-     * @param id o id do Usuário
      * @param nome o nome do Usuário
      * @param email o e-mail do Usuário
      */
-    public Usuario(int id, String nome, String email) {
-        this.id = id;
+    public Usuario(String nome, String email) {
         this.nome = nome;
         this.email = email;
     }

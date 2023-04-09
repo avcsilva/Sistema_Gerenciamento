@@ -25,13 +25,11 @@ public class OrdemServico {
      * Cria uma Ordem de Serviço com seu id, lista de serviços, cliente e data de criação definidos.
      * Preço e custo da Ordem de Serviço serão definidos com base na lista de Serviços atribuída.
      *
-     * @param id o id da Ordem de Serviço
      * @param lista a lista de serviços a serem realizados
      * @param cliente o Cliente pelo qual a Ordem de Serviço foi requisitada
      * @param criacao a data de criação da Ordem de Serviço
      */
-    public OrdemServico(int id, ArrayList<Servico> lista, Cliente cliente, Date criacao) {
-        this.id = id;
+    public OrdemServico(ArrayList<Servico> lista, Cliente cliente, Date criacao) {
         this.listaServicos = lista;
         this.cliente = cliente;
         this.criacao = criacao;
@@ -47,6 +45,7 @@ public class OrdemServico {
 
     /**
      * Retorna o id da Ordem de Serviço
+     *
      * @return o id da Ordem de Serviço
      */
     public int getId() {

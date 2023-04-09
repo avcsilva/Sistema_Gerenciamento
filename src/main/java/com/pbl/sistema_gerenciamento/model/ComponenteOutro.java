@@ -11,13 +11,12 @@ public class ComponenteOutro extends Componente{
     /**
      * Cria um novo ComponenteOutro com seu preço, custo e descrição definidos.
      *
-     * @param id o id do ComponenteOutro
      * @param preco o preço do ComponenteOutro
      * @param custo o custo do ComponenteOutro
      * @param descricao a descrição do ComponenteOutro
      */
-    public ComponenteOutro(int id, Double preco, Double custo, String descricao) {
-        super(id, preco, custo);
+    public ComponenteOutro(Double preco, Double custo, String descricao) {
+        super(preco, custo);
         this.descricao = descricao;
     }
 
