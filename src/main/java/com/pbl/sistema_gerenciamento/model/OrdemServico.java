@@ -1,7 +1,6 @@
 package com.pbl.sistema_gerenciamento.model;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * Classe Ordem de Serviço, que representa uma série de trabalhos requisitados por um Cliente,
@@ -15,8 +14,8 @@ public class OrdemServico {
     private Tecnico tecnico;
     private String status;
     private Cliente cliente;
-    private Date criacao;
-    private Date finalizacao;
+    private String criacao;
+    private String finalizacao;
     private Double preco;
     private Double custo;
     private String metodoPagamento;
@@ -29,7 +28,7 @@ public class OrdemServico {
      * @param cliente o Cliente pelo qual a Ordem de Serviço foi requisitada
      * @param criacao a data de criação da Ordem de Serviço
      */
-    public OrdemServico(ArrayList<Servico> lista, Cliente cliente, Date criacao) {
+    public OrdemServico(ArrayList<Servico> lista, Cliente cliente, String criacao) {
         this.listaServicos = lista;
         this.cliente = cliente;
         this.criacao = criacao;
@@ -172,7 +171,7 @@ public class OrdemServico {
      *
      * @return a data de criação da Ordem de Serviço
      */
-    public Date getCriacao() {
+    public String getCriacao() {
         return criacao;
     }
 
@@ -181,7 +180,7 @@ public class OrdemServico {
      *
      * @param criacao a data de criação da Ordem de Serviço
      */
-    public void setCriacao(Date criacao) {
+    public void setCriacao(String criacao) {
         this.criacao = criacao;
     }
 
@@ -190,7 +189,7 @@ public class OrdemServico {
      *
      * @return a data de finalização da Ordem de Serviço
      */
-    public Date getFinalizacao() {
+    public String getFinalizacao() {
         return finalizacao;
     }
 
@@ -199,7 +198,7 @@ public class OrdemServico {
      *
      * @param finalizacao a data de finalização da Ordem de Serviço
      */
-    public void setFinalizacao(Date finalizacao) {
+    public void setFinalizacao(String finalizacao) {
         this.finalizacao = finalizacao;
     }
 
