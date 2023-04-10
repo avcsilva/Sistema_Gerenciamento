@@ -20,9 +20,9 @@ public class Cliente {
      * Cria um Cliente com nome, telefone, e-mail e endereço definidos
      *
      * @param nome o nome do Cliente
+     * @param endereco o endereço do Cliente
      * @param telefone o telefone do Cliente
      * @param email o e-mail do Cliente
-     * @param endereco o endereço do Cliente
      */
     public Cliente(String nome, String endereco, String telefone, String email) {
         this.nome = nome;
