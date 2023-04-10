@@ -48,7 +48,10 @@ public class Montagem extends Servico{
     public void removerComponente(int id){
         for (Componente c : this.componentesUsados){
             if (c.getId() == id){
+                this.setPreco(this.getPreco() - c.getPreco());
+                this.setCusto(this.getCusto() - c.getCusto());
                 this.componentesUsados.remove(c);
+                return;
             }
         }
     }

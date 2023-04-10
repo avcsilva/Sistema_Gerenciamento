@@ -105,7 +105,10 @@ public class OrdemServico {
     public void removeServico(int id){
         for (Servico s : this.listaServicos){
             if (s.getId() == id){
+                this.preco = this.preco - s.getPreco();
+                this.custo = this.custo - s.getCusto();
                 this.listaServicos.remove(s);
+                return;
             }
         }
     }
