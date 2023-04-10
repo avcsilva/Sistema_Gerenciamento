@@ -16,5 +16,12 @@ public interface AdministradorDAO extends CRUD<Administrador> {
      * @return lista de Administradores encontrados
      */
     public List<Administrador> acharPorNome(String nome);
+
+    /**
+     * Encontra objetos Administrador por meio do e-mail
+     *
+     * @param email o e-mail sobre os quais os Administradores devem ser encontrados
+     * @return lista de Administradores encontrados
+     */
     public List<Administrador> acharPorEmail(String email);
 }

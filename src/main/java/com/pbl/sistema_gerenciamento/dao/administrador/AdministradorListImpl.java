@@ -5,12 +5,16 @@ import com.pbl.sistema_gerenciamento.model.Administrador;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe que implementa a interface AdministradorDAO. Implementa funcionalidades de criação,
+ * armazenagem, atualização e remoção de Administradores
+ */
 public class AdministradorListImpl implements AdministradorDAO {
     private ArrayList<Administrador> listaAdmins;
     private int nextID;
 
     /**
-     *
+     * Cria um AdministradorListImpl com sua lista vazia e id inicial 0
      */
     public AdministradorListImpl() {
         this.listaAdmins = new ArrayList<Administrador>();
@@ -32,9 +36,10 @@ public class AdministradorListImpl implements AdministradorDAO {
     }
 
     /**
+     * Encontra um Administrador por meio de seu id
      *
      * @param id o id do objeto a ser encontrado
-     * @return
+     * @return o Administrador encontrado
      */
     @Override
     public Administrador acharPorId(int id) {
@@ -47,8 +52,9 @@ public class AdministradorListImpl implements AdministradorDAO {
     }
 
     /**
+     * Encontra todos os Administradores registrados
      *
-     * @return
+     * @return a lista de Administradores encontrados
      */
     @Override
     public List<Administrador> acharTodos() {
@@ -56,9 +62,10 @@ public class AdministradorListImpl implements AdministradorDAO {
     }
 
     /**
+     * Atualiza um Administrador
      *
      * @param obj o objeto a ser atualizado
-     * @return
+     * @return o Administrador que foi atualizado
      */
     @Override
     public Administrador atualizar(Administrador obj) {
@@ -72,6 +79,7 @@ public class AdministradorListImpl implements AdministradorDAO {
     }
 
     /**
+     * Deleta um Administrador da lista por meio de seu id
      *
      * @param id o id do objeto a ser deletado
      */
@@ -86,7 +94,7 @@ public class AdministradorListImpl implements AdministradorDAO {
     }
 
     /**
-     *
+     * Deleta a lista de Administradores e cria uma nova. Redefine o id inicial para 0
      */
     @Override
     public void deletarTodos() {
@@ -95,9 +103,10 @@ public class AdministradorListImpl implements AdministradorDAO {
     }
 
     /**
+     * Encontra Administradores por meio de seus nomes
      *
      * @param nome o nome sobre os quais os Administradores devem ser encontrados
-     * @return
+     * @return a lista de Administradores encontrados
      */
     @Override
     public List<Administrador> acharPorNome(String nome) {
@@ -110,6 +119,12 @@ public class AdministradorListImpl implements AdministradorDAO {
         return listaNomes;
     }
 
+    /**
+     * Encontra Administradores por meio de seus e-mails
+     *
+     * @param email o e-mail sobre os quais os Administradores devem ser encontrados
+     * @return a lista de Administradores encontrados
+     */
     @Override
     public List<Administrador> acharPorEmail(String email) {
         ArrayList<Administrador> listaEmail = new ArrayList<Administrador>();
