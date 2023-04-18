@@ -97,17 +97,33 @@ public class OrdemServico {
     }
 
     /**
-     * Remove um Serviço da lista de Serviços com base no id
+     * Remove um Serviço da lista de Serviços com base no id e na opção de Serviço escolhida
      *
      * @param id o id do Serviço a ser removido
+     * @param opc o tipo de Serviço a ser removido. 1 para Instalação, 2 para Limpeza, 3 para Montagem
      */
-    public void removeServico(int id){
+    public void removeServico(int id, int opc){
         for (Servico s : this.listaServicos){
             if (s.getId() == id){
-                this.preco = this.preco - s.getPreco();
-                this.custo = this.custo - s.getCusto();
-                this.listaServicos.remove(s);
-                return;
+                if (opc == 1 && s instanceof Instalacao) {
+                    this.preco = this.preco - s.getPreco();
+                    this.custo = this.custo - s.getCusto();
+                    this.listaServicos.remove(s);
+                    return;
+
+                }
+                if (opc == 2 && s instanceof Limpeza) {
+                    this.preco = this.preco - s.getPreco();
+                    this.custo = this.custo - s.getCusto();
+                    this.listaServicos.remove(s);
+                    return;
+                }
+                if (opc == 3 && s instanceof Montagem) {
+                    this.preco = this.preco - s.getPreco();
+                    this.custo = this.custo - s.getCusto();
+                    this.listaServicos.remove(s);
+                    return;
+                }
             }
         }
     }

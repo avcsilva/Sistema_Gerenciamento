@@ -41,17 +41,26 @@ public class Montagem extends Servico{
     }
 
     /**
-     * Remove um Componente da lista com base no id
+     * Remove um Componente da lista com base no id e na opção de Componente escolhida
      *
      * @param id o id do Componente a ser removido
+     * @param opc o tipo de Componente a ser removido. 1 para PC, 2 para Outro
      */
-    public void removerComponente(int id){
+    public void removerComponente(int id, int opc){
         for (Componente c : this.componentesUsados){
             if (c.getId() == id){
-                this.setPreco(this.getPreco() - c.getPreco());
-                this.setCusto(this.getCusto() - c.getCusto());
-                this.componentesUsados.remove(c);
-                return;
+                if (opc == 1 && c instanceof ComponentePC) {
+                    this.setPreco(this.getPreco() - c.getPreco());
+                    this.setCusto(this.getCusto() - c.getCusto());
+                    this.componentesUsados.remove(c);
+                    return;
+                }
+                if (opc == 2 && c instanceof ComponenteOutro) {
+                    this.setPreco(this.getPreco() - c.getPreco());
+                    this.setCusto(this.getCusto() - c.getCusto());
+                    this.componentesUsados.remove(c);
+                    return;
+                }    
             }
         }
     }

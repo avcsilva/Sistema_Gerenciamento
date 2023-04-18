@@ -82,8 +82,8 @@ class OrdemServicoTest {
         Servico serv2 = new Montagem(null);
         Servico serv3 = new Instalacao(null, null, null, null);
         serv1.setId(1);
-        serv2.setId(2);
-        serv3.setId(3);
+        serv2.setId(1);
+        serv3.setId(1);
 
         ArrayList<Servico> lista = new ArrayList<Servico>();
         lista.add(serv1);
@@ -91,7 +91,7 @@ class OrdemServicoTest {
         lista.add(serv3);
 
         OrdemServico ordemServico = new OrdemServico(lista, null, null);
-        ordemServico.removeServico(2);
+        ordemServico.removeServico(1, 2);
 
         lista = ordemServico.getListaServicos();
 

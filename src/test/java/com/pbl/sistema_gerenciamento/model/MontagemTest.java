@@ -28,14 +28,14 @@ class MontagemTest {
         Componente comp1 = new ComponentePC(null, null, null, null);
         Componente comp2 = new ComponenteOutro(null, null, null);
         comp1.setId(1);
-        comp2.setId(2);
+        comp2.setId(1);
 
         ArrayList<Componente> lista = new ArrayList<Componente>();
         lista.add(comp1);
         lista.add(comp2);
 
         Montagem montagem = new Montagem(lista);
-        montagem.removerComponente(1);
+        montagem.removerComponente(1, 2);
 
         lista = montagem.getComponentesUsados();
 
@@ -95,7 +95,7 @@ class MontagemTest {
 
         assertEquals(30.00, montagem.getPreco());
 
-        montagem.removerComponente(2);
+        montagem.removerComponente(2, 2);
 
         assertEquals(20.00, montagem.getPreco());
     }
@@ -120,7 +120,7 @@ class MontagemTest {
 
         assertEquals(30.00, montagem.getCusto());
 
-        montagem.removerComponente(2);
+        montagem.removerComponente(2, 2);
 
         assertEquals(20.00, montagem.getCusto());
     }
