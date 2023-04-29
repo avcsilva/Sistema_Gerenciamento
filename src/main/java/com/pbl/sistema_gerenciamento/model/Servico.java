@@ -9,6 +9,11 @@ public abstract class Servico {
     private Double preco;
     private Double custo;
 
+    public Servico(Double preco, Double custo) {
+        this.preco = preco;
+        this.custo = custo;
+    }
+
     /**
      * Retorna o id do Serviço
      *

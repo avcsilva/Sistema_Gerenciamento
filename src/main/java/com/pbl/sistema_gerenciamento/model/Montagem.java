@@ -14,17 +14,9 @@ public class Montagem extends Servico{
      * Cria um serviço de Montagem com uma lista de componentes especificada.
      * O preço e custo total do serviço de Montagem serão definidos a partir
      * dos preços e custos dos componentes presentes na lista.
-     *
-     * @param comp a lista de componentes para a realização do serviço
      */
-    public Montagem(ArrayList<Componente> comp) {
-        this.setPreco(0.0);
-        this.setCusto(0.0);
-        this.componentesUsados = comp;
-        for (Componente c : comp){
-            this.setPreco(this.getPreco() + c.getPreco());
-            this.setCusto(this.getCusto() + c.getCusto());
-        }
+    public Montagem() {
+        super(0.0, 0.0);
     }
 
     /**
