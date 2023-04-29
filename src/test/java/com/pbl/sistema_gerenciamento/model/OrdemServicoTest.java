@@ -37,6 +37,7 @@ class OrdemServicoTest {
         lista.add(new Instalacao(0.0));
 
         OrdemServico ordemServico = new OrdemServico(cliente, "11/11/2011");
+        ordemServico.setListaServicos(lista);
 
         lista = ordemServico.getListaServicos();
 
