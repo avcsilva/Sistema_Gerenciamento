@@ -170,10 +170,13 @@ class OrdemServicoListImplTest {
     void acharPorDataC() {
         OrdemServicoDAO dao = new OrdemServicoListImpl();
 
-        dao.criar(new OrdemServico(null, null, "10/05/2020"));
-        dao.criar(new OrdemServico(null, null, "01/04/2020"));
-        dao.criar(new OrdemServico(null, null, "25/05/2020"));
-        dao.criar(new OrdemServico(null, null, "20/09/2020"));
+        Cliente cliente1 = new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br");
+        Cliente cliente2 = new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br");
+
+        dao.criar(new OrdemServico(null, "10/05/2020"));
+        dao.criar(new OrdemServico(null, "01/04/2020"));
+        dao.criar(new OrdemServico(null, "25/05/2020"));
+        dao.criar(new OrdemServico(null, "20/09/2020"));
 
 
         List<OrdemServico> lista = dao.acharPorDataC("01/04/2020");
@@ -270,5 +273,30 @@ class OrdemServicoListImplTest {
         List<OrdemServico> lista = dao.acharPorMetPag("Pix");
 
         assertEquals(1, lista.size());
+    }
+
+    @Test
+    void proximaOrdem(){
+        OrdemServicoDAO dao =  new OrdemServicoListImpl();
+        Cliente cliente1 = new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br");
+        Cliente cliente2 = new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br");
+        OrdemServico ordem1 = new OrdemServico(cliente1, "10/05/2020");
+        OrdemServico ordem2 = new OrdemServico(cliente2, "20/10/2020");
+
+        ordem1.setStatus("em andamento");
+        ordem2.setStatus("finalizado");
+
+        dao.criar(ordem1);
+        dao.criar(ordem2);
+
+        assertNull(dao.proximaOrdem());
+
+        OrdemServico ordem3 = new OrdemServico(cliente1, "12/06/2022");
+
+        ordem3.setStatus("em aberto");
+
+        dao.criar(ordem3);
+
+        assertEquals(ordem3, dao.proximaOrdem());
     }
 }
