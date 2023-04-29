@@ -5,6 +5,7 @@ import com.pbl.sistema_gerenciamento.model.OrdemServico;
 import com.pbl.sistema_gerenciamento.model.Tecnico;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -92,6 +93,8 @@ class OrdemServicoListImplTest {
         dao.criar(new OrdemServico(new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br"), "10/10/2010"));
 
         dao.deletarTodos();
+
+        List<OrdemServico> lista = dao.acharTodos();
 
         assertNull(dao.acharTodos());
     }
