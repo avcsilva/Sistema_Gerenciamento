@@ -24,15 +24,12 @@ public class OrdemServico {
      * Cria uma Ordem de Serviço com seu id, lista de serviços, cliente e data de criação definidos.
      * Preço e custo da Ordem de Serviço serão definidos com base na lista de Serviços atribuída.
      *
-     * @param lista a lista de serviços a serem realizados
      * @param cliente o Cliente pelo qual a Ordem de Serviço foi requisitada
      * @param criacao a data de criação da Ordem de Serviço
      */
-    public OrdemServico(ArrayList<Servico> lista, Cliente cliente, String criacao) {
-        this.listaServicos = lista;
+    public OrdemServico(Cliente cliente, String criacao) {
         this.cliente = cliente;
         this.criacao = criacao;
-
         this.preco = 0.0;
         this.custo = 0.0;
 
