@@ -29,9 +29,9 @@ class OrdemServicoTest {
     @Test
     void getListaServicos() {
         ArrayList<Servico> lista = new ArrayList<Servico>();
-        lista.add(new Limpeza(null, null));
-        lista.add(new Montagem(null));
-        lista.add(new Instalacao(null, null, null, null));
+        lista.add(new Limpeza(0.0));
+        lista.add(new Montagem());
+        lista.add(new Instalacao(0.0));
 
         OrdemServico ordemServico = new OrdemServico(lista, null, null);
 
@@ -43,15 +43,15 @@ class OrdemServicoTest {
     @Test
     void setListaServicos() {
         ArrayList<Servico> lista = new ArrayList<Servico>();
-        lista.add(new Limpeza(null, null));
-        lista.add(new Montagem(null));
-        lista.add(new Instalacao(null, null, null, null));
+        lista.add(new Limpeza(0.0));
+        lista.add(new Montagem());
+        lista.add(new Instalacao(0.0));
 
         OrdemServico ordemServico = new OrdemServico(lista, null, null);
 
         lista = new ArrayList<Servico>();
-        lista.add(new Limpeza(null, null));
-        lista.add(new Instalacao(null, null, null, null));
+        lista.add(new Limpeza(0.0));
+        lista.add(new Instalacao(0.0));
 
         ordemServico.setListaServicos(lista);
 
@@ -63,13 +63,13 @@ class OrdemServicoTest {
     @Test
     void adicionaServico() {
         ArrayList<Servico> lista = new ArrayList<Servico>();
-        lista.add(new Limpeza(null, null));
-        lista.add(new Montagem(null));
-        lista.add(new Instalacao(null, null, null, null));
+        lista.add(new Limpeza(0.0));
+        lista.add(new Montagem());
+        lista.add(new Instalacao(0.0));
 
         OrdemServico ordemServico = new OrdemServico(lista, null, null);
 
-        ordemServico.adicionaServico(new Limpeza(null, null));
+        ordemServico.adicionaServico(new Limpeza(0.0));
 
         lista = ordemServico.getListaServicos();
 
@@ -117,7 +117,7 @@ class OrdemServicoTest {
         OrdemServico ordemServico = new OrdemServico(null, null, null);
         ordemServico.setTecnico(tecn);
 
-        tecn = new Tecnico(null, null);
+        tecn = new Tecnico("Senior", "top@tecno.com");
         tecn.setId(2);
 
         ordemServico.setTecnico(tecn);
@@ -155,12 +155,12 @@ class OrdemServicoTest {
 
     @Test
     void setCliente() {
-        Cliente cliente = new Cliente(null, null, null, null);
+        Cliente cliente = new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br");
         cliente.setId(7);
 
-        OrdemServico ordemServico = new OrdemServico(null, cliente, null);
+        OrdemServico ordemServico = new OrdemServico(cliente, "10/10/2010");
 
-        cliente = new Cliente(null, null, null, null);
+        cliente = new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br");
         cliente.setId(2);
 
         ordemServico.setCliente(cliente);
@@ -194,25 +194,32 @@ class OrdemServicoTest {
     @Test
     void getPreco() {
         ArrayList<Servico> lista = new ArrayList<Servico>();
-        lista.add(new Limpeza(10.00, null));
-        lista.add(new Limpeza(10.00, null));
-        lista.add(new Instalacao(10.00, null, null, null));
+        lista.add(new Limpeza(10.00));
+        lista.add(new Limpeza(10.00));
+        lista.add(new Instalacao(10.00));
 
         OrdemServico ordemServico = new OrdemServico(lista, null, null);
 
         assertEquals(30.00, ordemServico.getPreco());
 
-        ordemServico.adicionaServico(new Limpeza(10.00, null));
+        Limpeza limp = new Limpeza(10.00);
+        limp.setId(3);
+
+        ordemServico.adicionaServico(limp);
 
         assertEquals(40.00, ordemServico.getPreco());
+
+        ordemServico.removeServico(3, 2);
+
+        assertEquals(30.00, ordemServico.getPreco());
     }
 
     @Test
     void setPreco() {
         ArrayList<Servico> lista = new ArrayList<Servico>();
-        lista.add(new Limpeza(10.00, null));
-        lista.add(new Limpeza(10.00, null));
-        lista.add(new Instalacao(10.00, null, null, null));
+        lista.add(new Limpeza(10.00));
+        lista.add(new Limpeza(10.00));
+        lista.add(new Instalacao(10.00));
 
         OrdemServico ordemServico = new OrdemServico(lista, null, null);
 
@@ -224,25 +231,46 @@ class OrdemServicoTest {
     @Test
     void getCusto() {
         ArrayList<Servico> lista = new ArrayList<Servico>();
-        lista.add(new Limpeza(null, 10.00));
-        lista.add(new Limpeza(null, 10.00));
-        lista.add(new Instalacao(null, 10.00, null, null));
+
+        Limpeza limp1 = new Limpeza(10.00);
+        limp1.setCusto(10.00);
+        Limpeza limp2 = new Limpeza(10.00);
+        limp2.setCusto(10.00);
+        Instalacao inst = new Instalacao(10.00);
+        inst.setCusto(10.00);
+        lista.add(limp1);
+        lista.add(limp2);
+        lista.add(inst);
 
         OrdemServico ordemServico = new OrdemServico(lista, null, null);
 
         assertEquals(30.00, ordemServico.getCusto());
 
-        ordemServico.adicionaServico(new Limpeza(null, 10.00));
+        Limpeza limp3 = new Limpeza(10.00);
+        limp3.setCusto(10.00);
+        limp3.setId(3);
+
+        ordemServico.adicionaServico(limp3);
 
         assertEquals(40.00, ordemServico.getCusto());
+
+        ordemServico.removeServico(3, 2);
+
+        assertEquals(30.00, ordemServico.getCusto());
     }
 
     @Test
     void setCusto() {
         ArrayList<Servico> lista = new ArrayList<Servico>();
-        lista.add(new Limpeza(null, 10.00));
-        lista.add(new Limpeza(null, 10.00));
-        lista.add(new Instalacao(null, 10.00, null, null));
+        Limpeza limp1 = new Limpeza(10.00);
+        limp1.setCusto(10.00);
+        Limpeza limp2 = new Limpeza(10.00);
+        limp2.setCusto(10.00);
+        Instalacao inst = new Instalacao(10.00);
+        inst.setCusto(10.00);
+        lista.add(limp1);
+        lista.add(limp2);
+        lista.add(inst);
 
         OrdemServico ordemServico = new OrdemServico(lista, null, null);
 
