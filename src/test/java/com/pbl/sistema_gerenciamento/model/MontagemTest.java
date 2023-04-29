@@ -27,8 +27,8 @@ class MontagemTest {
 
     @Test
     void removerComponente() {
-        Componente comp1 = new ComponentePC(null, null, null, null);
-        Componente comp2 = new ComponenteOutro(null, null, null);
+        Componente comp1 = new ComponentePC(0.0, 0.0, "ssd", "kingston");
+        Componente comp2 = new ComponenteOutro(0.0, 0.0, "pasta termica");
         comp1.setId(1);
         comp2.setId(1);
 
@@ -49,8 +49,8 @@ class MontagemTest {
     @Test
     void getComponentesUsados() {
         ArrayList<Componente> lista = new ArrayList<Componente>();
-        lista.add(new ComponentePC(null, null, null, null));
-        lista.add(new ComponenteOutro(null, null, null));
+        lista.add(new ComponentePC(0.0, 0.0, "ssd", "kingston"));
+        lista.add(new ComponenteOutro(0.0, 0.0, "pasta termica"));
 
         Montagem montagem = new Montagem();
         montagem.setComponentesUsados(lista);
@@ -63,8 +63,8 @@ class MontagemTest {
     @Test
     void setComponentesUsados() {
         ArrayList<Componente> lista = new ArrayList<Componente>();
-        lista.add(new ComponentePC(null, null, null, null));
-        lista.add(new ComponenteOutro(null, null, null));
+        lista.add(new ComponentePC(0.0, 0.0, "ssd", "kingston"));
+        lista.add(new ComponenteOutro(0.0, 0.0, "pasta termica"));
 
         Montagem montagem = new Montagem();
         montagem.setComponentesUsados(lista);
@@ -83,8 +83,8 @@ class MontagemTest {
 
     @Test
     void getPreco(){
-        Componente comp1 = new ComponentePC(10.00, null, null, null);
-        Componente comp2 = new ComponenteOutro(10.00, null, null);
+        Componente comp1 = new ComponentePC(10.00, 0.0, "ssd", "kingston");
+        Componente comp2 = new ComponenteOutro(10.00, 0.0, "cabo");
 
         comp1.setId(1);
         comp2.setId(2);
@@ -109,8 +109,8 @@ class MontagemTest {
 
     @Test
     void getCusto(){
-        Componente comp1 = new ComponentePC(null, 10.00, null, null);
-        Componente comp2 = new ComponenteOutro(null, 10.00, null);
+        Componente comp1 = new ComponentePC(0.0, 10.00, "ssd", "kingston");
+        Componente comp2 = new ComponenteOutro(0.0, 10.00, "pasta");
 
         comp1.setId(1);
         comp2.setId(2);
