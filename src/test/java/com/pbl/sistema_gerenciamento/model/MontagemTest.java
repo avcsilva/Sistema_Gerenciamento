@@ -11,12 +11,14 @@ class MontagemTest {
     @Test
     void adicionarComponente() {
         ArrayList<Componente> lista = new ArrayList<Componente>();
-        lista.add(new ComponentePC(null, null, null, null));
-        lista.add(new ComponenteOutro(null, null, null));
+        lista.add(new ComponentePC(0.0, 0.0, "ssd", "kingston"));
+        lista.add(new ComponenteOutro(0.0, 0.0, "pasta termica"));
 
-        Montagem montagem = new Montagem(lista);
+        Montagem montagem = new Montagem();
 
-        montagem.adicionarComponente(new ComponentePC(null, null, null, null));
+        montagem.setComponentesUsados(lista);
+
+        montagem.adicionarComponente(new ComponentePC(0.0, 0.0, "ssd", "kingston"));
 
         lista = montagem.getComponentesUsados();
 
@@ -34,7 +36,9 @@ class MontagemTest {
         lista.add(comp1);
         lista.add(comp2);
 
-        Montagem montagem = new Montagem(lista);
+        Montagem montagem = new Montagem();
+        montagem.setComponentesUsados(lista);
+
         montagem.removerComponente(1, 2);
 
         lista = montagem.getComponentesUsados();
@@ -48,7 +52,8 @@ class MontagemTest {
         lista.add(new ComponentePC(null, null, null, null));
         lista.add(new ComponenteOutro(null, null, null));
 
-        Montagem montagem = new Montagem(lista);
+        Montagem montagem = new Montagem();
+        montagem.setComponentesUsados(lista);
 
         lista = montagem.getComponentesUsados();
 
@@ -61,12 +66,13 @@ class MontagemTest {
         lista.add(new ComponentePC(null, null, null, null));
         lista.add(new ComponenteOutro(null, null, null));
 
-        Montagem montagem = new Montagem(lista);
+        Montagem montagem = new Montagem();
+        montagem.setComponentesUsados(lista);
 
         lista = new ArrayList<Componente>();
-        lista.add(new ComponenteOutro(null, null, null));
-        lista.add(new ComponenteOutro(null, null, null));
-        lista.add(new ComponenteOutro(null, null, null));
+        lista.add(new ComponenteOutro(0.0, 0.0, "pasta termica"));
+        lista.add(new ComponenteOutro(0.0, 0.0, "ventoinha"));
+        lista.add(new ComponenteOutro(0.0, 0.0, "cabo"));
 
         montagem.setComponentesUsados(lista);
 
@@ -87,11 +93,12 @@ class MontagemTest {
         lista.add(comp1);
         lista.add(comp2);
 
-        Montagem montagem = new Montagem(lista);
+        Montagem montagem = new Montagem();
+        montagem.setComponentesUsados(lista);
 
         assertEquals(20.00, montagem.getPreco());
 
-        montagem.adicionarComponente(new ComponenteOutro(10.00, null, null));
+        montagem.adicionarComponente(new ComponenteOutro(10.00, 0.0, "cabo"));
 
         assertEquals(30.00, montagem.getPreco());
 
@@ -112,11 +119,12 @@ class MontagemTest {
         lista.add(comp1);
         lista.add(comp2);
 
-        Montagem montagem = new Montagem(lista);
+        Montagem montagem = new Montagem();
+        montagem.setComponentesUsados(lista);
 
         assertEquals(20.00, montagem.getCusto());
 
-        montagem.adicionarComponente(new ComponenteOutro(null, 10.00, null));
+        montagem.adicionarComponente(new ComponenteOutro(0.0, 10.00, "ventoinha"));
 
         assertEquals(30.00, montagem.getCusto());
 
