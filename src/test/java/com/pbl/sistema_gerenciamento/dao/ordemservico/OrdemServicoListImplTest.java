@@ -173,10 +173,10 @@ class OrdemServicoListImplTest {
         Cliente cliente1 = new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br");
         Cliente cliente2 = new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br");
 
-        dao.criar(new OrdemServico(null, "10/05/2020"));
-        dao.criar(new OrdemServico(null, "01/04/2020"));
-        dao.criar(new OrdemServico(null, "25/05/2020"));
-        dao.criar(new OrdemServico(null, "20/09/2020"));
+        dao.criar(new OrdemServico(cliente1, "10/05/2020"));
+        dao.criar(new OrdemServico(cliente2, "01/04/2020"));
+        dao.criar(new OrdemServico(cliente1, "25/05/2020"));
+        dao.criar(new OrdemServico(cliente2, "20/09/2020"));
 
 
         List<OrdemServico> lista = dao.acharPorDataC("01/04/2020");
