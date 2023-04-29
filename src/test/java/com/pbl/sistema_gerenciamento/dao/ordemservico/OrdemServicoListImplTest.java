@@ -14,8 +14,8 @@ class OrdemServicoListImplTest {
     void criar() {
         OrdemServicoDAO dao = new OrdemServicoListImpl();
 
-        OrdemServico ordem1 = new OrdemServico(null, null, null);
-        OrdemServico ordem2 = new OrdemServico(null, null, null);
+        OrdemServico ordem1 = new OrdemServico(new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br"), "10/10/2010");
+        OrdemServico ordem2 = new OrdemServico(new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br"), "10/10/2010");
 
         ordem1.setId(0);
         ordem2.setId(1);
@@ -31,8 +31,8 @@ class OrdemServicoListImplTest {
     void acharPorId() {
         OrdemServicoDAO dao = new OrdemServicoListImpl();
 
-        dao.criar(new OrdemServico(null, null, null));
-        dao.criar(new OrdemServico(null, null, null));
+        dao.criar(new OrdemServico(new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br"), "10/10/2010"));
+        dao.criar(new OrdemServico(new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br"), "10/10/2010"));
 
         OrdemServico ordem = dao.acharPorId(1);
         assertEquals(1, ordem.getId());
@@ -45,8 +45,8 @@ class OrdemServicoListImplTest {
     void acharTodos() {
         OrdemServicoDAO dao = new OrdemServicoListImpl();
 
-        dao.criar(new OrdemServico(null, null, null));
-        dao.criar(new OrdemServico(null, null, null));
+        dao.criar(new OrdemServico(new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br"), "10/10/2010"));
+        dao.criar(new OrdemServico(new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br"), "10/10/2010"));
 
         List<OrdemServico> lista = dao.acharTodos();
 
@@ -57,7 +57,7 @@ class OrdemServicoListImplTest {
     void atualizar() {
         OrdemServicoDAO dao = new OrdemServicoListImpl();
 
-        OrdemServico ordem1 = new OrdemServico(null, null, null);
+        OrdemServico ordem1 = new OrdemServico(new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br"), "10/10/2010");
         ordem1.setStatus("Ok");
         ordem1 = dao.criar(ordem1);
 
@@ -72,8 +72,8 @@ class OrdemServicoListImplTest {
     void deletar() {
         OrdemServicoDAO dao = new OrdemServicoListImpl();
 
-        dao.criar(new OrdemServico(null, null, null));
-        dao.criar(new OrdemServico(null, null, null));
+        dao.criar(new OrdemServico(new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br"), "10/10/2010"));
+        dao.criar(new OrdemServico(new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br"), "10/10/2010"));
 
         dao.deletar(1);
 
@@ -88,8 +88,8 @@ class OrdemServicoListImplTest {
     void deletarTodos() {
         OrdemServicoDAO dao = new OrdemServicoListImpl();
 
-        dao.criar(new OrdemServico(null, null, null));
-        dao.criar(new OrdemServico(null, null, null));
+        dao.criar(new OrdemServico(new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br"), "10/10/2010"));
+        dao.criar(new OrdemServico(new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br"), "10/10/2010"));
 
         dao.deletarTodos();
 
@@ -106,9 +106,9 @@ class OrdemServicoListImplTest {
         tecn1.setId(1);
         tecn2.setId(2);
 
-        OrdemServico ordem1 = new OrdemServico(null, null, null);
-        OrdemServico ordem2 = new OrdemServico(null, null, null);
-        OrdemServico ordem3 = new OrdemServico(null, null, null);
+        OrdemServico ordem1 = new OrdemServico(new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br"), "10/10/2010");
+        OrdemServico ordem2 = new OrdemServico(new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br"), "10/10/2010");
+        OrdemServico ordem3 = new OrdemServico(new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br"), "10/10/2010");
 
         ordem1.setTecnico(tecn1);
         ordem2.setTecnico(tecn2);
@@ -127,10 +127,10 @@ class OrdemServicoListImplTest {
     void acharPorStatus() {
         OrdemServicoDAO dao = new OrdemServicoListImpl();
 
-        OrdemServico ordem1 = new OrdemServico(null, null, null);
-        OrdemServico ordem2 = new OrdemServico(null, null, null);
-        OrdemServico ordem3 = new OrdemServico(null, null, null);
-        OrdemServico ordem4 = new OrdemServico(null, null, null);
+        OrdemServico ordem1 = new OrdemServico(new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br"), "10/10/2010");
+        OrdemServico ordem2 = new OrdemServico(new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br"), "10/10/2010");
+        OrdemServico ordem3 = new OrdemServico(new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br"), "10/10/2010");
+        OrdemServico ordem4 = new OrdemServico(new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br"), "10/10/2010");
 
         ordem1.setStatus("Ok");
         ordem2.setStatus("Fim");
@@ -151,15 +151,15 @@ class OrdemServicoListImplTest {
     void acharPorCliente() {
         OrdemServicoDAO dao = new OrdemServicoListImpl();
 
-        Cliente cliente1 = new Cliente(null, null, null, null);
-        Cliente cliente2 = new Cliente(null, null, null, null);
+        Cliente cliente1 = new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br");
+        Cliente cliente2 = new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br");
 
         cliente1.setId(1);
         cliente2.setId(2);
 
-        dao.criar(new OrdemServico(null, cliente1, null));
-        dao.criar(new OrdemServico(null, cliente2, null));
-        dao.criar(new OrdemServico(null, cliente1, null));
+        dao.criar(new OrdemServico(cliente1, "10/05/2020"));
+        dao.criar(new OrdemServico(cliente2, "11/05/2020"));
+        dao.criar(new OrdemServico(cliente1, "12/05/2020"));
 
         List<OrdemServico> lista = dao.acharPorCliente(2);
 
@@ -187,11 +187,13 @@ class OrdemServicoListImplTest {
     @Test
     void acharPorDataF() {
         OrdemServicoDAO dao = new OrdemServicoListImpl();
+        Cliente cliente1 = new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br");
+        Cliente cliente2 = new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br");
 
-        OrdemServico ordem1 = new OrdemServico(null, null, "10/05/2020");
-        OrdemServico ordem2 = new OrdemServico(null, null, "01/04/2020");
-        OrdemServico ordem3 = new OrdemServico(null, null, "25/05/2020");
-        OrdemServico ordem4 = new OrdemServico(null, null, "20/09/2020");
+        OrdemServico ordem1 = new OrdemServico(cliente1, "10/05/2020");
+        OrdemServico ordem2 = new OrdemServico(cliente2, "01/04/2020");
+        OrdemServico ordem3 = new OrdemServico(cliente2, "25/05/2020");
+        OrdemServico ordem4 = new OrdemServico(cliente1, "20/09/2020");
 
         ordem1.setFinalizacao("10/05/2020");
         ordem2.setFinalizacao("01/04/2020");
@@ -211,10 +213,12 @@ class OrdemServicoListImplTest {
     @Test
     void acharPorPreco() {
         OrdemServicoDAO dao = new OrdemServicoListImpl();
+        Cliente cliente1 = new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br");
+        Cliente cliente2 = new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br");
 
-        OrdemServico ordem1 = new OrdemServico(null, null, null);
-        OrdemServico ordem2 = new OrdemServico(null, null, null);
-        OrdemServico ordem3 = new OrdemServico(null, null, null);
+        OrdemServico ordem1 = new OrdemServico(cliente1, "10/05/2020");
+        OrdemServico ordem2 = new OrdemServico(cliente1, "01/04/2020");
+        OrdemServico ordem3 = new OrdemServico(cliente2, "25/05/2020");
 
         ordem1.setPreco(12.25);
         ordem2.setPreco(10.00);
@@ -233,10 +237,12 @@ class OrdemServicoListImplTest {
     @Test
     void acharPorCusto() {
         OrdemServicoDAO dao = new OrdemServicoListImpl();
+        Cliente cliente1 = new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br");
+        Cliente cliente2 = new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br");
 
-        OrdemServico ordem1 = new OrdemServico(null, null, null);
-        OrdemServico ordem2 = new OrdemServico(null, null, null);
-        OrdemServico ordem3 = new OrdemServico(null, null, null);
+        OrdemServico ordem1 = new OrdemServico(cliente1, "10/05/2020");
+        OrdemServico ordem2 = new OrdemServico(cliente2, "01/04/2020");
+        OrdemServico ordem3 = new OrdemServico(cliente1, "25/05/2020");
 
         ordem1.setCusto(12.25);
         ordem2.setCusto(10.00);
@@ -254,12 +260,13 @@ class OrdemServicoListImplTest {
     @Test
     void acharPorMetPag() {
         OrdemServicoDAO dao =  new OrdemServicoListImpl();
+        Cliente cliente1 = new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br");
+        Cliente cliente2 = new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br");
 
-        OrdemServico ordem1 = new OrdemServico(null, null, null);
-        OrdemServico ordem2 = new OrdemServico(null, null, null);
-        OrdemServico ordem3 = new OrdemServico(null, null, null);
-        OrdemServico ordem4 = new OrdemServico(null, null, null);
-
+        OrdemServico ordem1 = new OrdemServico(cliente1, "10/05/2020");
+        OrdemServico ordem2 = new OrdemServico(cliente2, "01/04/2020");
+        OrdemServico ordem3 = new OrdemServico(cliente2, "25/05/2020");
+        OrdemServico ordem4 = new OrdemServico(cliente1, "25/05/2020");
         ordem1.setMetodoPagamento("Cartao");
         ordem2.setMetodoPagamento("Boleto");
         ordem3.setMetodoPagamento("Pix");
@@ -280,6 +287,7 @@ class OrdemServicoListImplTest {
         OrdemServicoDAO dao =  new OrdemServicoListImpl();
         Cliente cliente1 = new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br");
         Cliente cliente2 = new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br");
+
         OrdemServico ordem1 = new OrdemServico(cliente1, "10/05/2020");
         OrdemServico ordem2 = new OrdemServico(cliente2, "20/10/2020");
 
