@@ -96,7 +96,7 @@ class OrdemServicoListImplTest {
 
         List<OrdemServico> lista = dao.acharTodos();
 
-        assertNull(dao.acharTodos());
+        assertEquals(0, lista.size());
     }
 
     @Test
