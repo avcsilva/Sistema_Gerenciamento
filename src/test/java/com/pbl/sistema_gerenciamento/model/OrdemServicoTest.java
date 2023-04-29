@@ -10,7 +10,8 @@ class OrdemServicoTest {
 
     @Test
     void getId() {
-        OrdemServico ordemServico = new OrdemServico(null, null, null);
+        Cliente cliente = new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br");
+        OrdemServico ordemServico = new OrdemServico(cliente, "10/10/2010");
         ordemServico.setId(7);
 
         assertEquals(7, ordemServico.getId());
@@ -18,7 +19,8 @@ class OrdemServicoTest {
 
     @Test
     void setId() {
-        OrdemServico ordemServico = new OrdemServico(null, null, null);
+        Cliente cliente = new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br");
+        OrdemServico ordemServico = new OrdemServico(cliente, "10/10/2010");
         ordemServico.setId(7);
 
         ordemServico.setId(2);
@@ -28,12 +30,13 @@ class OrdemServicoTest {
 
     @Test
     void getListaServicos() {
+        Cliente cliente = new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br");
         ArrayList<Servico> lista = new ArrayList<Servico>();
         lista.add(new Limpeza(0.0));
         lista.add(new Montagem());
         lista.add(new Instalacao(0.0));
 
-        OrdemServico ordemServico = new OrdemServico(lista, null, null);
+        OrdemServico ordemServico = new OrdemServico(cliente, "11/11/2011");
 
         lista = ordemServico.getListaServicos();
 
@@ -42,12 +45,14 @@ class OrdemServicoTest {
 
     @Test
     void setListaServicos() {
+        Cliente cliente = new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br");
         ArrayList<Servico> lista = new ArrayList<Servico>();
         lista.add(new Limpeza(0.0));
         lista.add(new Montagem());
         lista.add(new Instalacao(0.0));
 
-        OrdemServico ordemServico = new OrdemServico(lista, null, null);
+        OrdemServico ordemServico = new OrdemServico(cliente, "11/11/2011");
+        ordemServico.setListaServicos(lista);
 
         lista = new ArrayList<Servico>();
         lista.add(new Limpeza(0.0));
@@ -62,12 +67,14 @@ class OrdemServicoTest {
 
     @Test
     void adicionaServico() {
+        Cliente cliente = new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br");
         ArrayList<Servico> lista = new ArrayList<Servico>();
         lista.add(new Limpeza(0.0));
         lista.add(new Montagem());
         lista.add(new Instalacao(0.0));
 
-        OrdemServico ordemServico = new OrdemServico(lista, null, null);
+        OrdemServico ordemServico = new OrdemServico(cliente,"12/12/2012");
+        ordemServico.setListaServicos(lista);
 
         ordemServico.adicionaServico(new Limpeza(0.0));
 
@@ -78,9 +85,10 @@ class OrdemServicoTest {
 
     @Test
     void removeServico() {
-        Servico serv1 = new Limpeza(null, null);
-        Servico serv2 = new Montagem(null);
-        Servico serv3 = new Instalacao(null, null, null, null);
+        Cliente cliente = new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br");
+        Servico serv1 = new Limpeza(0.0);
+        Servico serv2 = new Montagem();
+        Servico serv3 = new Instalacao(0.0);
         serv1.setId(1);
         serv2.setId(1);
         serv3.setId(1);
@@ -90,7 +98,8 @@ class OrdemServicoTest {
         lista.add(serv2);
         lista.add(serv3);
 
-        OrdemServico ordemServico = new OrdemServico(lista, null, null);
+        OrdemServico ordemServico = new OrdemServico(cliente,"12/12/2012");
+        ordemServico.setListaServicos(lista);
         ordemServico.removeServico(1, 2);
 
         lista = ordemServico.getListaServicos();
@@ -100,10 +109,11 @@ class OrdemServicoTest {
 
     @Test
     void getTecnico() {
-        Tecnico tecn = new Tecnico(null, null);
+        Cliente cliente = new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br");
+        Tecnico tecn = new Tecnico("Mestre", "master@tecno.com");
         tecn.setId(7);
 
-        OrdemServico ordemServico = new OrdemServico(null, null, null);
+        OrdemServico ordemServico = new OrdemServico(cliente, "12/12/2012");
         ordemServico.setTecnico(tecn);
 
         assertEquals(7, ordemServico.getTecnico().getId());
@@ -111,10 +121,11 @@ class OrdemServicoTest {
 
     @Test
     void setTecnico() {
-        Tecnico tecn = new Tecnico(null, null);
+        Cliente cliente = new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br");
+        Tecnico tecn = new Tecnico("Mestre", "master@tecno.com");
         tecn.setId(7);
 
-        OrdemServico ordemServico = new OrdemServico(null, null, null);
+        OrdemServico ordemServico = new OrdemServico(cliente,"12/12/2012");
         ordemServico.setTecnico(tecn);
 
         tecn = new Tecnico("Senior", "top@tecno.com");
@@ -127,7 +138,8 @@ class OrdemServicoTest {
 
     @Test
     void getStatus() {
-        OrdemServico ordemServico = new OrdemServico(null, null, null);
+        Cliente cliente = new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br");
+        OrdemServico ordemServico = new OrdemServico(cliente, "10/10/2010");
         ordemServico.setStatus("Ok");
 
         assertEquals("Ok", ordemServico.getStatus());
@@ -135,7 +147,8 @@ class OrdemServicoTest {
 
     @Test
     void setStatus() {
-        OrdemServico ordemServico = new OrdemServico(null, null, null);
+        Cliente cliente = new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br");
+        OrdemServico ordemServico = new OrdemServico(cliente, "10/10/2010");
         ordemServico.setStatus("Ok");
 
         ordemServico.setStatus("Fim");
@@ -145,10 +158,10 @@ class OrdemServicoTest {
 
     @Test
     void getCliente() {
-        Cliente cliente = new Cliente(null, null, null, null);
-        cliente.setId(7);
+        Cliente cliente1 = new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br");
+        cliente1.setId(7);
 
-        OrdemServico ordemServico = new OrdemServico(null, cliente, null);
+        OrdemServico ordemServico = new OrdemServico(cliente1,"10/05/2003" );
 
         assertEquals(7, ordemServico.getCliente().getId());
     }
@@ -170,14 +183,16 @@ class OrdemServicoTest {
 
     @Test
     void getCriacao() {
-        OrdemServico ordemServico = new OrdemServico(null, null, "10/10/2010");
+        Cliente cliente = new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br");
+        OrdemServico ordemServico = new OrdemServico(cliente, "10/10/2010");
 
         assertEquals("10/10/2010", ordemServico.getCriacao());
     }
 
     @Test
     void setCriacao() {
-        OrdemServico ordemServico = new OrdemServico(null, null, "10/10/2010");
+        Cliente cliente = new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br");
+        OrdemServico ordemServico = new OrdemServico(cliente,  "10/10/2010");
         ordemServico.setCriacao("02/02/2002");
 
         assertEquals("02/02/2002", ordemServico.getCriacao());
@@ -185,7 +200,8 @@ class OrdemServicoTest {
 
     @Test
     void getFinalizacao() {
-        OrdemServico ordemServico = new OrdemServico(null, null, null);
+        Cliente cliente = new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br");
+        OrdemServico ordemServico = new OrdemServico(cliente, "10/10/2010");
         ordemServico.setFinalizacao("10/10/2010");
 
         assertEquals("10/10/2010", ordemServico.getFinalizacao());
@@ -193,12 +209,14 @@ class OrdemServicoTest {
 
     @Test
     void getPreco() {
+        Cliente cliente = new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br");
         ArrayList<Servico> lista = new ArrayList<Servico>();
         lista.add(new Limpeza(10.00));
         lista.add(new Limpeza(10.00));
         lista.add(new Instalacao(10.00));
 
-        OrdemServico ordemServico = new OrdemServico(lista, null, null);
+        OrdemServico ordemServico = new OrdemServico(cliente, "10/10/2010");
+        ordemServico.setListaServicos(lista);
 
         assertEquals(30.00, ordemServico.getPreco());
 
@@ -216,12 +234,14 @@ class OrdemServicoTest {
 
     @Test
     void setPreco() {
+        Cliente cliente = new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br");
         ArrayList<Servico> lista = new ArrayList<Servico>();
         lista.add(new Limpeza(10.00));
         lista.add(new Limpeza(10.00));
         lista.add(new Instalacao(10.00));
 
-        OrdemServico ordemServico = new OrdemServico(lista, null, null);
+        OrdemServico ordemServico = new OrdemServico(cliente, "10/10/2010");
+        ordemServico.setListaServicos(lista);
 
         ordemServico.setPreco(20.00);
 
@@ -230,6 +250,7 @@ class OrdemServicoTest {
 
     @Test
     void getCusto() {
+        Cliente cliente = new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br");
         ArrayList<Servico> lista = new ArrayList<Servico>();
 
         Limpeza limp1 = new Limpeza(10.00);
@@ -242,7 +263,8 @@ class OrdemServicoTest {
         lista.add(limp2);
         lista.add(inst);
 
-        OrdemServico ordemServico = new OrdemServico(lista, null, null);
+        OrdemServico ordemServico = new OrdemServico(cliente, "10/10/2010");
+        ordemServico.setListaServicos(lista);
 
         assertEquals(30.00, ordemServico.getCusto());
 
@@ -261,6 +283,7 @@ class OrdemServicoTest {
 
     @Test
     void setCusto() {
+        Cliente cliente = new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br");
         ArrayList<Servico> lista = new ArrayList<Servico>();
         Limpeza limp1 = new Limpeza(10.00);
         limp1.setCusto(10.00);
@@ -272,7 +295,8 @@ class OrdemServicoTest {
         lista.add(limp2);
         lista.add(inst);
 
-        OrdemServico ordemServico = new OrdemServico(lista, null, null);
+        OrdemServico ordemServico = new OrdemServico(cliente, "10/10/2010");
+        ordemServico.setListaServicos(lista);
 
         ordemServico.setCusto(20.00);
 
