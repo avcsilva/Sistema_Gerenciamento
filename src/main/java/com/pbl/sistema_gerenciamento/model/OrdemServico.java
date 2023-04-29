@@ -32,11 +32,6 @@ public class OrdemServico {
         this.criacao = criacao;
         this.preco = 0.0;
         this.custo = 0.0;
-
-        for (Servico s : lista){
-            this.preco = this.preco + s.getPreco();
-            this.custo = this.custo + s.getCusto();
-        }
     }
 
     /**
