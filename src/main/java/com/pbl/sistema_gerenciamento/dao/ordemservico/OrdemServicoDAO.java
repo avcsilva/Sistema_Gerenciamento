@@ -73,4 +73,9 @@ public interface OrdemServicoDAO extends CRUD<OrdemServico> {
      * @return a lista de objetos encontrados
      */
     public List<OrdemServico> acharPorMetPag(String mp);
+
+    /**
+     * Encontra a próxima Ordem de Serviço em aberto
+     */
+    public OrdemServico proximaOrdem();
 }

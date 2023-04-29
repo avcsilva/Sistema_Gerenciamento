@@ -237,4 +237,19 @@ public class OrdemServicoListImpl implements OrdemServicoDAO{
         }
         return listaMetPag;
     }
+
+    /**
+     * Encontra a próxima Ordem de Serviço em aberto
+     *
+     * @return a próxima Ordem de Serviço em aberto
+     */
+    @Override
+    public OrdemServico proximaOrdem() {
+        for (OrdemServico o : listaOrdem){
+            if (o.getStatus().equals("em aberto")){
+                return o;
+            }
+        }
+        return null;
+    }
 }
