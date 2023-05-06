@@ -1,11 +1,13 @@
 package com.pbl.sistema_gerenciamento.model;
 
+import java.io.Serializable;
+
 /**
  * Classe Componente que representa um componente que poderá ser utilizado
  * para a realização de um Serviço de Montagem.
  * Definido por seu preço, custo e id.
  */
-public abstract class Componente {
+public abstract class Componente implements Serializable {
     private int id;
     private Double preco;
     private Double custo;

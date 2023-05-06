@@ -1,10 +1,12 @@
 package com.pbl.sistema_gerenciamento.model;
 
+import java.io.Serializable;
+
 /**
  * Subclasse Recepcionista que extende a superclasse Usuário.
  * Representa um Recepcionista que será responsável por cadastrar Clientes e gerar Ordens de Serviço.
  */
-public class Recepcionista extends Usuario{
+public class Recepcionista extends Usuario implements Serializable {
 
     /**
      * Cria um Recepcionista com id, nome e e-mail definidos

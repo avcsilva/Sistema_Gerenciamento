@@ -1,10 +1,12 @@
 package   com.pbl.sistema_gerenciamento.model;
 
+import java.io.Serializable;
+
 /**
  * Superclasse Usuário, que representará possíveis utilizadores do sistema.
  * Definido por um id, nome e e-mail.
  */
-public abstract class Usuario {
+public abstract class Usuario implements Serializable {
     private int id;
     private String nome;
     private String email;

@@ -1,10 +1,12 @@
 package com.pbl.sistema_gerenciamento.model;
 
+import java.io.Serializable;
+
 /**
  * Superclasse Serviço que representará uma tarefa a ser realizada por um Técnico em sua Ordem de Serviço.
  * Definido por seu preço, custo e id.
  */
-public abstract class Servico {
+public abstract class Servico implements Serializable {
     private int id;
     private Double preco;
     private Double custo;

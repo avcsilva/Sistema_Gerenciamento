@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * Representa um serviço relacionado à montagem de um computador,
  * possuindo uma lista de componentes a serem utilizados para sua realização.
  */
-public class Montagem extends Servico{
+public class Montagem extends Servico {
     private ArrayList<Componente> componentesUsados;
 
     /**

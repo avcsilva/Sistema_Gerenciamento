@@ -1,5 +1,6 @@
 package com.pbl.sistema_gerenciamento.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -8,7 +9,7 @@ import java.util.ArrayList;
  * técnico ao qual foi atribuída, status, cliente pelo qual foi requisitado, sua data de criação e finalização,
  * preço, custo e método de pagamento.
  */
-public class OrdemServico {
+public class OrdemServico implements Serializable {
     private int id;
     private ArrayList<Servico> listaServicos;
     private Tecnico tecnico;

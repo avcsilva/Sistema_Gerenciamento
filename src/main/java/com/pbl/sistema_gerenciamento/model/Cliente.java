@@ -1,10 +1,12 @@
 package com.pbl.sistema_gerenciamento.model;
 
+import java.io.Serializable;
+
 /**
  * Classe Cliente, que representa um cliente a requisitar uma Ordem de Serviço.
  * Definido por um id, nome, telefone, e-mail e endereço físico.
  */
-public class Cliente {
+public class Cliente implements Serializable {
 
     private int id;
 
