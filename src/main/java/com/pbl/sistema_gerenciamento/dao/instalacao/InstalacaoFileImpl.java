@@ -1,7 +1,7 @@
 package com.pbl.sistema_gerenciamento.dao.instalacao;
 
 
-import com.pbl.sistema_gerenciamento.model.ComponenteOutro;
+
 import com.pbl.sistema_gerenciamento.model.Instalacao;
 import com.pbl.sistema_gerenciamento.utils.ManipulaArquivo;
 

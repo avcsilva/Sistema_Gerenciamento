@@ -1,6 +1,6 @@
 package com.pbl.sistema_gerenciamento.dao.componenteoutro;
 
-import com.pbl.sistema_gerenciamento.model.Administrador;
+
 import com.pbl.sistema_gerenciamento.model.ComponenteOutro;
 import com.pbl.sistema_gerenciamento.utils.ManipulaArquivo;
 

@@ -1,6 +1,5 @@
 package com.pbl.sistema_gerenciamento.dao.limpeza;
 
-import com.pbl.sistema_gerenciamento.model.Instalacao;
 import com.pbl.sistema_gerenciamento.model.Limpeza;
 import com.pbl.sistema_gerenciamento.utils.ManipulaArquivo;
 
