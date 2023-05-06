@@ -1,7 +1,7 @@
 package com.pbl.sistema_gerenciamento.utils;
 
 import java.io.*;
-import java.util.List;
+import java.util.ArrayList;
 
 public class ManipulaArquivo {
     private String nomeArquivo;
@@ -19,7 +19,7 @@ public class ManipulaArquivo {
      * @param objeto
      * @param <T>
      */
-    public <T> void guardar(List<T> objeto){
+    public <T> void guardar(ArrayList<T> objeto){
         try {
             FileOutputStream fileStream = new FileOutputStream(this.nomeArquivo);
             ObjectOutputStream os = new ObjectOutputStream(fileStream);
@@ -36,12 +36,18 @@ public class ManipulaArquivo {
      * @return
      * @param <T>
      */
-    public <T> List<T> retorna(){
+    public <T> ArrayList<T> retornar(){
         try {
-        List<T> objeto;
+        ArrayList<T> objeto;
+
+        File arquivo = new File(nomeArquivo);
+        if (!arquivo.exists()){
+            guardar(new ArrayList<T>());
+        }
+
         FileInputStream fileStream = new FileInputStream(this.nomeArquivo);
         ObjectInputStream os = new ObjectInputStream(fileStream);
-        objeto = (List<T>) os.readObject();
+        objeto = (ArrayList<T>) os.readObject();
         os.close();
         return objeto;
         }
