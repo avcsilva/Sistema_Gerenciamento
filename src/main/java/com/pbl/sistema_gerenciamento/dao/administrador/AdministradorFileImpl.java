@@ -79,7 +79,8 @@ public class AdministradorFileImpl implements AdministradorDAO {
         ArrayList<Administrador> listaAdmins = this.manipulaArquivos.retornar();
         for (Administrador a : listaAdmins){
             if (a.getId() == obj.getId()){
-                this.listaAdmins.set(listaAdmins.indexOf(a), obj);
+                listaAdmins.set(listaAdmins.indexOf(a), obj);
+                this.manipulaArquivos.guardar(listaAdmins);
                 return a;
             }
         }
@@ -93,9 +94,11 @@ public class AdministradorFileImpl implements AdministradorDAO {
      */
     @Override
     public void deletar(int id) {
+        ArrayList<Administrador> listaAdmins = this.manipulaArquivos.retornar();
         for (Administrador a : listaAdmins){
             if (a.getId() == id){
-                this.listaAdmins.remove(a);
+                listaAdmins.remove(a);
+                this.manipulaArquivos.guardar(listaAdmins);
                 return;
             }
         }
@@ -106,8 +109,10 @@ public class AdministradorFileImpl implements AdministradorDAO {
      */
     @Override
     public void deletarTodos() {
-        this.listaAdmins.clear();
+        ArrayList<Administrador> listaAdmins = this.manipulaArquivos.retornar();
+        listaAdmins.clear();
         this.nextID = 0;
+        this.manipulaArquivos.guardar(listaAdmins);
     }
 
     /**
@@ -118,6 +123,7 @@ public class AdministradorFileImpl implements AdministradorDAO {
      */
     @Override
     public List<Administrador> acharPorNome(String nome) {
+        ArrayList<Administrador> listaAdmins = this.manipulaArquivos.retornar();
         ArrayList<Administrador> listaNomes = new ArrayList<Administrador>();
         for (Administrador a : listaAdmins) {
             if (a.getNome().equals(nome)) {
@@ -135,6 +141,7 @@ public class AdministradorFileImpl implements AdministradorDAO {
      */
     @Override
     public List<Administrador> acharPorEmail(String email) {
+        ArrayList<Administrador> listaAdmins = this.manipulaArquivos.retornar();
         ArrayList<Administrador> listaEmail = new ArrayList<Administrador>();
         for (Administrador a : listaAdmins) {
             if (a.getEmail().equals(email)) {

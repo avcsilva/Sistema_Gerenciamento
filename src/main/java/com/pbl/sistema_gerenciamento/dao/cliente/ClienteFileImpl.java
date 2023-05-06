@@ -1,6 +1,7 @@
 package com.pbl.sistema_gerenciamento.dao.cliente;
 
 import com.pbl.sistema_gerenciamento.model.Cliente;
+import com.pbl.sistema_gerenciamento.utils.ManipulaArquivo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,16 +10,17 @@ import java.util.List;
  * Classe que implementa a interface ClienteDAO. Implementa funcionalidades de criação,
  * armazenagem, atualização e remoção de Clientes
  */
-public class ClientFileImpl implements ClienteDAO{
-    private ArrayList<Cliente> listaClientes;
+public class ClienteFileImpl implements ClienteDAO{
+    private ManipulaArquivo manipulaArquivo;
     private int nextID;
 
     /**
-     * Cria um ClienteFileImpl com sua lista vazia e id inicial 0
+     * Cria um ClienteListImpl com sua lista vazia e id inicial 0
      */
     public ClienteFileImpl() {
-        this.listaClientes = new ArrayList<Cliente>();
-        this.nextID = 0;
+        this.manipulaArquivo = new ManipulaArquivo("cliente.dat");
+        ArrayList<Cliente> lista = manipulaArquivo.retornar();
+        this.nextID = lista.get(lista.size() - 1).getId() + 1;
     }
 
     /**
@@ -28,9 +30,11 @@ public class ClientFileImpl implements ClienteDAO{
      */
     @Override
     public Cliente criar(Cliente obj) {
+        ArrayList<Cliente> listaClientes = this.manipulaArquivo.retornar();
         obj.setId(nextID);
         this.nextID++;
-        this.listaClientes.add(obj);
+        listaClientes.add(obj);
+        this.manipulaArquivo.guardar(listaClientes);
         return obj;
     }
 
@@ -42,6 +46,7 @@ public class ClientFileImpl implements ClienteDAO{
      */
     @Override
     public Cliente acharPorId(int id) {
+        ArrayList<Cliente> listaClientes = this.manipulaArquivo.retornar();
         for (Cliente c : listaClientes){
             if (c.getId() == id){
                 return c;
@@ -57,7 +62,7 @@ public class ClientFileImpl implements ClienteDAO{
      */
     @Override
     public List<Cliente> acharTodos() {
-        return this.listaClientes;
+        return this.manipulaArquivo.retornar();
     }
 
     /**
@@ -68,9 +73,11 @@ public class ClientFileImpl implements ClienteDAO{
      */
     @Override
     public Cliente atualizar(Cliente obj) {
+        ArrayList<Cliente> listaClientes = this.manipulaArquivo.retornar();
         for (Cliente c : listaClientes){
             if (c.getId() == obj.getId()){
-                this.listaClientes.set(listaClientes.indexOf(c), obj);
+                listaClientes.set(listaClientes.indexOf(c), obj);
+                this.manipulaArquivo.guardar(listaClientes);
                 return c;
             }
         }
@@ -84,9 +91,11 @@ public class ClientFileImpl implements ClienteDAO{
      */
     @Override
     public void deletar(int id) {
+        ArrayList<Cliente> listaClientes = this.manipulaArquivo.retornar();
         for (Cliente a: listaClientes){
             if(a.getId() == id){
-                this.listaClientes.remove(a);
+                listaClientes.remove(a);
+                this.manipulaArquivo.guardar(listaClientes);
                 return;
             }
         }
@@ -97,7 +106,9 @@ public class ClientFileImpl implements ClienteDAO{
      */
     @Override
     public void deletarTodos() {
-        this.listaClientes.clear();
+        ArrayList<Cliente> listaClientes = this.manipulaArquivo.retornar();
+        listaClientes.clear();
+        this.manipulaArquivo.guardar(listaClientes);
         this.nextID = 0;
     }
 
@@ -109,6 +120,7 @@ public class ClientFileImpl implements ClienteDAO{
      */
     @Override
     public List<Cliente> acharPorNome(String nome) {
+        ArrayList<Cliente> listaClientes = this.manipulaArquivo.retornar();
         ArrayList<Cliente> listaNomes = new ArrayList<Cliente>();
         for (Cliente c : listaClientes){
             if (c.getNome().equals(nome)){
