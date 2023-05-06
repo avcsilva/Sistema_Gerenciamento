@@ -1,6 +1,7 @@
 package com.pbl.sistema_gerenciamento.dao.administrador;
 
 import com.pbl.sistema_gerenciamento.model.Administrador;
+import com.pbl.sistema_gerenciamento.utils.ManipulaArquivo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,15 +11,16 @@ import java.util.List;
  * armazenagem, atualização e remoção de Administradores
  */
 public class AdministradorFileImpl implements AdministradorDAO {
-    private ArrayList<Administrador> listaAdmins;
+    private ManipulaArquivo manipulaArquivos;
     private int nextID;
 
     /**
-     * Cria um AdministradorListImpl com sua lista vazia e id inicial 0
+     * Cria um AdministradorFileImpl com sua lista vazia e id inicial 0
      */
-    public AdministradorListImpl() {
-        this.listaAdmins = new ArrayList<Administrador>();
-        this.nextID = 0;
+    public AdministradorFileImpl() {
+        this.manipulaArquivos = new ManipulaArquivo("administrador.dat");
+        ArrayList<Administrador> lista = manipulaArquivos.retornar();
+        this.nextID = lista.get(lista.size() - 1).getId() + 1;
     }
 
     /**
@@ -29,9 +31,13 @@ public class AdministradorFileImpl implements AdministradorDAO {
      */
     @Override
     public Administrador criar(Administrador obj) {
+        ArrayList<Administrador> lista = this.manipulaArquivos.retornar();
+
         obj.setId(nextID);
         this.nextID++;
-        this.listaAdmins.add(obj);
+        lista.add(obj);
+
+        this.manipulaArquivos.guardar(lista);
         return obj;
     }
 
@@ -43,6 +49,7 @@ public class AdministradorFileImpl implements AdministradorDAO {
      */
     @Override
     public Administrador acharPorId(int id) {
+        ArrayList<Administrador> listaAdmins = this.manipulaArquivos.retornar();
         for (Administrador a : listaAdmins){
             if (a.getId() == id){
                 return a;
@@ -58,7 +65,7 @@ public class AdministradorFileImpl implements AdministradorDAO {
      */
     @Override
     public List<Administrador> acharTodos() {
-        return listaAdmins;
+        return manipulaArquivos.retornar();
     }
 
     /**
@@ -69,6 +76,7 @@ public class AdministradorFileImpl implements AdministradorDAO {
      */
     @Override
     public Administrador atualizar(Administrador obj) {
+        ArrayList<Administrador> listaAdmins = this.manipulaArquivos.retornar();
         for (Administrador a : listaAdmins){
             if (a.getId() == obj.getId()){
                 this.listaAdmins.set(listaAdmins.indexOf(a), obj);
