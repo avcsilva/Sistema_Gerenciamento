@@ -72,6 +72,14 @@ class ClienteImplTest {
 
     @Test
     void atualizar() {
+        ClienteDAO dao = DAO.getClienteDAO();
+
+        Cliente cli1 = dao.criar(new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br"));
+
+        cli1.setEmail("vitormarcio@uefs.br");
+        dao.atualizar(cli1);
+
+        assertEquals(cli1.getEmail(), dao.acharPorId(cli1.getId()).getEmail());
     }
 
     @Test
@@ -111,8 +119,6 @@ class ClienteImplTest {
         Cliente cliente1 = dao.criar(new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br"));
         Cliente cliente2 = dao.criar(new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br"));
 
-        dao.criar(cliente1);
-        dao.criar(cliente2);
 
         List<Cliente> lista = dao.acharPorNome("Marcio Vitor");
 

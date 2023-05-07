@@ -72,6 +72,14 @@ class AdministradorImplTest {
 
     @Test
     void atualizar() {
+        AdministradorDAO dao = DAO.getAdministradorDAO();
+
+        Administrador adm1 = dao.criar(new Administrador("Marcio Vitor", "marciovitor@uefs.br"));
+
+        adm1.setEmail("vitormarcio@uefs.br");
+        dao.atualizar(adm1);
+
+        assertEquals(adm1.getEmail(), dao.acharPorId(adm1.getId()).getEmail());
     }
 
     @Test
@@ -111,8 +119,6 @@ class AdministradorImplTest {
         Administrador adm1 = dao.criar(new Administrador("Marcio Vitor", "marciovitor@uefs.br"));
         Administrador adm2 = dao.criar(new Administrador("Raynan Azkaban", "raynanzinho@uefs.br"));
 
-        dao.criar(adm1);
-        dao.criar(adm2);
 
         List<Administrador> lista = dao.acharPorNome("Marcio Vitor");
 
@@ -125,9 +131,6 @@ class AdministradorImplTest {
 
         Administrador adm1 = dao.criar(new Administrador("Marcio Vitor", "marciovitor@uefs.br"));
         Administrador adm2 = dao.criar(new Administrador("Raynan Azkaban", "raynanzinho@uefs.br"));
-
-        dao.criar(adm1);
-        dao.criar(adm2);
 
         List<Administrador> lista = dao.acharPorEmail("raynanzinho@uefs.br");
 

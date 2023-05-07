@@ -66,6 +66,14 @@ class RecepcionistaImplTest {
 
     @Test
     void atualizar() {
+        RecepcionistaDAO dao = DAO.getRecepcionistaDAO();
+
+        Recepcionista rec1 = dao.criar(new Recepcionista("Marcio Vitor", "marciovitor@uefs.br"));
+
+        rec1.setEmail("vitormarcio@uefs.br");
+        dao.atualizar(rec1);
+
+        assertEquals(rec1.getEmail(), dao.acharPorId(rec1.getId()).getEmail());
     }
 
     @Test
@@ -105,8 +113,6 @@ class RecepcionistaImplTest {
         Recepcionista recepcionista1 = new Recepcionista("Marcio Vitor", "marciovitor@uefs.br");
         Recepcionista recepcionista2 = new Recepcionista("Raynan Azkaban", "raynanzinho@uefs.br");
 
-        dao.criar(recepcionista1);
-        dao.criar(recepcionista2);
 
         List<Recepcionista> lista = dao.acharPorNome("Marcio Vitor");
 
@@ -120,8 +126,6 @@ class RecepcionistaImplTest {
         Recepcionista recepcionista1 = new Recepcionista("Marcio Vitor", "marciovitor@uefs.br");
         Recepcionista recepcionista2 = new Recepcionista("Raynan Azkaban", "raynanzinho@uefs.br");
 
-        dao.criar(recepcionista1);
-        dao.criar(recepcionista2);
 
         List<Recepcionista> lista = dao.acharPorEmail("raynanzinho@uefs.br");
 
