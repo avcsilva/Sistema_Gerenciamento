@@ -1,8 +1,10 @@
 package com.pbl.sistema_gerenciamento.dao.ordemservico;
 
+import com.pbl.sistema_gerenciamento.dao.DAO;
 import com.pbl.sistema_gerenciamento.model.Cliente;
 import com.pbl.sistema_gerenciamento.model.OrdemServico;
 import com.pbl.sistema_gerenciamento.model.Tecnico;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -11,9 +13,13 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class OrdemServicoListImplTest {
+    @AfterEach
+    void tearDown(){
+        DAO.getOrdemServicoDAO().deletarTodos();
+    }
     @Test
     void criar() {
-        OrdemServicoDAO dao = new OrdemServicoListImpl();
+        OrdemServicoDAO dao = DAO.getOrdemServicoDAO();
 
         OrdemServico ordem1 = new OrdemServico(new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br"), "10/10/2010");
         OrdemServico ordem2 = new OrdemServico(new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br"), "10/10/2010");
@@ -30,7 +36,7 @@ class OrdemServicoListImplTest {
 
     @Test
     void acharPorId() {
-        OrdemServicoDAO dao = new OrdemServicoListImpl();
+        OrdemServicoDAO dao = DAO.getOrdemServicoDAO();
 
         dao.criar(new OrdemServico(new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br"), "10/10/2010"));
         dao.criar(new OrdemServico(new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br"), "10/10/2010"));
@@ -44,7 +50,7 @@ class OrdemServicoListImplTest {
 
     @Test
     void acharTodos() {
-        OrdemServicoDAO dao = new OrdemServicoListImpl();
+        OrdemServicoDAO dao = DAO.getOrdemServicoDAO();
 
         dao.criar(new OrdemServico(new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br"), "10/10/2010"));
         dao.criar(new OrdemServico(new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br"), "10/10/2010"));
@@ -56,7 +62,7 @@ class OrdemServicoListImplTest {
 
     @Test
     void atualizar() {
-        OrdemServicoDAO dao = new OrdemServicoListImpl();
+        OrdemServicoDAO dao = DAO.getOrdemServicoDAO();
 
         OrdemServico ordem1 = new OrdemServico(new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br"), "10/10/2010");
         ordem1.setStatus("Ok");
@@ -71,7 +77,7 @@ class OrdemServicoListImplTest {
 
     @Test
     void deletar() {
-        OrdemServicoDAO dao = new OrdemServicoListImpl();
+        OrdemServicoDAO dao = DAO.getOrdemServicoDAO();
 
         dao.criar(new OrdemServico(new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br"), "10/10/2010"));
         dao.criar(new OrdemServico(new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br"), "10/10/2010"));
@@ -87,7 +93,7 @@ class OrdemServicoListImplTest {
 
     @Test
     void deletarTodos() {
-        OrdemServicoDAO dao = new OrdemServicoListImpl();
+        OrdemServicoDAO dao = DAO.getOrdemServicoDAO();
 
         dao.criar(new OrdemServico(new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br"), "10/10/2010"));
         dao.criar(new OrdemServico(new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br"), "10/10/2010"));
@@ -101,7 +107,7 @@ class OrdemServicoListImplTest {
 
     @Test
     void acharPorTecnico() {
-        OrdemServicoDAO dao = new OrdemServicoListImpl();
+        OrdemServicoDAO dao = DAO.getOrdemServicoDAO();
 
         Tecnico tecn1 = new Tecnico(null, null);
         Tecnico tecn2 = new Tecnico(null, null);
@@ -128,7 +134,7 @@ class OrdemServicoListImplTest {
 
     @Test
     void acharPorStatus() {
-        OrdemServicoDAO dao = new OrdemServicoListImpl();
+        OrdemServicoDAO dao = DAO.getOrdemServicoDAO();
 
         OrdemServico ordem1 = new OrdemServico(new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br"), "10/10/2010");
         OrdemServico ordem2 = new OrdemServico(new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br"), "10/10/2010");
@@ -152,7 +158,7 @@ class OrdemServicoListImplTest {
 
     @Test
     void acharPorCliente() {
-        OrdemServicoDAO dao = new OrdemServicoListImpl();
+        OrdemServicoDAO dao = DAO.getOrdemServicoDAO();
 
         Cliente cliente1 = new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br");
         Cliente cliente2 = new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br");
@@ -171,7 +177,7 @@ class OrdemServicoListImplTest {
 
     @Test
     void acharPorDataC() {
-        OrdemServicoDAO dao = new OrdemServicoListImpl();
+        OrdemServicoDAO dao = DAO.getOrdemServicoDAO();
 
         Cliente cliente1 = new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br");
         Cliente cliente2 = new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br");
@@ -189,7 +195,7 @@ class OrdemServicoListImplTest {
 
     @Test
     void acharPorDataF() {
-        OrdemServicoDAO dao = new OrdemServicoListImpl();
+        OrdemServicoDAO dao = DAO.getOrdemServicoDAO();
         Cliente cliente1 = new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br");
         Cliente cliente2 = new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br");
 
@@ -215,7 +221,7 @@ class OrdemServicoListImplTest {
 
     @Test
     void acharPorPreco() {
-        OrdemServicoDAO dao = new OrdemServicoListImpl();
+        OrdemServicoDAO dao = DAO.getOrdemServicoDAO();
         Cliente cliente1 = new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br");
         Cliente cliente2 = new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br");
 
@@ -239,7 +245,7 @@ class OrdemServicoListImplTest {
 
     @Test
     void acharPorCusto() {
-        OrdemServicoDAO dao = new OrdemServicoListImpl();
+        OrdemServicoDAO dao = DAO.getOrdemServicoDAO();
         Cliente cliente1 = new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br");
         Cliente cliente2 = new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br");
 
@@ -262,7 +268,7 @@ class OrdemServicoListImplTest {
 
     @Test
     void acharPorMetPag() {
-        OrdemServicoDAO dao =  new OrdemServicoListImpl();
+        OrdemServicoDAO dao = DAO.getOrdemServicoDAO();
         Cliente cliente1 = new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br");
         Cliente cliente2 = new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br");
 
@@ -287,7 +293,7 @@ class OrdemServicoListImplTest {
 
     @Test
     void proximaOrdem(){
-        OrdemServicoDAO dao =  new OrdemServicoListImpl();
+        OrdemServicoDAO dao = DAO.getOrdemServicoDAO();
         Cliente cliente1 = new Cliente("Marcio Vitor", "688", "991018863", "marciovitor@uefs.br");
         Cliente cliente2 = new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br");
 
@@ -308,6 +314,6 @@ class OrdemServicoListImplTest {
 
         dao.criar(ordem3);
 
-        assertEquals(ordem3, dao.proximaOrdem());
+        assertEquals(2, dao.proximaOrdem().getId());
     }
 }
