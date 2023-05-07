@@ -131,9 +131,9 @@ class MontagemImplTest {
         MontagemDAO dao = DAO.getMontagemDAO();
 
 
-        Montagem montagem1 = new Montagem(null, null);
-        Montagem montagem2 = new Montagem(null, null);
-        Montagem montagem3 = new Montagem(null, null);
+        Montagem montagem1 = new Montagem(0.0, 0.0);
+        Montagem montagem2 = new Montagem(0.0, 0.0);
+        Montagem montagem3 = new Montagem(0.0, 0.0);
 
         montagem1.setCusto(12.25);
         montagem2.setCusto(10.00);
