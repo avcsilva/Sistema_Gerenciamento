@@ -7,7 +7,7 @@ import java.io.Serializable;
  * Representa um Administrador do sistema, o qual pode gerenciar estoques e Ordens de Serviço,
  * assim como cadastrar novas Ordens e Clientes.
  */
-public class Administrador extends Usuario implements Serializable {
+public class Administrador extends Usuario {
 
     /**
      * Cria um Administrador com nome e e-mail definidos.
