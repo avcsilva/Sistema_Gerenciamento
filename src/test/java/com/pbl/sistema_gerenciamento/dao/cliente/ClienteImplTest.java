@@ -1,11 +1,7 @@
 package com.pbl.sistema_gerenciamento.dao.cliente;
 
 import com.pbl.sistema_gerenciamento.dao.DAO;
-import com.pbl.sistema_gerenciamento.dao.administrador.AdministradorDAO;
-import com.pbl.sistema_gerenciamento.dao.ordemservico.OrdemServicoDAO;
-import com.pbl.sistema_gerenciamento.model.Administrador;
 import com.pbl.sistema_gerenciamento.model.Cliente;
-import com.pbl.sistema_gerenciamento.model.OrdemServico;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
