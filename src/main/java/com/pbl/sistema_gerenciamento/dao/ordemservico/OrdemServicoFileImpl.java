@@ -20,7 +20,9 @@ public class OrdemServicoFileImpl implements OrdemServicoDAO{
     public OrdemServicoFileImpl() {
         this.manipulaArquivo = new ManipulaArquivo("ordemServico.dat");
         ArrayList<OrdemServico> listaOrdem = this.manipulaArquivo.retornar();
-        this.nextID = listaOrdem.get(listaOrdem.size() - 1).getId() + 1;
+        if (listaOrdem.size() > 0) {
+            this.nextID = listaOrdem.get(listaOrdem.size() - 1).getId() + 1;
+        } else this.nextID = 0;
     }
 
     /**
