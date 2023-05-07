@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MontagemTest {
-
     @Test
     void adicionarComponente() {
         ArrayList<Componente> lista = new ArrayList<Componente>();
