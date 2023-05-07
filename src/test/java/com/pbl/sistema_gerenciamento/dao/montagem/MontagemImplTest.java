@@ -69,6 +69,16 @@ class MontagemImplTest {
 
     @Test
     void atualizar() {
+        MontagemDAO dao = DAO.getMontagemDAO();
+
+        Montagem montagem = new Montagem();
+        montagem.setPreco(12.25);
+        dao.criar(montagem);
+
+        montagem.setPreco(10.00);
+        dao.atualizar(montagem);
+
+        assertEquals(montagem.getPreco(), dao.acharPorId(montagem.getId()).getPreco());
     }
 
     @Test

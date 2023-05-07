@@ -108,6 +108,22 @@ class InstalacaoImplTest {
 
     @Test
     void acharPorSO() {
+        InstalacaoDAO dao = DAO.getInstalacaoDAO();
+
+        Instalacao instalacao1 = new Instalacao(12.25);
+        instalacao1.setSistemaOperacional("windows");
+        Instalacao instalacao2 = new Instalacao(10.00);
+        instalacao2.setSistemaOperacional("linux");
+        Instalacao instalacao3 = new Instalacao(12.25);
+        instalacao3.setSistemaOperacional("windows");
+
+        dao.criar(instalacao1);
+        dao.criar(instalacao2);
+        dao.criar(instalacao3);
+
+        List<Instalacao> lista = dao.acharPorSO("windows");
+
+        assertEquals(2, lista.size());
     }
 
     @Test

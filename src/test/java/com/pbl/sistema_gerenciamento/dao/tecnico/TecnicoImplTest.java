@@ -1,8 +1,6 @@
 package com.pbl.sistema_gerenciamento.dao.tecnico;
 
 import com.pbl.sistema_gerenciamento.dao.DAO;
-import com.pbl.sistema_gerenciamento.dao.administrador.AdministradorDAO;
-import com.pbl.sistema_gerenciamento.model.Administrador;
 import com.pbl.sistema_gerenciamento.model.Tecnico;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -69,6 +67,14 @@ class TecnicoImplTest {
 
     @Test
     void atualizar() {
+        TecnicoDAO dao = DAO.getTecnicoDAO();
+
+        Tecnico tecn = dao.criar(new Tecnico ("Marcio Vitor", "marciovitor@uefs.br"));
+
+        tecn.setEmail("vitormarcio@uefs.br");
+        dao.atualizar(tecn);
+
+        assertEquals(tecn.getEmail(), dao.acharPorId(tecn.getId()).getEmail());
     }
 
     @Test
