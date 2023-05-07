@@ -20,7 +20,9 @@ public class RecepcionistaFileImpl implements RecepcionistaDAO{
     public RecepcionistaFileImpl() {
         this.manipulaArquivo = new ManipulaArquivo("recepcionista.dat");
         ArrayList<Recepcionista> listaRecepcionistas = this.manipulaArquivo.retornar();
-        this.nextID = listaRecepcionistas.get(listaRecepcionistas.size() - 1).getId() + 1;
+        if (listaRecepcionistas.size() > 0) {
+            this.nextID = listaRecepcionistas.get(listaRecepcionistas.size() - 1).getId() + 1;
+        } else this.nextID = 0;
     }
 
     /**

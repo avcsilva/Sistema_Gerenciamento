@@ -21,7 +21,9 @@ public class TecnicoFileImpl implements TecnicoDAO{
     public TecnicoFileImpl() {
         this.manipulaArquivos = new ManipulaArquivo("tecnico.dat");
         ArrayList<Tecnico> lista = manipulaArquivos.retornar();
-        this.nextID = lista.get(lista.size() - 1).getId() + 1;
+        if (lista.size() > 0) {
+            this.nextID = lista.get(lista.size() - 1).getId() + 1;
+        } else this.nextID = 0;
     }
 
     /**

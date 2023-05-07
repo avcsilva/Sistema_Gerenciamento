@@ -20,7 +20,9 @@ public class LimpezaFileImpl implements LimpezaDAO{
     public LimpezaFileImpl() {
         this.manipulaArquivos = new ManipulaArquivo("limpeza.dat");
         ArrayList<Limpeza> lista = manipulaArquivos.retornar();
-        this.nextID = lista.get(lista.size() - 1).getId() + 1;
+        if (lista.size() > 0) {
+            this.nextID = lista.get(lista.size() - 1).getId() + 1;
+        } else this.nextID = 0;
     }
 
     /**

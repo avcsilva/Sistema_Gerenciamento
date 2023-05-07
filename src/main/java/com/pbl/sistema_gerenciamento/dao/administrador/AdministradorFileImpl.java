@@ -20,7 +20,9 @@ public class AdministradorFileImpl implements AdministradorDAO {
     public AdministradorFileImpl() {
         this.manipulaArquivos = new ManipulaArquivo("administrador.dat");
         ArrayList<Administrador> lista = manipulaArquivos.retornar();
-        this.nextID = lista.get(lista.size() - 1).getId() + 1;
+        if (lista.size() > 0) {
+            this.nextID = lista.get(lista.size() - 1).getId() + 1;
+        } else this.nextID = 0;
     }
 
     /**

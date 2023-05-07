@@ -20,7 +20,9 @@ public class ComponentePCFileImpl implements ComponentePCDAO{
     public ComponentePCFileImpl() {
         this.manipulaArquivo = new ManipulaArquivo("componentesPC.dat");
         ArrayList<ComponentePC> listaComponentePC = this.manipulaArquivo.retornar();
-        this.nextID = listaComponentePC.get(listaComponentePC.size() - 1).getId() + 1;
+        if (listaComponentePC.size() > 0) {
+            this.nextID = listaComponentePC.get(listaComponentePC.size() - 1).getId() + 1;
+        } else this.nextID = 0;
     }
 
     /**

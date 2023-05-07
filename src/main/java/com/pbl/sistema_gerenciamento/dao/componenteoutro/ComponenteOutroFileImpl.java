@@ -21,7 +21,9 @@ public class ComponenteOutroFileImpl implements ComponenteOutroDAO{
     public ComponenteOutroFileImpl() {
         this.manipulaArquivos = new ManipulaArquivo("componenteOutro.dat");
         ArrayList<ComponenteOutro> lista = manipulaArquivos.retornar();
-        this.nextID = lista.get(lista.size() - 1).getId() + 1;
+        if (lista.size() > 0) {
+            this.nextID = lista.get(lista.size() - 1).getId() + 1;
+        } else this.nextID = 0;
     }
 
     /**

@@ -20,7 +20,9 @@ public class MontagemFileImpl implements MontagemDAO{
     public MontagemFileImpl() {
         this.manipulaArquivo = new ManipulaArquivo("montagem.dat");
         ArrayList<Montagem> listaMontagem = this.manipulaArquivo.retornar();
-        this.nextID = listaMontagem.get(listaMontagem.size() - 1).getId() + 1;
+        if (listaMontagem.size() > 0) {
+            this.nextID = listaMontagem.get(listaMontagem.size() - 1).getId() + 1;
+        } else this.nextID = 0;
     }
 
     /**
