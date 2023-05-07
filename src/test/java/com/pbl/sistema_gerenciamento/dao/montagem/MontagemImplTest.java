@@ -1,10 +1,7 @@
 package com.pbl.sistema_gerenciamento.dao.montagem;
 
 import com.pbl.sistema_gerenciamento.dao.DAO;
-import com.pbl.sistema_gerenciamento.dao.ordemservico.OrdemServicoDAO;
-import com.pbl.sistema_gerenciamento.model.Cliente;
 import com.pbl.sistema_gerenciamento.model.Montagem;
-import com.pbl.sistema_gerenciamento.model.OrdemServico;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -29,8 +26,8 @@ class MontagemImplTest {
     void criar() {
         MontagemDAO dao = DAO.getMontagemDAO();
 
-        Montagem montagem1 = new Montagem(0.0, 2.0);
-        Montagem montagem2 = new Montagem(0.0, 3.0);
+        Montagem montagem1 = new Montagem();
+        Montagem montagem2 = new Montagem();
 
         montagem1.setId(0);
         montagem1.setId(1);
@@ -48,8 +45,8 @@ class MontagemImplTest {
     void acharPorId() {
         MontagemDAO dao = DAO.getMontagemDAO();
 
-        dao.criar(new Montagem(0.0, 2.0));
-        dao.criar(new Montagem(0.0, 2.0));
+        dao.criar(new Montagem());
+        dao.criar(new Montagem());
 
         Montagem montagem = dao.acharPorId(1);
         assertEquals(1, montagem.getId());
@@ -62,8 +59,8 @@ class MontagemImplTest {
     void acharTodos() {
         MontagemDAO dao = DAO.getMontagemDAO();
 
-        dao.criar(new Montagem(0.0, 2.0));
-        dao.criar(new Montagem(0.0, 3.0));
+        dao.criar(new Montagem());
+        dao.criar(new Montagem());
 
         List<Montagem> lista = dao.acharTodos();
 
@@ -78,8 +75,8 @@ class MontagemImplTest {
     void deletar() {
         MontagemDAO dao = DAO.getMontagemDAO();
 
-        dao.criar(new Montagem(0.0, 2.0));
-        dao.criar(new Montagem(0.0, 2.0));
+        dao.criar(new Montagem());
+        dao.criar(new Montagem());
 
         dao.deletar(1);
 
@@ -94,8 +91,8 @@ class MontagemImplTest {
     void deletarTodos() {
         MontagemDAO dao = DAO.getMontagemDAO();
 
-        dao.criar(new Montagem(00.00, 20.00));
-        dao.criar(new Montagem(00.00, 20.00));
+        dao.criar(new Montagem());
+        dao.criar(new Montagem());
 
         dao.deletarTodos();
 
@@ -109,9 +106,9 @@ class MontagemImplTest {
         MontagemDAO dao = DAO.getMontagemDAO();
 
 
-        Montagem montagem1 = new Montagem(null, null);
-        Montagem montagem2 = new Montagem(null, null);
-        Montagem montagem3 = new Montagem(null, null);
+        Montagem montagem1 = new Montagem();
+        Montagem montagem2 = new Montagem();
+        Montagem montagem3 = new Montagem();
 
         montagem1.setPreco(12.25);
         montagem2.setPreco(10.00);
@@ -131,9 +128,9 @@ class MontagemImplTest {
         MontagemDAO dao = DAO.getMontagemDAO();
 
 
-        Montagem montagem1 = new Montagem(0.0, 0.0);
-        Montagem montagem2 = new Montagem(0.0, 0.0);
-        Montagem montagem3 = new Montagem(0.0, 0.0);
+        Montagem montagem1 = new Montagem();
+        Montagem montagem2 = new Montagem();
+        Montagem montagem3 = new Montagem();
 
         montagem1.setCusto(12.25);
         montagem2.setCusto(10.00);
@@ -143,7 +140,7 @@ class MontagemImplTest {
         dao.criar(montagem2);
         dao.criar(montagem3);
 
-        List<Montagem> lista = dao.acharPorPreco(12.25);
+        List<Montagem> lista = dao.acharPorCusto(12.25);
 
         assertEquals(2, lista.size());
     }

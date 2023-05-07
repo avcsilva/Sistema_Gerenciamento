@@ -126,7 +126,7 @@ class TecnicoImplTest {
         dao.criar(tecnico1);
         dao.criar(tecnico2);
 
-        List<Tecnico> lista = dao.acharPorNome("marciovitor@uefs.br");
+        List<Tecnico> lista = dao.acharPorEmail("marciovitor@uefs.br");
 
         assertEquals(1, lista.size());
     }

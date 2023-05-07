@@ -110,8 +110,8 @@ class RecepcionistaImplTest {
     void acharPorNome() {
         RecepcionistaDAO dao = DAO.getRecepcionistaDAO();
 
-        Recepcionista recepcionista1 = new Recepcionista("Marcio Vitor", "marciovitor@uefs.br");
-        Recepcionista recepcionista2 = new Recepcionista("Raynan Azkaban", "raynanzinho@uefs.br");
+        Recepcionista recepcionista1 = dao.criar(new Recepcionista("Marcio Vitor", "marciovitor@uefs.br"));
+        Recepcionista recepcionista2 = dao.criar(new Recepcionista("Raynan Azkaban", "raynanzinho@uefs.br"));
 
 
         List<Recepcionista> lista = dao.acharPorNome("Marcio Vitor");
@@ -123,8 +123,8 @@ class RecepcionistaImplTest {
     void acharPorEmail() {
         RecepcionistaDAO dao = DAO.getRecepcionistaDAO();
 
-        Recepcionista recepcionista1 = new Recepcionista("Marcio Vitor", "marciovitor@uefs.br");
-        Recepcionista recepcionista2 = new Recepcionista("Raynan Azkaban", "raynanzinho@uefs.br");
+        Recepcionista recepcionista1 = dao.criar(new Recepcionista("Marcio Vitor", "marciovitor@uefs.br"));
+        Recepcionista recepcionista2 = dao.criar(new Recepcionista("Raynan Azkaban", "raynanzinho@uefs.br"));
 
 
         List<Recepcionista> lista = dao.acharPorEmail("raynanzinho@uefs.br");
