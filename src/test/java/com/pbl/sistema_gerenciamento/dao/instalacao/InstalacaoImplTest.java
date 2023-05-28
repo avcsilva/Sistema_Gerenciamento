@@ -107,6 +107,26 @@ class InstalacaoImplTest {
     }
 
     @Test
+    void acharPorPrograma(){
+        InstalacaoDAO dao = DAO.getInstalacaoDAO();
+
+        Instalacao instalacao1 = new Instalacao(0.0);
+        instalacao1.setPrograma("Programa 1");
+        Instalacao instalacao2 = new Instalacao(0.0);
+        instalacao2.setPrograma("Programa 2");
+        Instalacao instalacao3 = new Instalacao(0.0);
+        instalacao3.setPrograma("Programa 1");
+
+        dao.criar(instalacao1);
+        dao.criar(instalacao2);
+        dao.criar(instalacao3);
+
+        List<Instalacao> lista = dao.acharPorPrograma("Programa 1");
+
+        assertEquals(2, lista.size());
+    }
+
+    @Test
     void acharPorSO() {
         InstalacaoDAO dao = DAO.getInstalacaoDAO();
 

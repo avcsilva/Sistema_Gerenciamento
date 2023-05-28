@@ -10,6 +10,14 @@ import java.util.List;
  */
 public interface InstalacaoDAO extends CRUD<Instalacao> {
     /**
+     * Encontra objetos por meio de seus programas
+     *
+     * @param prog o programa sobre os quais objetos devem ser encontrados
+     * @return a lista de objetos encontrados
+     */
+    public List<Instalacao> acharPorPrograma(String prog);
+
+    /**
      * Encontra objetos por meio de seus sistemas operacionais
      *
      * @param sist o sistema operacional sobre os quais objetos devem ser encontrados

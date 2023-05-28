@@ -103,6 +103,23 @@ public class InstalacaoListImpl implements InstalacaoDAO{
     }
 
     /**
+     * Encontra objetos por meio de seus programas
+     *
+     * @param prog o programa sobre os quais objetos devem ser encontrados
+     * @return a lista de objetos encontrados
+     */
+    @Override
+    public List<Instalacao> acharPorPrograma(String prog) {
+        ArrayList<Instalacao> listaProg = new ArrayList<Instalacao>();
+        for (Instalacao i : listaInstalacao){
+            if (i.getPrograma().equals(prog)){
+                listaProg.add(i);
+            }
+        }
+        return listaProg;
+    }
+
+    /**
      * Encontra objetos por meio de seus sistemas operacionais
      *
      * @param sist o sistema operacional sobre os quais objetos devem ser encontrados

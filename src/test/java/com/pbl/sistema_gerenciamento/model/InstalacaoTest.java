@@ -11,13 +11,7 @@ class InstalacaoTest {
     @Test
     void adicionarPrograma() {
         Instalacao inst = new Instalacao(0.0);
-        ArrayList<String> lista = new ArrayList<String>();
-        lista.add("IntelliJ");
-        lista.add("QuartusII");
-        inst.setProgramas(lista);
-        assertEquals(2, inst.getListaProgramas().size());
-
-        inst.adicionarPrograma("VSCode");
-        assertEquals(3, inst.getListaProgramas().size());
+        inst.setPrograma("Programa 1");
+        assertEquals("Programa 1", inst.getPrograma());
     }
 }

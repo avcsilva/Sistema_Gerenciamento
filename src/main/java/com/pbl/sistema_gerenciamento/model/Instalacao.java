@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * possuindo uma lista de programas a serem instalados e o sistema operacional em questão.
  */
 public class Instalacao extends Servico{
-    private ArrayList<String> listaProgramas;
+    private String Programa;
     private String sistemaOperacional;
 
     /**
@@ -23,19 +23,10 @@ public class Instalacao extends Servico{
     /**
      * Define uma nova lista de programas a serem instalados na Instalação
      *
-     * @param programas a lista de programas a serem instalados
+     * @param programa a lista de programas a serem instalados
      */
-    public void setProgramas(ArrayList<String> programas) {
-        this.listaProgramas = programas;
-    }
-
-    /**
-     * Adiciona um novo programa à lista a ser utilizada na Instalação
-     *
-     * @param p o programa a ser adicionado à lista
-     */
-    public void adicionarPrograma(String p){
-        this.listaProgramas.add(p);
+    public void setPrograma(String programa) {
+        this.Programa = programa;
     }
 
     /**
@@ -51,8 +42,8 @@ public class Instalacao extends Servico{
      * Retorna a lista de programas a serem utilizados na Instalação
      * @return a lista de programas a serem utilizados
      */
-    public ArrayList<String> getListaProgramas() {
-        return listaProgramas;
+    public String getPrograma() {
+        return Programa;
     }
 
     /**
