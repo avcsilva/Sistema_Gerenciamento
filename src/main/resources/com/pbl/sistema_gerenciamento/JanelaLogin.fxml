@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1044.0" style="-fx-background-color: #1F3352;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1044.0" style="-fx-background-color: #1F3352;" styleClass="body" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane layoutX="475.0" layoutY="82.0" prefHeight="517.0" prefWidth="460.0" style="-fx-background-color: #13233D; -fx-background-radius: 0.5cm;">
          <children>
@@ -22,10 +22,10 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </TextField>
-            <Button fx:id="btncontinuar" layoutX="182.0" layoutY="361.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="96.0" style="-fx-background-color: #13233D; -fx-background-radius: 5cm; -fx-border-color: #ffff; -fx-border-radius: 5cm;" text="continuar" textFill="WHITE" />
+            <Button fx:id="btncontinuar" layoutX="182.0" layoutY="361.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="96.0" style="-fx-background-color: #13233D; -fx-background-radius: 5cm; -fx-border-color: #ffff; -fx-border-radius: 5cm;" stylesheets="@../../../Documents/GitHub/Sistema_Gerenciamento/src/main/java/com/pbl/sistema_gerenciamento/utils/Style.css" text="continuar" textFill="WHITE" />
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="130.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Img%20Pbl%202/png%20login%20sem%20fundo.png" />
+                  <Image url="@../../../Documents/GitHub/Sistema_Gerenciamento/src/main/resources/com/pbl/sistema_gerenciamento/png_login_sem_fundo.png" />
                </image>
             </ImageView>
             <Label fx:id="erro" layoutX="150.0" layoutY="316.0" textFill="#ff4242" />
@@ -33,7 +33,7 @@
       </Pane>
       <ImageView fitHeight="424.0" fitWidth="447.0" layoutX="28.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../Downloads/imagem_2023-06-04_221331269-removebg-preview.png" />
+            <Image url="@../../../Documents/GitHub/Sistema_Gerenciamento/src/main/resources/com/pbl/sistema_gerenciamento/img_computador.png" />
          </image>
       </ImageView>
    </children>
