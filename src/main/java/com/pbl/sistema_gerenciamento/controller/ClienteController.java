@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class ClienteController {
 
@@ -64,6 +65,7 @@ public class ClienteController {
             int id = cliente.getId();
             this.clientesLista.remove(cliente);
             DAO.getClienteDAO().deletar(id);
+            this.erro_msg.setText("Cliente apagado com sucesso!");
         }
     }
 
@@ -85,6 +87,7 @@ public class ClienteController {
                 cliente.setTelefone(clienteTelefone.getText());
                 cliente.setEmail(clienteEmail.getText());
                 DAO.getClienteDAO().atualizar(cliente);
+                this.clientesLista.set(this.tabelaClientes.getSelectionModel().getSelectedIndex(), cliente);
                 this.erro_msg.setText("Cliente atualizado com sucesso!");
                 this.clienteEmail.clear();
                 this.clienteEndereco.clear();
@@ -111,6 +114,7 @@ public class ClienteController {
             this.clienteEndereco.clear();
             this.clienteNome.clear();
             this.clienteTelefone.clear();
+            this.clientesLista.add(cliente);
         }
     }
 
@@ -120,7 +124,12 @@ public class ClienteController {
     @FXML
     void initialize() {
         this.clientesLista = FXCollections.observableArrayList(DAO.getClienteDAO().acharTodos());
-        this.tabelaClientes.getColumns().addAll(tabelaNomes, tabelaEnderecos, tabelaTelefones, tabelaEmails);
+
+        this.tabelaNomes.setCellValueFactory(new PropertyValueFactory<Cliente, String>("nome"));
+        this.tabelaEnderecos.setCellValueFactory(new PropertyValueFactory<Cliente, String>("endereco"));
+        this.tabelaTelefones.setCellValueFactory(new PropertyValueFactory<Cliente, String>("telefone"));
+        this.tabelaEmails.setCellValueFactory(new PropertyValueFactory<Cliente, String>("email"));
+
         this.tabelaClientes.setItems(clientesLista);
     }
 
