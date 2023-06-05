@@ -25,7 +25,7 @@
    <children>
       <VBox spacing="10.0" style="-fx-background-color: #1F3352;">
          <children>
-            <Label text="Tecnicos" textFill="WHITE">
+            <Label text="Técnicos" textFill="WHITE">
                <font>
                   <Font size="25.0" />
                </font>
