@@ -29,7 +29,7 @@
                <children>
                   <Label text="ComponentePC" />
                   <Separator prefWidth="200.0" />
-                  <TableView VBox.vgrow="SOMETIMES">
+                  <TableView fx:id="tabelaCompsPC" VBox.vgrow="SOMETIMES">
                     <columns>
                       <TableColumn fx:id="tabelaPcNome" prefWidth="75.0" text="Nome" />
                       <TableColumn fx:id="tabelaPcFabricante" prefWidth="75.0" text="Fabricante" />
@@ -46,7 +46,7 @@
                <children>
                   <Label text="ComponenteOutro" />
                   <Separator prefWidth="200.0" />
-                  <TableView VBox.vgrow="SOMETIMES">
+                  <TableView fx:id="tabelaCompsOut" VBox.vgrow="SOMETIMES">
                     <columns>
                       <TableColumn fx:id="tabelaOutroDescricao" prefWidth="75.0" text="Descrição" />
                       <TableColumn fx:id="tabelaOutroPreco" prefWidth="75.0" text="Preço" />

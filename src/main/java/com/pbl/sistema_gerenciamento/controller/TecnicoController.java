@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 public class TecnicoController {
@@ -26,6 +27,9 @@ public class TecnicoController {
 
     @FXML
     private TableColumn<?, ?> tabelaNomes;
+
+    @FXML
+    private TableView<?> tabelaTecnicos;
 
     @FXML
     private TextField tecnicoEmail;

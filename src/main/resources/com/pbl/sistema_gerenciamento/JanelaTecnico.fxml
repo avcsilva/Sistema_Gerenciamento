@@ -52,7 +52,7 @@
             <Insets left="10.0" right="10.0" />
          </padding>
       </VBox>
-      <TableView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+      <TableView fx:id="tabelaTecnicos" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
         <columns>
           <TableColumn fx:id="tabelaNomes" prefWidth="75.0" text="Nome" />
             <TableColumn fx:id="tabelaEmails" prefWidth="75.0" text="E-mail" />

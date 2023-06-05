@@ -44,8 +44,10 @@
       </VBox>
       <TableView prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
         <columns>
-          <TableColumn fx:id="tabelaPrecos" prefWidth="75.0" text="Preço" />
-          <TableColumn fx:id="tabelaCustos" prefWidth="75.0" text="Custo" />
+          <TableColumn fx:id="tabelaPrecos" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="tabelaCustos" prefWidth="75.0" text="Status" />
+            <TableColumn prefWidth="75.0" text="Cliente" />
+            <TableColumn prefWidth="75.0" text="Técnico" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 
 public class GereMontagemController {
 
@@ -12,6 +13,12 @@ public class GereMontagemController {
 
     @FXML
     private Button btnRmv;
+
+    @FXML
+    private TableView<?> tabelaCompsOut;
+
+    @FXML
+    private TableView<?> tabelaCompsPC;
 
     @FXML
     private TableColumn<?, ?> tabelaOutroCusto;
