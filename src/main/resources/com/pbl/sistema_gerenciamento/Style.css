@@ -19,7 +19,7 @@
 /* Botões */
 .button {
   -fx-padding: 10px 20px;
-  -fx-background-color: var(--cor-primaria);
+  -fx-background-color: #007bff;
   -fx-text-fill: #fff;
   -fx-border-color: transparent;
   -fx-border-radius: 4px;
@@ -28,36 +28,36 @@
 }
 
 .button:hover {
-  -fx-background-color: var(--cor-destaque);
+  -fx-background-color: #0056b3;
 }
 
 /* Títulos */
 .title {
-  -fx-text-fill: var(--cor-primaria);
+  -fx-text-fill: #007bff;
 }
 
 /* Caixas de texto */
 .text-field {
   -fx-pref-width: 100%;
   -fx-padding: 10px;
-  -fx-border-color: var(--cor-secundaria);
+  -fx-border-color: #cce5ff;
   -fx-border-radius: 4px;
   -fx-transition: border-color 0.3s;
 }
 
 .text-field:focused {
   -fx-outline: none;
-  -fx-border-color: var(--cor-primaria);
+  -fx-border-color: #007bff;
 }
 
 /* Links */
 .hyperlink {
-  -fx-text-fill: var(--cor-primaria);
+  -fx-text-fill: #007bff;
   -fx-text-decoration: none;
 }
 
 .hyperlink:hover {
-  -fx-text-fill: var(--cor-destaque);
+  -fx-text-fill: #0056b3;
 }
 
 
