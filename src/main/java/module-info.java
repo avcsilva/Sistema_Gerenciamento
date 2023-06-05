@@ -10,6 +10,7 @@ module com.pbl.sistema_gerenciamento {
     requires org.kordamp.bootstrapfx.core;
     requires com.almasb.fxgl.all;
 
-    opens com.pbl.sistema_gerenciamento to javafx.fxml;
+    opens com.pbl.sistema_gerenciamento to javafx.fxml, javafx.graphics, javafx.base;
+    opens com.pbl.sistema_gerenciamento.controller to javafx.fxml, javafx.graphics, javafx.base;
     exports com.pbl.sistema_gerenciamento;
 }
