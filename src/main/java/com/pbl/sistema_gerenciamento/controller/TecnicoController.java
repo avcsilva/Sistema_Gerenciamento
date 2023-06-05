@@ -1,5 +1,9 @@
 package com.pbl.sistema_gerenciamento.controller;
 
+import com.pbl.sistema_gerenciamento.dao.DAO;
+import com.pbl.sistema_gerenciamento.model.Tecnico;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -7,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class TecnicoController {
 
@@ -23,13 +28,13 @@ public class TecnicoController {
     private Label erro_msg;
 
     @FXML
-    private TableColumn<?, ?> tabelaEmails;
+    private TableColumn<Tecnico, String> tabelaEmails;
 
     @FXML
-    private TableColumn<?, ?> tabelaNomes;
+    private TableColumn<Tecnico, String> tabelaNomes;
 
     @FXML
-    private TableView<?> tabelaTecnicos;
+    private TableView<Tecnico> tabelaTecnicos;
 
     @FXML
     private TextField tecnicoEmail;
@@ -37,19 +42,62 @@ public class TecnicoController {
     @FXML
     private TextField tecnicoNome;
 
+    private ObservableList<Tecnico> tecnicosLista;
+
     @FXML
     void btnApgAction(ActionEvent event) {
-
+        Tecnico tecnico = this.tabelaTecnicos.getSelectionModel().getSelectedItem();
+        if (tecnico == null){
+            this.erro_msg.setText("Selecione um técnico!");
+        } else{
+            DAO.getTecnicoDAO().deletar(tecnico.getId());
+            this.erro_msg.setText("Técnico removido com sucesso!");
+            this.tecnicosLista.remove(tecnico);
+        }
     }
 
     @FXML
     void btnAttAction(ActionEvent event) {
-
+        Tecnico tecnico = this.tabelaTecnicos.getSelectionModel().getSelectedItem();
+        if (tecnico == null){
+            this.erro_msg.setText("Selecione um técnico!");
+        } else{
+            if (tecnicoNome.getText().isEmpty() || tecnicoEmail.getText().isEmpty()) {
+                this.erro_msg.setText("Preencha todos os campos!");
+            } else{
+                tecnico.setNome(tecnicoNome.getText());
+                tecnico.setEmail(tecnicoEmail.getText());
+                DAO.getTecnicoDAO().atualizar(tecnico);
+                this.erro_msg.setText("Técnico atualizado com sucesso!");
+                this.tecnicosLista.set(this.tabelaTecnicos.getSelectionModel().getSelectedIndex(), tecnico);
+                this.tecnicoNome.clear();
+                this.tecnicoEmail.clear();
+            }
+        }
     }
 
     @FXML
     void btnCriaAction(ActionEvent event) {
+        if (tecnicoNome.getText().isEmpty() || tecnicoEmail.getText().isEmpty()) {
+            this.erro_msg.setText("Preencha todos os campos!");
+        } else{
+            Tecnico tecnico = new Tecnico(tecnicoNome.getText(), tecnicoEmail.getText());
+            DAO.getTecnicoDAO().criar(tecnico);
+            this.erro_msg.setText("Técnico criado com sucesso!");
+            this.tecnicosLista.add(tecnico);
+            this.tecnicoNome.clear();
+            this.tecnicoEmail.clear();
+        }
+    }
 
+    @FXML
+    void initialize() {
+        this.tecnicosLista = FXCollections.observableArrayList(DAO.getTecnicoDAO().acharTodos());
+
+        this.tabelaNomes.setCellValueFactory(new PropertyValueFactory<Tecnico, String>("nome"));
+        this.tabelaEmails.setCellValueFactory(new PropertyValueFactory<Tecnico, String>("email"));
+
+        this.tabelaTecnicos.setItems(tecnicosLista);
     }
 
 }
