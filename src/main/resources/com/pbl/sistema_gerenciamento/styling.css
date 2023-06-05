@@ -1,61 +1,54 @@
-.root {
-  --cor-primaria: #007bff; /* Azul principal */
-  --cor-secundaria: #cce5ff; /* Azul claro */
-  --cor-destaque: #0056b3; /* Azul escuro */
+.profile-layout{
+    -fx-background-color: #5E80EB;
+    -fx-background-radius: 0 0 50 50;
+
 }
 
-/* Estilos gerais da interface */
-.body {
-  -fx-font-family: Arial, sans-serif;
-  -fx-background-color: #f0f0f0; /* Cor de fundo */
+.profile-layout2{
+    -fx-background-color: #835EEB;
+    -fx-background-radius: 0 0 50 50;
+}
+.banner-layout{
+    -fx-background-color: #5E80EB;
+    -fx-background-radius: 50 50 50 50;
+
 }
 
-.container {
-  -fx-max-width: 800px;
-  -fx-margin: 0 auto;
-  -fx-padding: 20px;
+.banner-layout2{
+    -fx-background-color: #835EEB;
+    -fx-background-radius: 50 50 50 50;
+
 }
 
-/* Botões */
-.button {
-  -fx-padding: 10px 20px;
-  -fx-background-color: var(--cor-primaria);
-  -fx-text-fill: #fff;
-  -fx-border-color: transparent;
-  -fx-border-radius: 4px;
-  -fx-cursor: hand;
-  -fx-transition: background-color 0.3s;
+.button{
+
+    -fx-background-color: #5E80EB;
+    -fx-background-radius: 50;
+}
+.button2{
+
+    -fx-background-color: #835EEB;
+    -fx-background-radius: 50;
 }
 
-.button:hover {
-  -fx-background-color: var(--cor-destaque);
+.white-backgorund{
+
+     -fx-background-color: #fff;
+
 }
 
-/* Títulos */
-.title {
-  -fx-text-fill: var(--cor-primaria);
+
+.trasparent{
+
+    -fx-background-color: rgba(0,0,0,0);
+
 }
 
-/* Caixas de texto */
-.text-field {
-  -fx-pref-width: 100%;
-  -fx-padding: 10px;
-  -fx-border-color: var(--cor-secundaria);
-  -fx-border-radius: 4px;
-  -fx-transition: border-color 0.3s;
-}
+.text-field{
+    -fx-background-color: #fff;
+    -fx-background-radius: 50;
+    -fx-border-radius: 50;
+    -fx-border-color: #5E80EB;
+    -fx-border-width: 1px;
 
-.text-field:focused {
-  -fx-outline: none;
-  -fx-border-color: var(--cor-primaria);
-}
-
-/* Links */
-.hyperlink {
-  -fx-text-fill: var(--cor-primaria);
-  -fx-text-decoration: none;
-}
-
-.hyperlink:hover {
-  -fx-text-fill: var(--cor-destaque);
 }
