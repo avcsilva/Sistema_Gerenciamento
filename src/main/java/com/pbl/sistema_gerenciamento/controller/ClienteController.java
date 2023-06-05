@@ -57,7 +57,14 @@ public class ClienteController {
      */
     @FXML
     void btnApgAction(ActionEvent event) {
-
+        Cliente cliente = this.tabelaClientes.getSelectionModel().getSelectedItem();
+        if (cliente == null) {
+            this.erro_msg.setText("Selecione um cliente!");
+        } else {
+            int id = cliente.getId();
+            this.clientesLista.remove(cliente);
+            DAO.getClienteDAO().deletar(id);
+        }
     }
 
     /**
@@ -66,8 +73,27 @@ public class ClienteController {
      */
     @FXML
     void btnAttAction(ActionEvent event) {
-
+        Cliente cliente = this.tabelaClientes.getSelectionModel().getSelectedItem();
+        if (cliente == null) {
+            this.erro_msg.setText("Selecione um cliente!");
+        } else {
+            if (clienteNome.getText().isEmpty() || clienteEndereco.getText().isEmpty() || clienteTelefone.getText().isEmpty() || clienteEmail.getText().isEmpty()) {
+                this.erro_msg.setText("Preencha todos os campos!");
+            } else {
+                cliente.setNome(clienteNome.getText());
+                cliente.setEndereco(clienteEndereco.getText());
+                cliente.setTelefone(clienteTelefone.getText());
+                cliente.setEmail(clienteEmail.getText());
+                DAO.getClienteDAO().atualizar(cliente);
+                this.erro_msg.setText("Cliente atualizado com sucesso!");
+                this.clienteEmail.clear();
+                this.clienteEndereco.clear();
+                this.clienteNome.clear();
+                this.clienteTelefone.clear();
+            }
+        }
     }
+
 
     /**
      * Cria um novo cliente
