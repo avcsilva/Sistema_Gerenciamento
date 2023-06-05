@@ -12,5 +12,6 @@ module com.pbl.sistema_gerenciamento {
 
     opens com.pbl.sistema_gerenciamento to javafx.fxml, javafx.graphics, javafx.base;
     opens com.pbl.sistema_gerenciamento.controller to javafx.fxml, javafx.graphics, javafx.base;
+    opens com.pbl.sistema_gerenciamento.model to javafx.fxml, javafx.graphics, javafx.base;
     exports com.pbl.sistema_gerenciamento;
 }
