@@ -62,9 +62,8 @@ public class ClienteController {
         if (cliente == null) {
             this.erro_msg.setText("Selecione um cliente!");
         } else {
-            int id = cliente.getId();
             this.clientesLista.remove(cliente);
-            DAO.getClienteDAO().deletar(id);
+            DAO.getClienteDAO().deletar(cliente.getId());
             this.erro_msg.setText("Cliente apagado com sucesso!");
         }
     }
