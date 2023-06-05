@@ -54,8 +54,8 @@
       </VBox>
       <TableView fx:id="tabelaTecnicos" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
         <columns>
-          <TableColumn fx:id="tabelaNomes" prefWidth="75.0" style="-fx-background-color: #ffff;" text="Nome" />
-            <TableColumn fx:id="tabelaEmails" prefWidth="75.0" style="-fx-background-color: #ffff;" text="E-mail" />
+          <TableColumn fx:id="tabelaNomes" prefWidth="75.0" style="-fx-background-color: #ffff; -fx-border-color: #000000;" text="Nome" />
+            <TableColumn fx:id="tabelaEmails" prefWidth="75.0" style="-fx-background-color: #ffff; -fx-border-color: #000000;" text="E-mail" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
