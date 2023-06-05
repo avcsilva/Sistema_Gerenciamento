@@ -1,0 +1,68 @@
+/* Definição das cores principais */
+.root {
+    --cor-primaria: #007bff; /* Azul principal */
+    --cor-secundaria: #cce5ff; /* Azul claro */
+    --cor-destaque: #0056b3; /* Azul escuro */
+}
+
+/* Estilos gerais da interface */
+.body {
+    -fx-font-family: Arial, sans-serif;
+    -fx-background-color: #f0f0f0; /* Cor de fundo */
+}
+
+.container {
+    -fx-max-width: 800px;
+    -fx-margin: 0 auto;
+    -fx-padding: 20px;
+}
+
+/* Botões */
+.button {
+    -fx-padding: 10px 20px;
+    -fx-background-color: var(--cor-primaria);
+    -fx-text-fill: #fff;
+    -fx-border-color: transparent;
+    -fx-border-radius: 4px;
+    -fx-cursor: hand;
+    -fx-transition: background-color 0.3s;
+}
+
+.button:hover {
+    -fx-background-color: var(--cor-destaque);
+}
+
+/* Títulos */
+.title {
+    -fx-text-fill: var(--cor-primaria);
+}
+
+/* Caixas de texto */
+.text-field {
+    -fx-pref-width: 100%;
+    -fx-padding: 10px;
+    -fx-border-color: var(--cor-secundaria);
+    -fx-border-radius: 4px;
+    -fx-transition: border-color 0.3s;
+}
+
+.text-field {
+    -fx-outline: none;
+    -fx-border-color: var(--cor-primaria);
+}
+
+/* Links */
+.hyperlink {
+    -fx-text-fill: var(--cor-primaria);
+    -fx-text-decoration: none;
+}
+
+.hyperlink:hover {
+    -fx-text-fill: var(--cor-destaque);
+}
+
+
+
+
+
+
