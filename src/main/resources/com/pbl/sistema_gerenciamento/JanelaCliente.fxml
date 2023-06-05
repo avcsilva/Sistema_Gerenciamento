@@ -46,9 +46,9 @@
             <Separator prefWidth="200.0" />
             <HBox alignment="CENTER" spacing="30.0">
                <children>
-                  <Button fx:id="btnCria" mnemonicParsing="false" onAction="#btnCriaAction" style="-fx-border-color: #22ae24; -fx-background-color: #1F3352;" text="Criar" textFill="#22ae24" />
+                  <Button fx:id="btnCria" mnemonicParsing="false" onAction="#btnCriaAction" style="-fx-border-color: #00ff00; -fx-background-color: #1F3352;" text="Criar" textFill="LIME" />
                   <Button fx:id="btnAtt" mnemonicParsing="false" onAction="#btnAttAction" style="-fx-background-color: #1F3352; -fx-border-color: #00eeff;" text="Atualizar" textFill="#00eeff" />
-                  <Button fx:id="btnApg" mnemonicParsing="false" onAction="#btnApgAction" style="-fx-background-color: #1F3352; -fx-border-color: #ff2121;" text="Apagar" textFill="#ff2121" />
+                  <Button fx:id="btnApg" mnemonicParsing="false" onAction="#btnApgAction" style="-fx-background-color: #1F3352; -fx-border-color: #ff0000;" text="Apagar" textFill="#ff0000f0" />
                </children>
             </HBox>
          </children>
