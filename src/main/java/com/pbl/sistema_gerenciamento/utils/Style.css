@@ -12,7 +12,7 @@
 }
 
 .container {
-    -fx max-width: 800px;
+    -fx-max-width: 800px;
     -fx-margin: 0 auto;
     -fx-padding: 20px;
 }
