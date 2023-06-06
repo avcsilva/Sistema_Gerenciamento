@@ -22,10 +22,10 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </TextField>
-            <Button fx:id="btncontinuar" layoutX="182.0" layoutY="361.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="96.0" style="-fx-background-color: #13233D; -fx-background-radius: 5cm; -fx-border-color: #ffff; -fx-border-radius: 5cm;" stylesheets="@../../../Documents/GitHub/Sistema_Gerenciamento/src/main/java/com/pbl/sistema_gerenciamento/utils/Style.css" text="continuar" textFill="WHITE" />
+            <Button fx:id="btncontinuar" layoutX="182.0" layoutY="361.0" mnemonicParsing="false" onAction="#btncontinuarAction" prefHeight="32.0" prefWidth="96.0" style="-fx-background-color: #13233D; -fx-background-radius: 5cm; -fx-border-color: #ffff; -fx-border-radius: 5cm;" stylesheets="@../../../Documents/GitHub/Sistema_Gerenciamento/src/main/java/com/pbl/sistema_gerenciamento/utils/Style.css" text="continuar" textFill="WHITE" />
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="130.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../Documents/GitHub/Sistema_Gerenciamento/src/main/resources/com/pbl/sistema_gerenciamento/png_login_sem_fundo.png" />
+                  <Image url="@png_login_sem_fundo.png" />
                </image>
             </ImageView>
             <Label fx:id="erro" layoutX="150.0" layoutY="316.0" textFill="#ff4242" />
@@ -33,7 +33,7 @@
       </Pane>
       <ImageView fitHeight="424.0" fitWidth="447.0" layoutX="28.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../Documents/GitHub/Sistema_Gerenciamento/src/main/resources/com/pbl/sistema_gerenciamento/img_computador.png" />
+            <Image url="@img_computador.png" />
          </image>
       </ImageView>
    </children>
