@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pbl.sistema_gerenciamento.controller.RecepcionistaController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pbl.sistema_gerenciamento.controller.RecepcionistaController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -32,9 +32,9 @@
             </Label>
             <Separator prefWidth="200.0" />
             <Label text="Nome" textFill="WHITE" />
-            <TextField fx:id="recepcionistaNome" style="-fx-background-color: #13233D; -fx-border-color: #ffff; -fx-background-radius: 0.25cm; -fx-border-radius: 0.25cm;" />
+            <TextField fx:id="recepcionistaNome" style="-fx-background-color: #13233D; -fx-border-color: #ffff; -fx-background-radius: 0.25cm; -fx-border-radius: 0.25cm; -fx-text-inner-color: #ffff;" />
             <Label layoutX="10.0" layoutY="136.0" text="E-mail" textFill="WHITE" />
-            <TextField fx:id="recepcionistaEmail" layoutX="10.0" layoutY="153.0" style="-fx-background-color: #13233D; -fx-border-color: #ffff; -fx-border-radius: 0.25cm; -fx-background-radius: 0.25cm;" />
+            <TextField fx:id="recepcionistaEmail" layoutX="10.0" layoutY="153.0" style="-fx-background-color: #13233D; -fx-border-color: #ffff; -fx-border-radius: 0.25cm; -fx-background-radius: 0.25cm; -fx-text-inner-color: #ffff;" />
             <Label fx:id="erro_msg" textFill="RED">
                <font>
                   <Font name="System Bold" size="12.0" />
