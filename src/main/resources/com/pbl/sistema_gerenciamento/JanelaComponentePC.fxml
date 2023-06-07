@@ -59,10 +59,10 @@
       </VBox>
       <TableView fx:id="tabelaCompPC" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
         <columns>
-          <TableColumn fx:id="tabelaNomes" prefWidth="75.0" style="-fx-background-color: #ffff; -fx-border-color: #000000;" text="Nome" />
-          <TableColumn fx:id="tabelaFabricantes" prefWidth="75.0" style="-fx-background-color: #ffff; -fx-border-color: #000000;" text="Fabricante" />
-            <TableColumn fx:id="tabelaPrecos" prefWidth="75.0" style="-fx-background-color: #fff; -fx-border-color: #000000;" text="Preço" />
-            <TableColumn fx:id="tabelaCustos" prefWidth="75.0" style="-fx-background-color: #ffff; -fx-border-color: #000000;" text="Custo" />
+          <TableColumn fx:id="tabelaNomes" prefWidth="75.0" style="-fx-selection-bar: lightblue; -fx-selection-bar-non-focused: gray;" text="Nome" />
+          <TableColumn fx:id="tabelaFabricantes" prefWidth="75.0" style="-fx-selection-bar: lightblue; -fx-selection-bar-non-focused: gray;" text="Fabricante" />
+            <TableColumn fx:id="tabelaPrecos" prefWidth="75.0" style="-fx-selection-bar: lightblue; -fx-selection-bar-non-focused: gray;" text="Preço" />
+            <TableColumn fx:id="tabelaCustos" prefWidth="75.0" style="-fx-selection-bar: lightblue; -fx-selection-bar-non-focused: gray;" text="Custo" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
