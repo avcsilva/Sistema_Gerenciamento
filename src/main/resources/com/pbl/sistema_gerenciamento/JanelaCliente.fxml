@@ -56,9 +56,9 @@
             <Insets left="10.0" right="10.0" />
          </padding>
       </VBox>
-      <TableView fx:id="tabelaClientes" editable="true" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffff; -fx-selection-bar: #000000;" GridPane.columnIndex="1">
+      <TableView fx:id="tabelaClientes" editable="true" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffff; -fx-selection-bar-non-focused: #000000;" GridPane.columnIndex="1">
         <columns>
-          <TableColumn fx:id="tabelaNomes" prefWidth="75.0" style="-fx-background-color: #ffff; -fx-border-color: #000000; -fx-selection-bar: #000000;" text="Nome" />
+          <TableColumn fx:id="tabelaNomes" prefWidth="75.0" style="-fx-background-color: #ffff; -fx-border-color: #000000; -fx-selection-bar-non-focused: #000000;" text="Nome" />
           <TableColumn fx:id="tabelaEnderecos" prefWidth="75.0" style="-fx-background-color: #ffff; -fx-border-color: #000000;" text="Endereço" />
             <TableColumn fx:id="tabelaTelefones" prefWidth="75.0" style="-fx-background-color: #ffff; -fx-border-color: #000000;" text="Telefone" />
             <TableColumn fx:id="tabelaEmails" prefWidth="75.0" style="-fx-background-color: #ffff; -fx-border-color: #000000;" text="E-mail" />
