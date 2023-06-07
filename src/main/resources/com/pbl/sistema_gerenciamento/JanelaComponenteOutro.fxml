@@ -55,11 +55,11 @@
             <Insets left="10.0" right="10.0" />
          </padding>
       </VBox>
-      <TableView fx:id="tabelaCompOut" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+      <TableView fx:id="tabelaCompOut" prefHeight="200.0" prefWidth="200.0" style="-fx-selection-bar: lightblue; -fx-selection-bar-non-focused: gray;" GridPane.columnIndex="1">
         <columns>
-          <TableColumn fx:id="tabelaDescricoes" prefWidth="75.0" style="-fx-background-color: #ffff;" text="Descrição" />
-            <TableColumn fx:id="tabelaPrecos" prefWidth="75.0" style="-fx-background-color: #ffff;" text="Preço" />
-            <TableColumn fx:id="tabelaCustos" prefWidth="75.0" style="-fx-background-color: #ffff;" text="Custo" />
+          <TableColumn fx:id="tabelaDescricoes" prefWidth="75.0" text="Descrição" />
+            <TableColumn fx:id="tabelaPrecos" prefWidth="75.0" text="Preço" />
+            <TableColumn fx:id="tabelaCustos" prefWidth="75.0" text="Custo" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
