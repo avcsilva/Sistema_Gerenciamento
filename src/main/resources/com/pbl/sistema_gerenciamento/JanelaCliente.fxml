@@ -58,10 +58,10 @@
       </VBox>
       <TableView fx:id="tabelaClientes" editable="true" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffff; -fx-selection-bar: lightblue; -fx-selection-bar-non-focused: salmon;" GridPane.columnIndex="1">
         <columns>
-          <TableColumn fx:id="tabelaNomes" prefWidth="75.0" text="Nome" />
-          <TableColumn fx:id="tabelaEnderecos" prefWidth="75.0" text="Endereço" />
-            <TableColumn fx:id="tabelaTelefones" prefWidth="75.0" text="Telefone" />
-            <TableColumn fx:id="tabelaEmails" prefWidth="75.0" text="E-mail" />
+          <TableColumn fx:id="tabelaNomes" prefWidth="75.0" style="-fx-background-color: #ffff;" text="Nome" />
+          <TableColumn fx:id="tabelaEnderecos" prefWidth="75.0" style="-fx-background-color: #ffff;" text="Endereço" />
+            <TableColumn fx:id="tabelaTelefones" prefWidth="75.0" style="-fx-background-color: #ffff;" text="Telefone" />
+            <TableColumn fx:id="tabelaEmails" prefWidth="75.0" style="-fx-background-color: #ffff;" text="E-mail" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
