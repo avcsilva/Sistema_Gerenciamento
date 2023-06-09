@@ -37,6 +37,7 @@
                   <Button fx:id="btnApg" mnemonicParsing="false" onAction="#btnApgAction" text="Apagar" />
                </children>
             </HBox>
+            <Label fx:id="erro_msg" alignment="CENTER" textFill="RED" />
          </children>
          <padding>
             <Insets left="10.0" right="10.0" />
