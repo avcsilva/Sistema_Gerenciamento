@@ -58,7 +58,7 @@ public class InstalacaoController {
         }else{
             this.instalacaoList.remove(instalacao);
             DAO.getInstalacaoDAO().deletar(instalacao.getId());
-            this.erro_msg.setText("Instação removida com sucesso");
+            this.erro_msg.setText("Instalação removida com sucesso");
         }
     }
 
