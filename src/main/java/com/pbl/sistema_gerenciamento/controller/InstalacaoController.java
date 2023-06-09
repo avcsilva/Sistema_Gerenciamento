@@ -54,7 +54,7 @@ public class InstalacaoController {
     void btnApgAction(ActionEvent event) {
         Instalacao instalacao = this.tabelaInstals.getSelectionModel().getSelectedItem();
         if(instalacao ==  null){
-        this.erro_msg.setText("Instalação não selecionada");
+            this.erro_msg.setText("Instalação não selecionada");
         }else{
             this.instalacaoList.remove(instalacao);
             DAO.getInstalacaoDAO().deletar(instalacao.getId());
@@ -64,14 +64,49 @@ public class InstalacaoController {
 
     @FXML
     void btnAttAction(ActionEvent event) {
-        Inst
-
-
+        Instalacao instalacao = this.tabelaInstals.getSelectionModel().getSelectedItem();
+        if(instalacao == null){
+            this.erro_msg.setText("Instalação não selecionada");
+        }else{
+            if (this.instalacaoPreco.getText().isEmpty() || this.instalacaoSO.getText().isEmpty() || this.instalacaoPrograma.getText().isEmpty()) {
+                try {
+                    instalacao.setPreco(Double.parseDouble(this.instalacaoPreco.getText()));
+                    instalacao.setPrograma(this.instalacaoPrograma.getText());
+                    instalacao.setSistemaOperacional(this.instalacaoSO.getText());
+                    DAO.getInstalacaoDAO().atualizar(instalacao);
+                    this.instalacaoList.set(this.tabelaInstals.getSelectionModel().getSelectedIndex(), instalacao);
+                    this.erro_msg.setText("Instalação atualizada com sucesso");
+                    this.instalacaoSO.clear();
+                    this.instalacaoPreco.clear();
+                    this.instalacaoPrograma.clear();
+                } catch (NumberFormatException e) {
+                    this.erro_msg.setText("Preço inválido");
+                }
+            } else {
+                this.erro_msg.setText("Preencha todos os campos");
+            }
+        }
     }
 
     @FXML
     void btnCriaAction(ActionEvent event) {
-
+        if (this.instalacaoPreco.getText().isEmpty() || this.instalacaoSO.getText().isEmpty() || this.instalacaoPrograma.getText().isEmpty()){
+            this.erro_msg.setText("Preencha todos os campos!");
+        } else{
+            try{
+                Instalacao instalacao = new Instalacao(Double.parseDouble(this.instalacaoPreco.getText()));
+                instalacao.setPrograma(this.instalacaoPrograma.getText());
+                instalacao.setSistemaOperacional(this.instalacaoSO.getText());
+                DAO.getInstalacaoDAO().criar(instalacao);
+                this.instalacaoList.add(instalacao);
+                this.erro_msg.setText("Instalação criada com sucesso!");
+                this.instalacaoSO.clear();
+                this.instalacaoPreco.clear();
+                this.instalacaoPrograma.clear();
+            } catch (NumberFormatException e){
+                this.erro_msg.setText("Preço inválido!");
+            }
+        }
     }
 
     @FXML
