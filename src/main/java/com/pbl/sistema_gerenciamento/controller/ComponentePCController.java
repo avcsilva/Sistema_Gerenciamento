@@ -98,14 +98,18 @@ public class ComponentePCController {
         if (this.componentepcNome.getText().isEmpty() || this.componentepcFabricante.getText().isEmpty() || this.componentepcPreco.getText().isEmpty() || this.componentepcCusto.getText().isEmpty()){
             this.erro_msg.setText("Preencha todos os campos!");
         } else{
-            ComponentePC componentePC = new ComponentePC(Double.parseDouble(this.componentepcPreco.getText()), Double.parseDouble(this.componentepcCusto.getText()), this.componentepcNome.getText(), this.componentepcFabricante.getText());
-            DAO.getComponentePCDAO().criar(componentePC);
-            this.componentespcLista.add(componentePC);
-            this.componentepcNome.clear();
-            this.componentepcFabricante.clear();
-            this.componentepcPreco.clear();
-            this.componentepcCusto.clear();
-            this.erro_msg.setText("ComponentePC criado com sucesso!");
+            try {
+                ComponentePC componentePC = new ComponentePC(Double.parseDouble(this.componentepcPreco.getText()), Double.parseDouble(this.componentepcCusto.getText()), this.componentepcNome.getText(), this.componentepcFabricante.getText());
+                DAO.getComponentePCDAO().criar(componentePC);
+                this.componentespcLista.add(componentePC);
+                this.componentepcNome.clear();
+                this.componentepcFabricante.clear();
+                this.componentepcPreco.clear();
+                this.componentepcCusto.clear();
+                this.erro_msg.setText("ComponentePC criado com sucesso!");
+            } catch (NumberFormatException e){
+                this.erro_msg.setText("Preço e custo devem ser números!");
+            }
         }
     }
 
