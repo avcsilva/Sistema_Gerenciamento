@@ -63,13 +63,10 @@ public class GereMontagemController {
     @FXML
     private TableColumn<ComponentePC, Double> tabelaPcPreco;
 
-    @FXML
     private ObservableList<ComponenteOutro> compsOutLista;
 
-    @FXML
     private ObservableList<ComponentePC> compsPCLista;
 
-    @FXML
     private Montagem montagem;
 
     @FXML
