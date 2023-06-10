@@ -33,7 +33,6 @@
             <HBox alignment="CENTER" spacing="30.0">
                <children>
                   <Button fx:id="btnCriar" mnemonicParsing="false" onAction="#btnCriarAction" text="Criar" />
-                  <Button fx:id="btnAtt" mnemonicParsing="false" onAction="#btnAttAction" text="Atualizar" />
                   <Button fx:id="btnApg" mnemonicParsing="false" onAction="#btnApgAction" text="Apagar" />
                </children>
             </HBox>
