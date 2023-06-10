@@ -17,13 +17,31 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class GereOrdemServicoController {
 
     @FXML
-    private Button btnAdd;
+    private Button btnAddCliente;
+
+    @FXML
+    private Button btnAddData;
+
+    @FXML
+    private Button btnAddInst;
+
+    @FXML
+    private Button btnAddLimp;
+
+    @FXML
+    private Button btnAddMont;
 
     @FXML
     private Button btnConfirm;
 
     @FXML
-    private Button btnRmv;
+    private Button btnRmvInst;
+
+    @FXML
+    private Button btnRmvLimp;
+
+    @FXML
+    private Button btnRmvMont;
 
     @FXML
     private ChoiceBox<Cliente> choiceCliente;
@@ -79,24 +97,118 @@ public class GereOrdemServicoController {
     private ObservableList<Instalacao> instalacoes = FXCollections.observableArrayList();
     private ObservableList<Limpeza> limpezas = FXCollections.observableArrayList();
     private ObservableList<Montagem> montagens = FXCollections.observableArrayList();
+    private OrdemServico ordemServico;
 
     @FXML
-    void btnAddAction(ActionEvent event) {
+    void btnAddClienteAction(ActionEvent event) {
+        Cliente cliente = this.choiceCliente.getSelectionModel().getSelectedItem();
+        if (cliente == null){
+            this.msg_erro.setText("Selecione um cliente");
+        } else {
+            this.ordemServico.setCliente(cliente);
+            this.clienteDefinido.setText(cliente.getNome());
+            this.msg_erro.setText("Cliente adicionado com sucesso!");
+        }
+    }
 
+    @FXML
+    void btnAddDataAction(ActionEvent event) {
+        if (this.dataCria.getText().isEmpty()){
+            this.msg_erro.setText("Insira uma data");
+        } else {
+            this.ordemServico.setCriacao(this.dataCria.getText());
+            this.dataDefinida.setText(this.dataCria.getText());
+            this.msg_erro.setText("Data adicionada com sucesso!");
+        }
+    }
+
+    @FXML
+    void btnAddInstAction(ActionEvent event) {
+        Instalacao instalacao = this.choiceInst.getSelectionModel().getSelectedItem();
+        if (instalacao == null){
+            this.msg_erro.setText("Selecione uma instalação");
+        } else {
+            this.instalacoes.add(instalacao);
+            this.ordemServico.adicionaServico(instalacao);
+            this.msg_erro.setText("Instalação adicionada com sucesso!");
+        }
+    }
+
+    @FXML
+    void btnAddLimpAction(ActionEvent event) {
+        Limpeza limpeza = this.choiceLimp.getSelectionModel().getSelectedItem();
+        if(limpeza == null){
+            this.msg_erro.setText("Selecione uma limpeza");
+        } else {
+            this.limpezas.add(limpeza);
+            this.ordemServico.adicionaServico(limpeza);
+            this.msg_erro.setText("Limpeza adicionada com sucesso!");
+        }
+
+    }
+
+    @FXML
+    void btnAddMontAction(ActionEvent event) {
+        Montagem montagem = this.choiceMont.getSelectionModel().getSelectedItem();
+        if (montagem == null){
+            this.msg_erro.setText("Selecione uma montagem");
+        } else{
+            this.montagens.add(montagem);
+            this.ordemServico.adicionaServico(montagem);
+            this.msg_erro.setText("Montagem adicionada com sucesso!");
+        }
     }
 
     @FXML
     void btnConfirmAction(ActionEvent event) {
-        
+        if (this.clienteDefinido.getText().isEmpty() || this.dataDefinida.getText().isEmpty()){
+            this.msg_erro.setText("Defina o cliente e a data da ordem de serviço");
+        } else {
+            DAO.getOrdemServicoDAO().criar(this.ordemServico);
+        }
     }
 
     @FXML
-    void btnRmvAction(ActionEvent event) {
+    void btnRmvInstAction(ActionEvent event) {
+        Instalacao instalacao = this.tabelaInstalacao.getSelectionModel().getSelectedItem();
+        if(instalacao == null){
+            this.msg_erro.setText("Selecione uma instalação");
+        } else{
+            this.instalacoes.remove(instalacao);
+            this.ordemServico.removeServico(instalacao.getId(), 1);
+            this.msg_erro.setText("Instalação removida com sucesso");
+        }
+
+    }
+
+    @FXML
+    void btnRmvLimpAction(ActionEvent event) {
+        Limpeza limpeza = this.tabelaLimpeza.getSelectionModel().getSelectedItem();
+        if (limpeza == null){
+            this.msg_erro.setText("Selecione uma limpeza");
+        } else{
+            this.limpezas.remove(limpeza);
+            this.ordemServico.removeServico(limpeza.getId(), 2);
+            this.msg_erro.setText("Limpeza removida com sucesso!");
+        }
+    }
+
+    @FXML
+    void btnRmvMontAction(ActionEvent event) {
+        Montagem montagem = this.tabelaMontagem.getSelectionModel().getSelectedItem();
+        if (montagem == null){
+            this.msg_erro.setText("Selecione uma montagem");
+        } else{
+            this.montagens.remove(montagem);
+            this.ordemServico.removeServico(montagem.getId(), 3);
+            this.msg_erro.setText("Montagem removida com sucesso!");
+        }
     }
 
     @FXML
     void initialize(){
-        OrdemServico ordemServico = new OrdemServico(null, null);
+        this.ordemServico = new OrdemServico(null, null);
+        this.ordemServico.setStatus("Aberta");
 
         this.instalacoes = FXCollections.observableArrayList();
         this.limpezas = FXCollections.observableArrayList();
@@ -122,5 +234,4 @@ public class GereOrdemServicoController {
         this.tabelaLimpeza.setItems(this.limpezas);
         this.tabelaMontagem.setItems(this.montagens);
     }
-
 }
