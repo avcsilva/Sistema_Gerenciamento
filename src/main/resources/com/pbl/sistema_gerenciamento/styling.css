@@ -3,13 +3,15 @@
     -fx-background-color: #1F3352;
     -fx-background-radius: 50;
     -fx-border-color: #00eeff;
+    -fx-border-radius: 50;
 }
 
 .button_confirmar:hover{
 
-    -fx-background-color: #648AFC;
+    -fx-background-color: #3F96CB;
     -fx-background-radius: 50;
     -fx-border-color: #00eeff;
+    -fx-border-radius: 50;
 }
 
 .button_cancelar{
@@ -17,12 +19,14 @@
     -fx-background-color: #1F3352;
     -fx-background-radius: 50;
     -fx-border-color: #ff0000;
+    -fx-border-radius: 50;
 }
 .button_cancelar:hover{
 
-    -fx-background-color: #648AFC;
+    -fx-background-color: #3F96CB;
     -fx-background-radius: 50;
     -fx-border-color: #ff0000;
+    -fx-border-radius: 50;
 }
 
 .button_criar{
@@ -30,11 +34,13 @@
     -fx-background-color: #1F3352;
     -fx-background-radius: 50;
     -fx-border-color: #00ff00;
+    -fx-border-radius: 50;
 }
 .button_criar:hover{
 
-    -fx-background-color: #648AFC;
-    -fx-background-radius: 50;
+    -fx-background-color: #3F96CB;
+    -fx-background-radius: 0;
     -fx-border-color: #00ff00;
+    -fx-border-radius: 50;
 }
 
