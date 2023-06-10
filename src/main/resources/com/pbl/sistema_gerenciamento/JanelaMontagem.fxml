@@ -22,9 +22,9 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" style="-fx-background-color: #1F3352;">
          <children>
-            <Label text="Montagens">
+            <Label text="Montagens" textFill="WHITE">
                <font>
                   <Font size="25.0" />
                </font>
@@ -32,8 +32,8 @@
             <Separator prefWidth="200.0" />
             <HBox alignment="CENTER" spacing="30.0">
                <children>
-                  <Button fx:id="btnCriar" mnemonicParsing="false" onAction="#btnCriarAction" text="Criar" />
-                  <Button fx:id="btnApg" mnemonicParsing="false" onAction="#btnApgAction" text="Apagar" />
+                  <Button fx:id="btnCriar" mnemonicParsing="false" onAction="#btnCriarAction" style="-fx-border-color: #00eeff; -fx-background-color: #1F3352;" text="Criar" textFill="#00eeff" />
+                  <Button fx:id="btnApg" mnemonicParsing="false" onAction="#btnApgAction" style="-fx-border-color: #ff0000; -fx-background-color: #1F3352;" text="Apagar" textFill="RED" />
                </children>
             </HBox>
             <Label fx:id="erro_msg" alignment="CENTER" textFill="RED" />
