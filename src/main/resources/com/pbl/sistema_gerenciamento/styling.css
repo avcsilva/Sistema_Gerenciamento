@@ -39,7 +39,7 @@
 .button_criar:hover{
 
     -fx-background-color: #3F96CB;
-    -fx-background-radius: 0;
+    -fx-background-radius: 50;
     -fx-border-color: #00ff00;
     -fx-border-radius: 50;
 }
