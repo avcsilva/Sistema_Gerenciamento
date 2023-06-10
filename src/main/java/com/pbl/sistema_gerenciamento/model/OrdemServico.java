@@ -166,6 +166,10 @@ public class OrdemServico implements Serializable {
         return cliente;
     }
 
+    public String getClienteNome() {
+        return cliente.getNome();
+    }
+
     /**
      * Define o Cliente relacionado à Ordem de Serviço
      *

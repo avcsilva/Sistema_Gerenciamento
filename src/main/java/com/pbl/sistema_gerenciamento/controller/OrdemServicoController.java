@@ -29,7 +29,7 @@ public class OrdemServicoController {
     private TableColumn<OrdemServico, Cliente> colunaNomeCliente;
 
     @FXML
-    private TableColumn<OrdemServico, Tecnico> colunaNomeTecnico;
+    private TableColumn<OrdemServico, String> colunaData;
 
     @FXML
     private TableColumn<OrdemServico, String> colunaStatus;
@@ -62,10 +62,12 @@ public class OrdemServicoController {
     @FXML
     void initialize(){
         this.ordensLista = FXCollections.observableArrayList(DAO.getOrdemServicoDAO().acharTodos());
+
         this.colunaId.setCellValueFactory(new PropertyValueFactory<OrdemServico, Integer>("id"));
-        this.colunaNomeCliente.setCellValueFactory(new PropertyValueFactory<OrdemServico, Cliente>("cliente"));
-        this.colunaNomeTecnico.setCellValueFactory(new PropertyValueFactory<OrdemServico, Tecnico>("tecnico"));
+        this.colunaNomeCliente.setCellValueFactory(new PropertyValueFactory<OrdemServico, Cliente>("clienteNome"));
+        this.colunaData.setCellValueFactory(new PropertyValueFactory<OrdemServico, String>("criacao"));
         this.colunaStatus.setCellValueFactory(new PropertyValueFactory<OrdemServico, String>("status"));
+
         this.tabelaOrdens.setItems(this.ordensLista);
     }
 
