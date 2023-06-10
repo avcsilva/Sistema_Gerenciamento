@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="982.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pbl.sistema_gerenciamento.controller.GereOrdemServicoController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pbl.sistema_gerenciamento.controller.GereOrdemServicoController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -111,9 +111,9 @@
                </font>
             </Label>
             <ChoiceBox fx:id="choiceCliente" prefWidth="150.0" />
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox>
                <children>
-                  <Button mnemonicParsing="false" text="Button" />
+                  <Button fx:id="btnAddCliente" mnemonicParsing="false" onAction="#btnAddClienteAction" text="Adicionar" />
                </children>
             </HBox>
             <Separator prefWidth="200.0" />
@@ -123,10 +123,10 @@
                </font>
             </Label>
             <ChoiceBox fx:id="choiceInst" prefWidth="150.0" />
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox>
                <children>
-                  <Button mnemonicParsing="false" text="Button" />
-                  <Button mnemonicParsing="false" text="Button" />
+                  <Button fx:id="btnAddInst" mnemonicParsing="false" onAction="#btnAddInstAction" text="Adicionar" />
+                  <Button fx:id="btnRmvInst" mnemonicParsing="false" onAction="#btnRmvInstAction" text="Remover" />
                </children>
             </HBox>
             <Separator prefWidth="200.0" />
@@ -136,10 +136,10 @@
                </font>
             </Label>
             <ChoiceBox fx:id="choiceLimp" prefWidth="150.0" />
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox>
                <children>
-                  <Button mnemonicParsing="false" text="Button" />
-                  <Button mnemonicParsing="false" text="Button" />
+                  <Button fx:id="btnAddLimp" mnemonicParsing="false" onAction="#btnAddLimpAction" text="Adicionar" />
+                  <Button fx:id="btnRmvLimp" mnemonicParsing="false" onAction="#btnRmvLimpAction" text="Remover" />
                </children>
             </HBox>
             <Separator prefWidth="200.0" />
@@ -149,10 +149,10 @@
                </font>
             </Label>
             <ChoiceBox fx:id="choiceMont" prefWidth="150.0" />
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox>
                <children>
-                  <Button mnemonicParsing="false" text="Button" />
-                  <Button mnemonicParsing="false" text="Button" />
+                  <Button fx:id="btnAddMont" mnemonicParsing="false" onAction="#btnAddMontAction" text="Adicionar" />
+                  <Button fx:id="btnRmvMont" mnemonicParsing="false" onAction="#btnRmvMontAction" text="Remover" />
                </children>
             </HBox>
             <Separator prefWidth="200.0" />
@@ -166,7 +166,7 @@
                   <TextField fx:id="dataCria" promptText="Inserir data" />
                </children>
             </HBox>
-            <Button mnemonicParsing="false" text="Button" />
+            <Button fx:id="btnAddData" mnemonicParsing="false" onAction="#btnAddDataAction" text="Adicionar" />
             <Label fx:id="msg_erro" textFill="RED" />
             <Separator prefWidth="200.0" />
             <HBox alignment="CENTER">
