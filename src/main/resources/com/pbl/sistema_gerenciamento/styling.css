@@ -1,17 +1,17 @@
 .button_confirmar{
 
     -fx-background-color: #1F3352;
-    -fx-background-radius: 50;
+    -fx-background-radius: 0;
     -fx-border-color: #00eeff;
-    -fx-border-radius: 50;
+    -fx-border-radius: 0;
 }
 
 .button_confirmar:hover{
 
     -fx-background-color: #3F96CB;
-    -fx-background-radius: 50;
+    -fx-background-radius: 0;
     -fx-border-color: #00eeff;
-    -fx-border-radius: 50;
+    -fx-border-radius: 0;
 }
 
 .button_cancelar{
