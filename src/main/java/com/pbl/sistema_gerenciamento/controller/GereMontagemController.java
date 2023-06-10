@@ -1,20 +1,27 @@
 package com.pbl.sistema_gerenciamento.controller;
 
+import com.pbl.sistema_gerenciamento.HelloApplication;
 import com.pbl.sistema_gerenciamento.dao.DAO;
 import com.pbl.sistema_gerenciamento.model.ComponenteOutro;
 import com.pbl.sistema_gerenciamento.model.ComponentePC;
 import com.pbl.sistema_gerenciamento.model.Montagem;
+import com.pbl.sistema_gerenciamento.utils.StageController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class GereMontagemController {
 
@@ -86,8 +93,16 @@ public class GereMontagemController {
 
     @FXML
     void btnConfirmAction(ActionEvent event) {
-        DAO.getMontagemDAO().criar(this.montagem);
-        //Mudar de volta para janela do MontagemController
+        try {
+            DAO.getMontagemDAO().criar(this.montagem);
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("JanelaMontagem.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = StageController.getStage(event);
+            stage.setScene(scene);
+            stage.centerOnScreen();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     @FXML
