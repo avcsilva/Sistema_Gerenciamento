@@ -71,6 +71,7 @@ public class OrdemServicoController {
             Stage stage = StageController.getStage(event);
             stage.setScene(scene);
             stage.centerOnScreen();
+            stage.setResizable(true);
         } catch (IOException e){
             e.printStackTrace();
         }
