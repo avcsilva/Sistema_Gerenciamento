@@ -67,4 +67,5 @@
     -fx-border-color: #ffffff;
     -fx-border-radius: 50;
 }
+.choice-box > .label { -fx-text-fill: white; }
 
