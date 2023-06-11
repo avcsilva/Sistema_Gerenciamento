@@ -61,10 +61,12 @@ public class ClienteController {
         Cliente cliente = this.tabelaClientes.getSelectionModel().getSelectedItem();
         if (cliente == null) {
             this.erro_msg.setText("Selecione um cliente!");
+            this.erro_msg.setStyle("-fx-text-fill: red;");
         } else {
             this.clientesLista.remove(cliente);
             DAO.getClienteDAO().deletar(cliente.getId());
             this.erro_msg.setText("Cliente apagado com sucesso!");
+            this.erro_msg.setStyle("-fx-text-fill: green;");
         }
     }
 
@@ -77,6 +79,7 @@ public class ClienteController {
         Cliente cliente = this.tabelaClientes.getSelectionModel().getSelectedItem();
         if (cliente == null) {
             this.erro_msg.setText("Selecione um cliente!");
+            this.erro_msg.setStyle("-fx-text-fill: red;");
         } else {
             if (clienteNome.getText().isEmpty() || clienteEndereco.getText().isEmpty() || clienteTelefone.getText().isEmpty() || clienteEmail.getText().isEmpty()) {
                 this.erro_msg.setText("Preencha todos os campos!");
@@ -88,6 +91,7 @@ public class ClienteController {
                 DAO.getClienteDAO().atualizar(cliente);
                 this.clientesLista.set(this.tabelaClientes.getSelectionModel().getSelectedIndex(), cliente);
                 this.erro_msg.setText("Cliente atualizado com sucesso!");
+                this.erro_msg.setStyle("-fx-text-fill: green;");
                 this.clienteEmail.clear();
                 this.clienteEndereco.clear();
                 this.clienteNome.clear();
