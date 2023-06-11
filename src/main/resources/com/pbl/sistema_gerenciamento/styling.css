@@ -10,12 +10,29 @@
 .button_confirmar:hover{
 
     -fx-background-color: #00eeff;
-    -fx-background-radius: 50;
+    -fx-background-radius: 20px;
     -fx-border-color: #00eeff;
-    -fx-border-radius: 50;
+    -fx-border-radius: 20px;
     -fx-text-fill: #ffffff;
 }
 
+.button_branco{
+
+    -fx-background-color: #1F3352;
+    -fx-background-radius: 20px;
+    -fx-border-color: #ffffff;
+    -fx-border-radius: 20px;
+    -fx-text-fill: #ffffff;
+}
+
+.button_branco:hover{
+
+    -fx-background-color: #00eeff;
+    -fx-background-radius: 20px;
+    -fx-border-color: #00eeff;
+    -fx-border-radius: 20px;
+    -fx-text-fill: #ffffff;
+}
 .button_cancelar{
 
     -fx-background-color: #1F3352;
