@@ -109,6 +109,7 @@ public class ClienteController {
             Cliente cliente = new Cliente(clienteNome.getText(), clienteEndereco.getText(), clienteTelefone.getText(), clienteEmail.getText());
             DAO.getClienteDAO().criar(cliente);
             this.erro_msg.setText("Cliente criado com sucesso!");
+            this.erro_msg.setStyle("-fx-text-fill: green;");
             this.clienteEmail.clear();
             this.clienteEndereco.clear();
             this.clienteNome.clear();
