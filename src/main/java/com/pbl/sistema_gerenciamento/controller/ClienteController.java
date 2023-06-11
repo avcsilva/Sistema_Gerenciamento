@@ -105,6 +105,7 @@ public class ClienteController {
     void btnCriaAction(ActionEvent event) {
         if (clienteNome.getText().isEmpty() || clienteEndereco.getText().isEmpty() || clienteTelefone.getText().isEmpty() || clienteEmail.getText().isEmpty()) {
             this.erro_msg.setText("Preencha todos os campos!");
+            this.erro_msg.setStyle("-fx-text-fill: red;");
         } else {
             Cliente cliente = new Cliente(clienteNome.getText(), clienteEndereco.getText(), clienteTelefone.getText(), clienteEmail.getText());
             DAO.getClienteDAO().criar(cliente);
