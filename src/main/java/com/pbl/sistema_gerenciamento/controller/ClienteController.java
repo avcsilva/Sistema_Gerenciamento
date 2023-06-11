@@ -83,6 +83,7 @@ public class ClienteController {
         } else {
             if (clienteNome.getText().isEmpty() || clienteEndereco.getText().isEmpty() || clienteTelefone.getText().isEmpty() || clienteEmail.getText().isEmpty()) {
                 this.erro_msg.setText("Preencha todos os campos!");
+                this.erro_msg.setStyle("-fx-text-fill: red;");
             } else {
                 cliente.setNome(clienteNome.getText());
                 cliente.setEndereco(clienteEndereco.getText());
