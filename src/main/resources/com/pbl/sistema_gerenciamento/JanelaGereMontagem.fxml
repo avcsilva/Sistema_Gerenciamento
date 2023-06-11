@@ -93,7 +93,7 @@
                   </Label>
                </children>
             </HBox>
-            <ChoiceBox fx:id="choiceCompPC" prefWidth="150.0" />
+            <ChoiceBox fx:id="choiceCompPC" prefWidth="150.0" stylesheets="@styling.css" />
             <HBox>
                <children>
                   <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
@@ -108,18 +108,18 @@
                   </Label>
                </children>
             </HBox>
-            <ChoiceBox fx:id="choiceCompOutr" prefWidth="150.0" />
+            <ChoiceBox fx:id="choiceCompOutr" prefWidth="150.0" stylesheets="@styling.css" />
             <Separator prefWidth="200.0" />
             <Label fx:id="erro_msg" textFill="RED" />
             <HBox alignment="CENTER" spacing="30.0">
                <children>
-                  <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#btnAddAction" style="-fx-border-color: #00ff00; -fx-background-color: #1F3352;" text="Adicionar" textFill="#00ff0d" />
-                  <Button fx:id="btnRmv" mnemonicParsing="false" onAction="#btnRmvAction" style="-fx-border-color: #ff0000; -fx-background-color: #1F3352;" text="Remover" textFill="RED" />
+                  <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#btnAddAction" styleClass="button_criar" stylesheets="@styling.css" text="Adicionar" textFill="#00ff0d" />
+                  <Button fx:id="btnRmv" mnemonicParsing="false" onAction="#btnRmvAction" styleClass="button_cancelar" stylesheets="@styling.css" text="Remover" textFill="RED" />
                </children>
             </HBox>
             <HBox alignment="CENTER">
                <children>
-                  <Button fx:id="btnConfirm" mnemonicParsing="false" onAction="#btnConfirmAction" style="-fx-border-color: #00eeff; -fx-background-color: #1F3352;" text="Confirmar" textFill="#00eeff" />
+                  <Button fx:id="btnConfirm" mnemonicParsing="false" onAction="#btnConfirmAction" styleClass="button_confirmar" stylesheets="@styling.css" text="Confirmar" textFill="#00eeff" />
                </children>
             </HBox>
          </children>

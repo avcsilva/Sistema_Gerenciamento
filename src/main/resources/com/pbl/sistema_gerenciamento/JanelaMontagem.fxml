@@ -6,6 +6,8 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -24,16 +26,25 @@
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" style="-fx-background-color: #1F3352;">
          <children>
-            <Label text="Montagens" textFill="WHITE">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Label>
+            <HBox>
+               <children>
+                  <ImageView fitHeight="51.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@setting.png" />
+                     </image>
+                  </ImageView>
+                  <Label text="Montagens" textFill="WHITE">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
             <Separator prefWidth="200.0" />
             <HBox alignment="CENTER" spacing="30.0">
                <children>
-                  <Button fx:id="btnCriar" mnemonicParsing="false" onAction="#btnCriarAction" style="-fx-border-color: #00eeff; -fx-background-color: #1F3352;" text="Criar" textFill="#00eeff" />
-                  <Button fx:id="btnApg" mnemonicParsing="false" onAction="#btnApgAction" style="-fx-border-color: #ff0000; -fx-background-color: #1F3352;" text="Apagar" textFill="RED" />
+                  <Button fx:id="btnCriar" mnemonicParsing="false" onAction="#btnCriarAction" styleClass="button_confirmar" stylesheets="@styling.css" text="Criar" textFill="#00eeff" />
+                  <Button fx:id="btnApg" mnemonicParsing="false" onAction="#btnApgAction" styleClass="button_cancelar" stylesheets="@styling.css" text="Apagar" textFill="RED" />
                </children>
             </HBox>
             <Label fx:id="erro_msg" alignment="CENTER" textFill="RED" />

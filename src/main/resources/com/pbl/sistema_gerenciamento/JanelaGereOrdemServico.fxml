@@ -49,10 +49,10 @@
                   </Label>
                </children>
             </HBox>
-            <ChoiceBox fx:id="choiceCliente" prefWidth="150.0" />
+            <ChoiceBox fx:id="choiceCliente" prefWidth="150.0" stylesheets="@styling.css" />
             <HBox>
                <children>
-                  <Button fx:id="btnAddCliente" mnemonicParsing="false" onAction="#btnAddClienteAction" style="-fx-border-color: #00eeff; -fx-background-color: #1F3352;" text="Adicionar" textFill="#00efff" />
+                  <Button fx:id="btnAddCliente" mnemonicParsing="false" onAction="#btnAddClienteAction" styleClass="button_confirmar" stylesheets="@styling.css" text="Adicionar" textFill="#00efff" />
                </children>
             </HBox>
             <Separator prefWidth="200.0" />
@@ -70,11 +70,11 @@
                   </Label>
                </children>
             </HBox>
-            <ChoiceBox fx:id="choiceInst" prefWidth="150.0" />
+            <ChoiceBox fx:id="choiceInst" prefWidth="150.0" stylesheets="@styling.css" />
             <HBox spacing="20.0">
                <children>
-                  <Button fx:id="btnAddInst" mnemonicParsing="false" onAction="#btnAddInstAction" style="-fx-border-color: #00eeff; -fx-background-color: #1F3352;" text="Adicionar" textFill="#00f4ff" />
-                  <Button fx:id="btnRmvInst" mnemonicParsing="false" onAction="#btnRmvInstAction" style="-fx-border-color: ff0000; -fx-background-color: #1F3352;" text="Remover" textFill="RED" />
+                  <Button fx:id="btnAddInst" mnemonicParsing="false" onAction="#btnAddInstAction" styleClass="button_confirmar" stylesheets="@styling.css" text="Adicionar" textFill="#00f4ff" />
+                  <Button fx:id="btnRmvInst" mnemonicParsing="false" onAction="#btnRmvInstAction" styleClass="button_cancelar" stylesheets="@styling.css" text="Remover" textFill="RED" />
                </children>
             </HBox>
             <HBox spacing="5.0">
@@ -91,11 +91,11 @@
                   </Label>
                </children>
             </HBox>
-            <ChoiceBox fx:id="choiceLimp" prefWidth="150.0" />
+            <ChoiceBox fx:id="choiceLimp" prefWidth="150.0" stylesheets="@styling.css" />
             <HBox spacing="20.0">
                <children>
-                  <Button fx:id="btnAddLimp" mnemonicParsing="false" onAction="#btnAddLimpAction" style="-fx-border-color: #00eeff; -fx-background-color: #1F3352;" text="Adicionar" textFill="#00f8ff" />
-                  <Button fx:id="btnRmvLimp" mnemonicParsing="false" onAction="#btnRmvLimpAction" style="-fx-border-color: ff0000; -fx-background-color: #1F3352;" text="Remover" textFill="RED" />
+                  <Button fx:id="btnAddLimp" mnemonicParsing="false" onAction="#btnAddLimpAction" styleClass="button_confirmar" stylesheets="@styling.css" text="Adicionar" textFill="#00f8ff" />
+                  <Button fx:id="btnRmvLimp" mnemonicParsing="false" onAction="#btnRmvLimpAction" styleClass="button_cancelar" stylesheets="@styling.css" text="Remover" textFill="RED" />
                </children>
             </HBox>
             <HBox spacing="5.0">
@@ -112,11 +112,11 @@
                   </Label>
                </children>
             </HBox>
-            <ChoiceBox fx:id="choiceMont" prefWidth="150.0" />
+            <ChoiceBox fx:id="choiceMont" prefWidth="150.0" stylesheets="@styling.css" />
             <HBox spacing="20.0">
                <children>
-                  <Button fx:id="btnAddMont" mnemonicParsing="false" onAction="#btnAddMontAction" style="-fx-border-color: #00eeff; -fx-background-color: #1F3352;" text="Adicionar" textFill="#00e1ff" />
-                  <Button fx:id="btnRmvMont" mnemonicParsing="false" onAction="#btnRmvMontAction" style="-fx-border-color: ff0000; -fx-background-color: #1F3352;" text="Remover" textFill="RED" />
+                  <Button fx:id="btnAddMont" mnemonicParsing="false" onAction="#btnAddMontAction" styleClass="button_confirmar" stylesheets="@styling.css" text="Adicionar" textFill="#00e1ff" />
+                  <Button fx:id="btnRmvMont" mnemonicParsing="false" onAction="#btnRmvMontAction" styleClass="button_cancelar" stylesheets="@styling.css" text="Remover" textFill="RED" />
                </children>
             </HBox>
             <Separator prefWidth="200.0" />
@@ -136,15 +136,15 @@
             </HBox>
             <HBox>
                <children>
-                  <TextField fx:id="dataCria" promptText="Inserir data" />
+                  <TextField fx:id="dataCria" promptText="Inserir data" styleClass="text-field" stylesheets="@styling.css" />
                </children>
             </HBox>
-            <Button fx:id="btnAddData" mnemonicParsing="false" onAction="#btnAddDataAction" style="-fx-border-color: #00eeff; -fx-background-color: #1F3352;" text="Adicionar" textFill="AQUA" />
+            <Button fx:id="btnAddData" mnemonicParsing="false" onAction="#btnAddDataAction" styleClass="button_confirmar" stylesheets="@styling.css" text="Adicionar" textFill="AQUA" />
             <Label fx:id="msg_erro" textFill="RED" />
             <Separator prefWidth="200.0" />
             <HBox alignment="CENTER">
                <children>
-                  <Button fx:id="btnConfirm" mnemonicParsing="false" onAction="#btnConfirmAction" style="-fx-border-color: #00eeff; -fx-background-color: #1F3352;" text="Confirmar" textFill="#00eeff" />
+                  <Button fx:id="btnConfirm" mnemonicParsing="false" onAction="#btnConfirmAction" styleClass="button_confirmar" stylesheets="@styling.css" text="Confirmar" textFill="#00eeff" />
                </children>
             </HBox>
          </children>

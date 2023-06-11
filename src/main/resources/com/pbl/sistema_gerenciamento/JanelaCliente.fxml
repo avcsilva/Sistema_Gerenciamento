@@ -32,13 +32,13 @@
             </Label>
             <Separator prefWidth="200.0" />
             <Label text="Nome" textFill="WHITE" />
-            <TextField fx:id="clienteNome" style="-fx-background-color: #13233D; -fx-background-radius: 0.25cm; -fx-border-color: #ffff; -fx-border-radius: 0.25cm; -fx-text-inner-color: #ffff;" />
+            <TextField fx:id="clienteNome" styleClass="text-field" stylesheets="@styling.css" />
             <Label text="Endereço" textFill="WHITE" />
-            <TextField fx:id="clienteEndereco" style="-fx-background-color: #13233D; -fx-background-radius: 0.25cm; -fx-border-radius: 0.25cm; -fx-border-color: #ffff; -fx-text-inner-color: #ffff;" />
+            <TextField fx:id="clienteEndereco" styleClass="text-field" stylesheets="@styling.css" />
             <Label layoutX="10.0" layoutY="92.0" text="Telefone" textFill="WHITE" />
-            <TextField fx:id="clienteTelefone" layoutX="10.0" layoutY="110.0" style="-fx-background-color: #13233D; -fx-border-color: #ffff; -fx-background-radius: 0.25cm; -fx-border-radius: 0.25cm; -fx-text-inner-color: #ffff;" />
+            <TextField fx:id="clienteTelefone" layoutX="10.0" layoutY="110.0" styleClass="text-field" stylesheets="@styling.css" />
             <Label layoutX="10.0" layoutY="136.0" text="E-mail" textFill="WHITE" />
-            <TextField fx:id="clienteEmail" layoutX="10.0" layoutY="153.0" style="-fx-background-color: #13233D; -fx-background-radius: 0.25cm; -fx-border-radius: 0.25cm; -fx-border-color: #ffff; -fx-text-inner-color: #ffff;" />
+            <TextField fx:id="clienteEmail" layoutX="10.0" layoutY="153.0" styleClass="text-field" stylesheets="@styling.css" />
             <Label fx:id="erro_msg" textFill="RED">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -46,9 +46,9 @@
             <Separator prefWidth="200.0" />
             <HBox alignment="CENTER" spacing="30.0">
                <children>
-                  <Button fx:id="btnCria" mnemonicParsing="false" onAction="#btnCriaAction" style="-fx-border-color: #00ff00; -fx-background-color: #1F3352;" styleClass="button_criar" stylesheets="@styling.css" text="Criar" textFill="LIME" />
-                  <Button fx:id="btnAtt" mnemonicParsing="false" onAction="#btnAttAction" style="-fx-background-color: #1F3352; -fx-border-color: #00eeff;" text="Atualizar" textFill="#00eeff" />
-                  <Button fx:id="btnApg" mnemonicParsing="false" onAction="#btnApgAction" style="-fx-background-color: #1F3352; -fx-border-color: #ff0000;" text="Apagar" textFill="#ff0000f0" />
+                  <Button fx:id="btnCria" mnemonicParsing="false" onAction="#btnCriaAction" styleClass="button_criar" stylesheets="@styling.css" text="Criar" textFill="LIME" />
+                  <Button fx:id="btnAtt" mnemonicParsing="false" onAction="#btnAttAction" styleClass="button_confirmar" stylesheets="@styling.css" text="Atualizar" textFill="#00eeff" />
+                  <Button fx:id="btnApg" mnemonicParsing="false" onAction="#btnApgAction" styleClass="button_cancelar" stylesheets="@styling.css" text="Apagar" textFill="#ff0000f0" />
                </children>
             </HBox>
          </children>
