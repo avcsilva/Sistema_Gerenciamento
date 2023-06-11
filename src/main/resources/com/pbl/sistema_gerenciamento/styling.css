@@ -36,17 +36,17 @@
 .button_cancelar{
 
     -fx-background-color: #1F3352;
-    -fx-background-radius: 20%;
+    -fx-background-radius: 20px;
     -fx-border-color: #ff0000;
-    -fx-border-radius: 20%;
+    -fx-border-radius: 20px;
     -fx-text-fill: #ff0000;
 }
 .button_cancelar:hover{
 
     -fx-background-color: #ff0000;
-    -fx-background-radius: 20%;
+    -fx-background-radius: 20px;
     -fx-border-color: #ff0000;
-    -fx-border-radius: 20%;
+    -fx-border-radius: 20px;
     -fx-text-fill: #ffffff;
 }
 
