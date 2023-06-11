@@ -54,10 +54,12 @@ public class OrdemServicoController {
         OrdemServico ordem = this.tabelaOrdens.getSelectionModel().getSelectedItem();
         if (ordem == null){
             this.erro_msg.setText("Selecione uma ordem de serviço!");
+            this.erro_msg.setStyle("-fx-text-fill: red;");
         } else{
             DAO.getOrdemServicoDAO().deletar(ordem.getId());
             this.ordensLista.remove(ordem);
             this.erro_msg.setText("Ordem de serviço removida com sucesso!");
+            this.erro_msg.setStyle("-fx-text-fill: green;");
         }
     }
 

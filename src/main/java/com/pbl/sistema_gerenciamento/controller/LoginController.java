@@ -31,6 +31,7 @@ public class LoginController {
     void btncontinuarAction(ActionEvent event) {
         if (loginBox.getText().isEmpty() && senhaBox.getText().isEmpty()) {
             this.erro.setText("Login e senha não podem ser vazios");
+            this.erro.setStyle("-fx-text-fill: red;");
         } else {
             try{
                 FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ALGUMAJANELAQUIPORFAVOR.fxml"));

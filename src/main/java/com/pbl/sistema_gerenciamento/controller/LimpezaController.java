@@ -44,10 +44,12 @@ public class LimpezaController {
         Limpeza limpeza = this.tabelaLimpeza.getSelectionModel().getSelectedItem();
         if(limpeza ==  null){
             this.erro_msg.setText("Limpeza não selecionada");
+            this.erro_msg.setStyle("-fx-text-fill: red;");
         }else{
             this.limpezaList.remove(limpeza);
             DAO.getInstalacaoDAO().deletar(limpeza.getId());
             this.erro_msg.setText("Limpeza removida com sucesso");
+            this.erro_msg.setStyle("-fx-text-fill: green;");
         }
 
     }
@@ -57,16 +59,19 @@ public class LimpezaController {
         Limpeza limpeza = this.tabelaLimpeza.getSelectionModel().getSelectedItem();
         if(limpeza == null){
             this.erro_msg.setText("Limpeza não selecionada");
+            this.erro_msg.setStyle("-fx-text-fill: red;");
         }else{
             if(this.limpezaPreco.getText().isEmpty()) {
                 try{
                     limpeza.setPreco(Double.parseDouble(this.limpezaPreco.getText()));
                     DAO.getLimpezaDAO().atualizar(limpeza);
                     this.erro_msg.setText("Limpeza atualizada com sucesso");
+                    this.erro_msg.setStyle("-fx-text-fill: green;");
                     this.limpezaPreco.clear();
 
                 }catch (NumberFormatException e){
                     this.erro_msg.setText("Preço inválido");
+                    this.erro_msg.setStyle("-fx-text-fill: red;");
                 }
             }
         }
@@ -76,15 +81,18 @@ public class LimpezaController {
     void btnCriaAction(ActionEvent event) {
         if (this.limpezaPreco.getText().isEmpty()) {
             this.erro_msg.setText("Campo Preço vazio");
+            this.erro_msg.setStyle("-fx-text-fill: red;");
         } else{
             try{
                 Limpeza limpeza = new Limpeza(Double.parseDouble(this.limpezaPreco.getText()));
                 DAO.getLimpezaDAO().criar(limpeza);
                 this.limpezaList.add(limpeza);
                 this.erro_msg.setText("Limpeza criada com sucesso");
+                this.erro_msg.setStyle("-fx-text-fill: green;");
                 this.limpezaPreco.clear();
             } catch (NumberFormatException e){
                 this.erro_msg.setText("Preço inválido");
+                this.erro_msg.setStyle("-fx-text-fill: red;");
             }
         }
     }

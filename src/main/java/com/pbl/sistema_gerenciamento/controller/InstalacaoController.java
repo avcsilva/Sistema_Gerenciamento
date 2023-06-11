@@ -55,10 +55,12 @@ public class InstalacaoController {
         Instalacao instalacao = this.tabelaInstals.getSelectionModel().getSelectedItem();
         if(instalacao ==  null){
             this.erro_msg.setText("Instalação não selecionada");
+            this.erro_msg.setStyle("-fx-text-fill: red;");
         }else{
             this.instalacaoList.remove(instalacao);
             DAO.getInstalacaoDAO().deletar(instalacao.getId());
             this.erro_msg.setText("Instalação removida com sucesso");
+            this.erro_msg.setStyle("-fx-text-fill: green;");
         }
     }
 
@@ -67,6 +69,7 @@ public class InstalacaoController {
         Instalacao instalacao = this.tabelaInstals.getSelectionModel().getSelectedItem();
         if(instalacao == null){
             this.erro_msg.setText("Instalação não selecionada");
+            this.erro_msg.setStyle("-fx-text-fill: red;");
         }else{
             if (this.instalacaoPreco.getText().isEmpty() || this.instalacaoSO.getText().isEmpty() || this.instalacaoPrograma.getText().isEmpty()) {
                 try {
@@ -76,14 +79,17 @@ public class InstalacaoController {
                     DAO.getInstalacaoDAO().atualizar(instalacao);
                     this.instalacaoList.set(this.tabelaInstals.getSelectionModel().getSelectedIndex(), instalacao);
                     this.erro_msg.setText("Instalação atualizada com sucesso");
+                    this.erro_msg.setStyle("-fx-text-fill: green;");
                     this.instalacaoSO.clear();
                     this.instalacaoPreco.clear();
                     this.instalacaoPrograma.clear();
                 } catch (NumberFormatException e) {
                     this.erro_msg.setText("Preço inválido");
+                    this.erro_msg.setStyle("-fx-text-fill: red;");
                 }
             } else {
                 this.erro_msg.setText("Preencha todos os campos");
+                this.erro_msg.setStyle("-fx-text-fill: red;");
             }
         }
     }
@@ -92,6 +98,7 @@ public class InstalacaoController {
     void btnCriaAction(ActionEvent event) {
         if (this.instalacaoPreco.getText().isEmpty() || this.instalacaoSO.getText().isEmpty() || this.instalacaoPrograma.getText().isEmpty()){
             this.erro_msg.setText("Preencha todos os campos!");
+            this.erro_msg.setStyle("-fx-text-fill: red;");
         } else{
             try{
                 Instalacao instalacao = new Instalacao(Double.parseDouble(this.instalacaoPreco.getText()));
@@ -100,11 +107,13 @@ public class InstalacaoController {
                 DAO.getInstalacaoDAO().criar(instalacao);
                 this.instalacaoList.add(instalacao);
                 this.erro_msg.setText("Instalação criada com sucesso!");
+                this.erro_msg.setStyle("-fx-text-fill: green;");
                 this.instalacaoSO.clear();
                 this.instalacaoPreco.clear();
                 this.instalacaoPrograma.clear();
             } catch (NumberFormatException e){
                 this.erro_msg.setText("Preço inválido!");
+                this.erro_msg.setStyle("-fx-text-fill: red;");
             }
         }
     }

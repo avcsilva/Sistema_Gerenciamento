@@ -55,10 +55,12 @@ public class ComponenteOutroController {
 ComponenteOutro componenteOutro = tabelaCompOut.getSelectionModel().getSelectedItem();
         if (componenteOutro == null){
             this.erro_msg.setText("Selecione um componente!");
+            this.erro_msg.setStyle("-fx-text-fill: red;");
         } else{
             DAO.getComponenteOutroDAO().deletar(componenteOutro.getId());
             this.componentesoutrosLista.remove(componenteOutro);
             this.erro_msg.setText("Componente removido com sucesso!");
+            this.erro_msg.setStyle("-fx-text-fill: green;");
         }
     }
 
@@ -67,6 +69,7 @@ ComponenteOutro componenteOutro = tabelaCompOut.getSelectionModel().getSelectedI
         ComponenteOutro componenteOutro = tabelaCompOut.getSelectionModel().getSelectedItem();
         if (componenteOutro == null){
             this.erro_msg.setText("Selecione um componente!");
+            this.erro_msg.setStyle("-fx-text-fill: red;");
         } else{
             if (componenteoutroCusto.getText().isEmpty() || componenteoutroDescricao.getText().isEmpty() || componenteoutroPreco.getText().isEmpty()){
                 erro_msg.setText("Preencha todos os campos!");
@@ -80,11 +83,13 @@ ComponenteOutro componenteOutro = tabelaCompOut.getSelectionModel().getSelectedI
                     DAO.getComponenteOutroDAO().atualizar(componenteOutro);
                     this.componentesoutrosLista.set(this.tabelaCompOut.getSelectionModel().getSelectedIndex(), componenteOutro);
                     erro_msg.setText("Componente atualizado com sucesso!");
+                    this.erro_msg.setStyle("-fx-text-fill: green;");
                     this.componenteoutroCusto.clear();
                     this.componenteoutroDescricao.clear();
                     this.componenteoutroPreco.clear();
                 } catch (NumberFormatException e){
                     erro_msg.setText("Preencha os campos corretamente!");
+                    this.erro_msg.setStyle("-fx-text-fill: red;");
                 }
             }
         }
@@ -94,6 +99,7 @@ ComponenteOutro componenteOutro = tabelaCompOut.getSelectionModel().getSelectedI
     void btnCriaAction(ActionEvent event) {
         if (componenteoutroCusto.getText().isEmpty() || componenteoutroDescricao.getText().isEmpty() || componenteoutroPreco.getText().isEmpty()){
             erro_msg.setText("Preencha todos os campos!");
+            this.erro_msg.setStyle("-fx-text-fill: red;");
         } else{
             try{
                 Double custo = Double.parseDouble(componenteoutroCusto.getText());
@@ -102,8 +108,10 @@ ComponenteOutro componenteOutro = tabelaCompOut.getSelectionModel().getSelectedI
                 DAO.getComponenteOutroDAO().criar(componenteOutro);
                 this.componentesoutrosLista.add(componenteOutro);
                 erro_msg.setText("Componente criado com sucesso!");
+                this.erro_msg.setStyle("-fx-text-fill: green;");
             } catch (NumberFormatException e){
                 erro_msg.setText("Preencha os campos corretamente!");
+                this.erro_msg.setStyle("-fx-text-fill: red;");
             }
         }
     }

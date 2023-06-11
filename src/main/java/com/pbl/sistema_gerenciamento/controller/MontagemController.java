@@ -46,10 +46,12 @@ public class MontagemController {
         Montagem montagem = this.tabelaMontagens.getSelectionModel().getSelectedItem();
         if(montagem ==  null){
             this.erro_msg.setText("Montagem não selecionada");
+            this.erro_msg.setStyle("-fx-text-fill: red;");
         }else{
             this.montagemList.remove(montagem);
             DAO.getMontagemDAO().deletar(montagem.getId());
             this.erro_msg.setText("Montagem removida com sucesso");
+            this.erro_msg.setStyle("-fx-text-fill: green;");
         }
 
     }

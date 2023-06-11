@@ -111,10 +111,12 @@ public class GereOrdemServicoController {
         Cliente cliente = this.choiceCliente.getSelectionModel().getSelectedItem();
         if (cliente == null){
             this.msg_erro.setText("Selecione um cliente");
+            this.msg_erro.setStyle("-fx-text-fill: red");
         } else {
             this.ordemServico.setCliente(cliente);
             this.clienteDefinido.setText(cliente.getNome());
             this.msg_erro.setText("Cliente adicionado com sucesso!");
+            this.msg_erro.setStyle("-fx-text-fill: green");
         }
     }
 
@@ -122,10 +124,12 @@ public class GereOrdemServicoController {
     void btnAddDataAction(ActionEvent event) {
         if (this.dataCria.getText().isEmpty()){
             this.msg_erro.setText("Insira uma data");
+            this.msg_erro.setStyle("-fx-text-fill: red");
         } else {
             this.ordemServico.setCriacao(this.dataCria.getText());
             this.dataDefinida.setText(this.dataCria.getText());
             this.msg_erro.setText("Data adicionada com sucesso!");
+            this.msg_erro.setStyle("-fx-text-fill: green");
         }
     }
 
@@ -134,10 +138,12 @@ public class GereOrdemServicoController {
         Instalacao instalacao = this.choiceInst.getSelectionModel().getSelectedItem();
         if (instalacao == null){
             this.msg_erro.setText("Selecione uma instalação");
+            this.msg_erro.setStyle("-fx-text-fill: red");
         } else {
             this.instalacoes.add(instalacao);
             this.ordemServico.adicionaServico(instalacao);
             this.msg_erro.setText("Instalação adicionada com sucesso!");
+            this.msg_erro.setStyle("-fx-text-fill: green;");
         }
     }
 
@@ -146,10 +152,12 @@ public class GereOrdemServicoController {
         Limpeza limpeza = this.choiceLimp.getSelectionModel().getSelectedItem();
         if(limpeza == null){
             this.msg_erro.setText("Selecione uma limpeza");
+            this.msg_erro.setStyle("-fx-text-fill: red;");
         } else {
             this.limpezas.add(limpeza);
             this.ordemServico.adicionaServico(limpeza);
             this.msg_erro.setText("Limpeza adicionada com sucesso!");
+            this.msg_erro.setStyle("-fx-text-fill: green;");
         }
 
     }
@@ -159,10 +167,12 @@ public class GereOrdemServicoController {
         Montagem montagem = this.choiceMont.getSelectionModel().getSelectedItem();
         if (montagem == null){
             this.msg_erro.setText("Selecione uma montagem");
+            this.msg_erro.setStyle("-fx-text-fill: red;");
         } else{
             this.montagens.add(montagem);
             this.ordemServico.adicionaServico(montagem);
             this.msg_erro.setText("Montagem adicionada com sucesso!");
+            this.msg_erro.setStyle("-fx-text-fill: green;");
         }
     }
 
@@ -170,6 +180,7 @@ public class GereOrdemServicoController {
     void btnConfirmAction(ActionEvent event) {
         if (this.clienteDefinido.getText().isEmpty() || this.dataDefinida.getText().isEmpty()){
             this.msg_erro.setText("Defina o cliente e a data da ordem de serviço");
+            this.msg_erro.setStyle("-fx-text-fill: red;");
         } else {
             DAO.getOrdemServicoDAO().criar(this.ordemServico);
             try{
@@ -189,10 +200,12 @@ public class GereOrdemServicoController {
         Instalacao instalacao = this.tabelaInstalacao.getSelectionModel().getSelectedItem();
         if(instalacao == null){
             this.msg_erro.setText("Selecione uma instalação");
+            this.msg_erro.setStyle("-fx-text-fill: red;");
         } else{
             this.instalacoes.remove(instalacao);
             this.ordemServico.removeServico(instalacao.getId(), 1);
             this.msg_erro.setText("Instalação removida com sucesso");
+            this.msg_erro.setStyle("-fx-text-fill: green;");
         }
 
     }

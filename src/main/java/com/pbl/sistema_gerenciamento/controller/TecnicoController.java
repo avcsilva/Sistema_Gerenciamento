@@ -49,9 +49,11 @@ public class TecnicoController {
         Tecnico tecnico = this.tabelaTecnicos.getSelectionModel().getSelectedItem();
         if (tecnico == null){
             this.erro_msg.setText("Selecione um técnico!");
+            this.erro_msg.setStyle("-fx-text-fill: red;");
         } else{
             DAO.getTecnicoDAO().deletar(tecnico.getId());
             this.erro_msg.setText("Técnico removido com sucesso!");
+            this.erro_msg.setStyle("-fx-text-fill: green;");
             this.tecnicosLista.remove(tecnico);
         }
     }
@@ -61,14 +63,17 @@ public class TecnicoController {
         Tecnico tecnico = this.tabelaTecnicos.getSelectionModel().getSelectedItem();
         if (tecnico == null){
             this.erro_msg.setText("Selecione um técnico!");
+            this.erro_msg.setStyle("-fx-text-fill: red;");
         } else{
             if (tecnicoNome.getText().isEmpty() || tecnicoEmail.getText().isEmpty()) {
                 this.erro_msg.setText("Preencha todos os campos!");
+                this.erro_msg.setStyle("-fx-text-fill: red;");
             } else{
                 tecnico.setNome(tecnicoNome.getText());
                 tecnico.setEmail(tecnicoEmail.getText());
                 DAO.getTecnicoDAO().atualizar(tecnico);
                 this.erro_msg.setText("Técnico atualizado com sucesso!");
+                this.erro_msg.setStyle("-fx-text-fill: green;");
                 this.tecnicosLista.set(this.tabelaTecnicos.getSelectionModel().getSelectedIndex(), tecnico);
                 this.tecnicoNome.clear();
                 this.tecnicoEmail.clear();
@@ -80,10 +85,12 @@ public class TecnicoController {
     void btnCriaAction(ActionEvent event) {
         if (tecnicoNome.getText().isEmpty() || tecnicoEmail.getText().isEmpty()) {
             this.erro_msg.setText("Preencha todos os campos!");
+            this.erro_msg.setStyle("-fx-text-fill: red;");
         } else{
             Tecnico tecnico = new Tecnico(tecnicoNome.getText(), tecnicoEmail.getText());
             DAO.getTecnicoDAO().criar(tecnico);
             this.erro_msg.setText("Técnico criado com sucesso!");
+            this.erro_msg.setStyle("-fx-text-fill: green;");
             this.tecnicosLista.add(tecnico);
             this.tecnicoNome.clear();
             this.tecnicoEmail.clear();

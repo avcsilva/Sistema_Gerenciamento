@@ -82,12 +82,14 @@ public class GereMontagemController {
         ComponentePC compPC = this.choiceCompPC.getSelectionModel().getSelectedItem();
         if(compOut == null && compPC == null){
             this.erro_msg.setText("Componente não selecionado");
+            this.erro_msg.setStyle("-fx-text-fill: red");
         }else{
             this.montagem.adicionarComponente(compOut);
             this.compsOutLista.add(compOut);
             this.montagem.adicionarComponente(compPC);
             this.compsPCLista.add(compPC);
             this.erro_msg.setText("Componente adicionado com sucesso");
+            this.erro_msg.setStyle("-fx-text-fill: green");
         }
     }
 
@@ -111,6 +113,7 @@ public class GereMontagemController {
         ComponentePC compPC = this.tabelaCompsPC.getSelectionModel().getSelectedItem();
         if (compOut == null && compPC == null) {
             this.erro_msg.setText("Componente não selecionado");
+            this.erro_msg.setStyle("-fx-text-fill: red;");
         } else {
             if (compOut != null && compPC != null) {
                 this.montagem.removerComponente(compOut.getId(), 2);
@@ -118,14 +121,17 @@ public class GereMontagemController {
                 this.montagem.removerComponente(compPC.getId(), 1);
                 this.compsPCLista.remove(compPC);
                 this.erro_msg.setText("Componente removido com sucesso");
+                this.erro_msg.setStyle("-fx-text-fill: green;");
             } else if (compOut != null) {
                 this.montagem.removerComponente(compOut.getId(), 2);
                 this.compsOutLista.remove(compOut);
                 this.erro_msg.setText("Componente removido com sucesso");
+                this.erro_msg.setStyle("-fx-text-fill: green;");
             } else {
                 this.montagem.removerComponente(compPC.getId(), 1);
                 this.compsPCLista.remove(compPC);
                 this.erro_msg.setText("Componente removido com sucesso");
+                this.erro_msg.setStyle("-fx-text-fill: green;");
             }
         }
     }

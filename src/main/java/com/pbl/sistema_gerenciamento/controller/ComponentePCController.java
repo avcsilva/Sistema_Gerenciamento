@@ -61,10 +61,12 @@ public class ComponentePCController {
         ComponentePC componentePC = this.tabelaCompPC.getSelectionModel().getSelectedItem();
         if(componentePC == null) {
             this.erro_msg.setText("Componente não selecionado!");
+            this.erro_msg.setStyle("-fx-text-fill: red");
         }else{
             this.componentespcLista.remove(componentePC);
             DAO.getClienteDAO().deletar(componentePC.getId());
             this.erro_msg.setText("Componente deletado com sucesso!");
+            this.erro_msg.setStyle("-fx-text-fill: green");
         }
 
     }
@@ -74,9 +76,11 @@ public class ComponentePCController {
         ComponentePC componentePC = this.tabelaCompPC.getSelectionModel().getSelectedItem();
         if (componentePC == null){
             this.erro_msg.setText("Selecione um componente!");
+            this.erro_msg.setStyle("-fx-text-fill: red;");
         } else{
             if (this.componentepcNome.getText().isEmpty() || this.componentepcCusto.getText().isEmpty() || this.componentepcPreco.getText().isEmpty() || this.componentepcFabricante.getText().isEmpty()){
                 this.erro_msg.setText("Preencha todos os campos!");
+                this.erro_msg.setStyle("-fx-text-fill: red;");
             } else{
                 try {
                     componentePC.setNome(this.componentepcNome.getText());
@@ -86,8 +90,10 @@ public class ComponentePCController {
                     DAO.getComponentePCDAO().atualizar(componentePC);
                     this.componentespcLista.set(this.tabelaCompPC.getSelectionModel().getSelectedIndex(), componentePC);
                     this.erro_msg.setText("ComponentePC atualizado com sucesso!");
+                    this.erro_msg.setStyle("-fx-text-fill: green;");
                 } catch (NumberFormatException e){
                     this.erro_msg.setText("Preço e custo devem ser números!");
+                    this.erro_msg.setStyle("-fx-text-fill: red;");
                 }
             }
         }
@@ -97,6 +103,7 @@ public class ComponentePCController {
     void btnCriaAction(ActionEvent event) {
         if (this.componentepcNome.getText().isEmpty() || this.componentepcFabricante.getText().isEmpty() || this.componentepcPreco.getText().isEmpty() || this.componentepcCusto.getText().isEmpty()){
             this.erro_msg.setText("Preencha todos os campos!");
+            this.erro_msg.setStyle("-fx-text-fill: red;");
         } else{
             try {
                 ComponentePC componentePC = new ComponentePC(Double.parseDouble(this.componentepcPreco.getText()), Double.parseDouble(this.componentepcCusto.getText()), this.componentepcNome.getText(), this.componentepcFabricante.getText());
@@ -107,8 +114,10 @@ public class ComponentePCController {
                 this.componentepcPreco.clear();
                 this.componentepcCusto.clear();
                 this.erro_msg.setText("ComponentePC criado com sucesso!");
+                this.erro_msg.setStyle("-fx-text-fill: green;");
             } catch (NumberFormatException e){
                 this.erro_msg.setText("Preço e custo devem ser números!");
+                this.erro_msg.setStyle("-fx-text-fill: red;");
             }
         }
     }

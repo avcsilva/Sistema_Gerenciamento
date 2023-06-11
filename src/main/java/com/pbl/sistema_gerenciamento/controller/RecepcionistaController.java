@@ -49,10 +49,12 @@ public class RecepcionistaController {
         Recepcionista recep = tabelaReceps.getSelectionModel().getSelectedItem();
         if (recep == null){
             this.erro_msg.setText("Selecione um recepcionista!");
+            this.erro_msg.setStyle("-fx-text-fill: red;");
         } else{
             DAO.getRecepcionistaDAO().deletar(recep.getId());
             this.recepsLista.remove(recep);
             this.erro_msg.setText("Recepcionista removido com sucesso!");
+            this.erro_msg.setStyle("-fx-text-fill: green;");
         }
     }
 
@@ -61,12 +63,14 @@ public class RecepcionistaController {
         Recepcionista recep = tabelaReceps.getSelectionModel().getSelectedItem();
         if (recep == null){
             this.erro_msg.setText("Selecione um recepcionista!");
+            this.erro_msg.setStyle("-fx-text-fill: red;");
         } else{
             recep.setEmail(recepcionistaEmail.getText());
             recep.setNome(recepcionistaNome.getText());
             DAO.getRecepcionistaDAO().atualizar(recep);
             this.recepsLista.set(this.tabelaReceps.getSelectionModel().getSelectedIndex(), recep);
             this.erro_msg.setText("Recepcionista atualizado com sucesso!");
+            this.erro_msg.setStyle("-fx-text-fill: green;");
             recepcionistaNome.clear();
             recepcionistaEmail.clear();
         }
@@ -76,10 +80,12 @@ public class RecepcionistaController {
     void btnCriaAction(ActionEvent event) {
         if (recepcionistaNome.getText().isEmpty() || recepcionistaEmail.getText().isEmpty()) {
             erro_msg.setText("Preencha todos os campos!");
+            this.erro_msg.setStyle("-fx-text-fill: red;");
         } else {
             Recepcionista recep = new Recepcionista(recepcionistaNome.getText(), recepcionistaEmail.getText());
             DAO.getRecepcionistaDAO().criar(recep);
             this.erro_msg.setText("Recepcionista criado com sucesso!");
+            this.erro_msg.setStyle("-fx-text-fill: green;");
             recepsLista.add(recep);
             recepcionistaNome.clear();
             recepcionistaEmail.clear();
