@@ -28,6 +28,12 @@ public class TecnicoController {
     private Label erro_msg;
 
     @FXML
+    private TableColumn<Tecnico, String> tabelaSenhas;
+
+    @FXML
+    private TableColumn<Tecnico, Integer> tabelaIds;
+
+    @FXML
     private TableColumn<Tecnico, String> tabelaEmails;
 
     @FXML
@@ -41,6 +47,9 @@ public class TecnicoController {
 
     @FXML
     private TextField tecnicoNome;
+
+    @FXML
+    private TextField senha;
 
     private ObservableList<Tecnico> tecnicosLista;
 
@@ -65,35 +74,38 @@ public class TecnicoController {
             this.erro_msg.setText("Selecione um técnico!");
             this.erro_msg.setStyle("-fx-text-fill: red;");
         } else{
-            if (tecnicoNome.getText().isEmpty() || tecnicoEmail.getText().isEmpty()) {
+            if (tecnicoNome.getText().isEmpty() || tecnicoEmail.getText().isEmpty() || senha.getText().isEmpty()) {
                 this.erro_msg.setText("Preencha todos os campos!");
                 this.erro_msg.setStyle("-fx-text-fill: red;");
             } else{
                 tecnico.setNome(tecnicoNome.getText());
                 tecnico.setEmail(tecnicoEmail.getText());
+                tecnico.setSenha(senha.getText());
                 DAO.getTecnicoDAO().atualizar(tecnico);
                 this.erro_msg.setText("Técnico atualizado com sucesso!");
                 this.erro_msg.setStyle("-fx-text-fill: green;");
                 this.tecnicosLista.set(this.tabelaTecnicos.getSelectionModel().getSelectedIndex(), tecnico);
                 this.tecnicoNome.clear();
                 this.tecnicoEmail.clear();
+                this.senha.clear();
             }
         }
     }
 
     @FXML
     void btnCriaAction(ActionEvent event) {
-        if (tecnicoNome.getText().isEmpty() || tecnicoEmail.getText().isEmpty()) {
+        if (tecnicoNome.getText().isEmpty() || tecnicoEmail.getText().isEmpty() || senha.getText().isEmpty()) {
             this.erro_msg.setText("Preencha todos os campos!");
             this.erro_msg.setStyle("-fx-text-fill: red;");
         } else{
-            Tecnico tecnico = new Tecnico(tecnicoNome.getText(), tecnicoEmail.getText());
+            Tecnico tecnico = new Tecnico(tecnicoNome.getText(), tecnicoEmail.getText(), senha.getText());
             DAO.getTecnicoDAO().criar(tecnico);
             this.erro_msg.setText("Técnico criado com sucesso!");
             this.erro_msg.setStyle("-fx-text-fill: green;");
             this.tecnicosLista.add(tecnico);
             this.tecnicoNome.clear();
             this.tecnicoEmail.clear();
+            this.senha.clear();
         }
     }
 
@@ -103,6 +115,8 @@ public class TecnicoController {
 
         this.tabelaNomes.setCellValueFactory(new PropertyValueFactory<Tecnico, String>("nome"));
         this.tabelaEmails.setCellValueFactory(new PropertyValueFactory<Tecnico, String>("email"));
+        this.tabelaSenhas.setCellValueFactory(new PropertyValueFactory<Tecnico, String>("senha"));
+        this.tabelaIds.setCellValueFactory(new PropertyValueFactory<Tecnico, Integer>("id"));
 
         this.tabelaTecnicos.setItems(tecnicosLista);
     }
