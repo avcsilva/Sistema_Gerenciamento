@@ -79,11 +79,42 @@
 .choice-box {
     -fx-background-color: #ffffff, #1F3352;
     -fx-background-insets: 0, 0 0 1 0;
-    -fx-background-radius: 50;
+    -fx-background-radius: 0;
     -fx-text-fill: #ffffff;
     -fx-border-color: #ffffff;
-    -fx-border-radius: 50;
+    -fx-border-radius: 0;
 }
-.choice-box > .label { -fx-text-fill: white; }
+.choice-box > .label {
+    -fx-text-fill: white;
+    -fx-background-color: #1F3352;
+}
+.choice-box .list-cell{
+    -fx-text-fill: white;
+    -fx-background: #1F3352;
+}
+.choice-box .menu-item > .label { -fx-text-fill: ffffff; }
+
+.combo-box .list-cell{
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #1F3352;
+
+
+}
+
+.combo-box {
+    -fx-background-color: #ffffff, #1F3352;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-background-radius: 0;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #ffffff;
+    -fx-border-radius: 0;
+}
+
+.combo-box-popup .list-view
+{
+    -fx-background-color: white, #1F3352;
+    -fx-background-insets: 0, 0 0 1 0;
+
+}
 
 

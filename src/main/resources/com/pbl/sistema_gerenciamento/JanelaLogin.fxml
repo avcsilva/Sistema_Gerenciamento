@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="680.0" maxWidth="1044.0" minHeight="680.0" minWidth="1044.0" prefHeight="680.0" prefWidth="1044.0" style="-fx-background-color: #1F3352;" styleClass="body" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pbl.sistema_gerenciamento.controller.LoginController">
+<Pane maxHeight="680.0" maxWidth="1044.0" minHeight="680.0" minWidth="1044.0" prefHeight="680.0" prefWidth="1044.0" style="-fx-background-color: #1F3352;" styleClass="body" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pbl.sistema_gerenciamento.controller.LoginController">
    <children>
       <VBox alignment="TOP_CENTER" layoutX="499.0" layoutY="85.0" prefHeight="511.0" prefWidth="520.0" spacing="30.0" style="-fx-background-color: #13233D; -fx-background-radius: 0.5cm;">
          <children>
@@ -45,7 +45,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <ComboBox fx:id="tipoUsuario" prefHeight="32.0" prefWidth="189.0" styleClass="choice-box" stylesheets="@styling.css" />
+            <ComboBox fx:id="tipoUsuario" prefHeight="32.0" prefWidth="189.0" styleClass="combo-box" stylesheets="@styling.css" />
             <ImageView fitHeight="410.0" fitWidth="447.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img_computador.png" />
