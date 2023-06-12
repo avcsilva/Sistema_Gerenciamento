@@ -6,6 +6,8 @@ package com.pbl.sistema_gerenciamento.model;
  * Representa o Técnico que será responsável por realizar os trabalhos das Ordens de Serviço.
  */
 public class Tecnico extends Usuario {
+
+    private OrdemServico ordemAssociada;
     /**
      * Cria um Técnico com id, nome e e-mail definidos
      *
@@ -14,5 +16,13 @@ public class Tecnico extends Usuario {
      */
     public Tecnico(String nome, String email, String senha) {
         super(nome, email, senha);
+    }
+
+    public OrdemServico getOrdemAssociada() {
+        return ordemAssociada;
+    }
+
+    public void setOrdemAssociada(OrdemServico ordemAssociada) {
+        this.ordemAssociada = ordemAssociada;
     }
 }
