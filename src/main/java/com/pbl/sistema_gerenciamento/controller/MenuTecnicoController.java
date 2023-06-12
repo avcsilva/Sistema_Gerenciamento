@@ -1,6 +1,8 @@
 package com.pbl.sistema_gerenciamento.controller;
 
 import com.pbl.sistema_gerenciamento.HelloApplication;
+import com.pbl.sistema_gerenciamento.dao.DAO;
+import com.pbl.sistema_gerenciamento.model.OrdemServico;
 import com.pbl.sistema_gerenciamento.model.Tecnico;
 import com.pbl.sistema_gerenciamento.utils.StageController;
 import javafx.event.ActionEvent;
@@ -53,23 +55,29 @@ public class MenuTecnicoController {
 
     @FXML
     void btnFaturaAction(ActionEvent event) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("JanelaFinalizaOrdem.fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
+        if (this.tecnico.getOrdemAssociada() == null){
+            this.erro_msg.setText("Nenhuma ordem associada");
+            this.erro_msg.setStyle("-fx-text-fill: red");
+        } else {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("JanelaFinalizaOrdem.fxml"));
+                Scene scene = new Scene(fxmlLoader.load());
 
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.setTitle("Finalização de ordem de serviço");
-            stage.setResizable(false);
-            stage.centerOnScreen();
-            stage.initModality(Modality.APPLICATION_MODAL);
+                Stage stage = new Stage();
+                stage.setScene(scene);
+                stage.setTitle("Finalização de ordem de serviço");
+                stage.setResizable(true);
+                stage.centerOnScreen();
+                stage.initModality(Modality.APPLICATION_MODAL);
 
-            FinalizaOrdemController controller = fxmlLoader.getController();
-            controller.setTecnico(this.tecnico);
+                FinalizaOrdemController controller = fxmlLoader.getController();
+                controller.setTecnico(this.tecnico);
+                controller.setDialogStage(stage);
 
-            stage.showAndWait();
-        } catch (IOException e) {
-            e.printStackTrace();
+                stage.showAndWait();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -82,7 +90,7 @@ public class MenuTecnicoController {
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.setTitle("Registro de cliente");
-            stage.setResizable(false);
+            stage.setResizable(true);
             stage.centerOnScreen();
             stage.initModality(Modality.APPLICATION_MODAL);
 
@@ -101,7 +109,7 @@ public class MenuTecnicoController {
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.setTitle("Registro de componente PC");
-            stage.setResizable(false);
+            stage.setResizable(true);
             stage.centerOnScreen();
             stage.initModality(Modality.APPLICATION_MODAL);
 
@@ -120,7 +128,7 @@ public class MenuTecnicoController {
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.setTitle("Registro de componente outro");
-            stage.setResizable(false);
+            stage.setResizable(true);
             stage.centerOnScreen();
             stage.initModality(Modality.APPLICATION_MODAL);
 
@@ -139,7 +147,7 @@ public class MenuTecnicoController {
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.setTitle("Registro de instalação");
-            stage.setResizable(false);
+            stage.setResizable(true);
             stage.centerOnScreen();
             stage.initModality(Modality.APPLICATION_MODAL);
 
@@ -158,7 +166,7 @@ public class MenuTecnicoController {
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.setTitle("Registro de limpeza");
-            stage.setResizable(false);
+            stage.setResizable(true);
             stage.centerOnScreen();
             stage.initModality(Modality.APPLICATION_MODAL);
 
@@ -177,7 +185,7 @@ public class MenuTecnicoController {
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.setTitle("Registro de montagem");
-            stage.setResizable(false);
+            stage.setResizable(true);
             stage.centerOnScreen();
             stage.initModality(Modality.APPLICATION_MODAL);
 
@@ -196,7 +204,7 @@ public class MenuTecnicoController {
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.setTitle("Registro de ordem de serviço");
-            stage.setResizable(false);
+            stage.setResizable(true);
             stage.centerOnScreen();
             stage.initModality(Modality.APPLICATION_MODAL);
 
@@ -208,6 +216,26 @@ public class MenuTecnicoController {
 
     @FXML
     void btnPegaOrdAction(ActionEvent event) {
+        if (this.tecnico.getOrdemAssociada() != null){
+            this.erro_msg.setText("Você já possui uma ordem associada!");
+            this.erro_msg.setStyle("-fx-text-fill: red;");
+        }
+        else{
+            OrdemServico ordem = DAO.getOrdemServicoDAO().proximaOrdem();
+            if (ordem == null){
+                this.erro_msg.setText("Não há ordens de serviço disponíveis!");
+                this.erro_msg.setStyle("-fx-text-fill: red;");
+            } else {
+                ordem.setStatus("em andamento");
+                ordem.setTecnico(this.tecnico);
+                this.tecnico.setOrdemAssociada(ordem);
+                DAO.getTecnicoDAO().atualizar(this.tecnico);
+                DAO.getOrdemServicoDAO().atualizar(ordem);
+                this.ordemAssociada.setText("Ordem de serviço associada: " + this.tecnico.getOrdemAssociada().getId());
+                this.erro_msg.setText("Ordem associada com sucesso!");
+                this.erro_msg.setStyle("-fx-text-fill: green;");
+            }
+        }
     }
 
     public void setTecnico(Tecnico tecnico) {
@@ -216,6 +244,8 @@ public class MenuTecnicoController {
 
     @FXML
     void initialize(){
-
+        if (this.tecnico.getOrdemAssociada() != null){
+            this.ordemAssociada.setText("Ordem de serviço associada: " + this.tecnico.getOrdemAssociada().getId());
+        }
     }
 }
