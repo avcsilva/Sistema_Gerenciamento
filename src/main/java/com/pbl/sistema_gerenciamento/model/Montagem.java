@@ -17,6 +17,7 @@ public class Montagem extends Servico {
      */
     public Montagem() {
         super(0.0, 0.0);
+        this.componentesUsados = new ArrayList<Componente>();
     }
 
     /**
