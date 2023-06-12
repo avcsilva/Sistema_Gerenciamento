@@ -30,7 +30,7 @@
                </font>
             </TextField>
             <Label fx:id="erro_msg" textFill="RED" />
-            <Button mnemonicParsing="false" styleClass="button_branco" stylesheets="@styling.css" text="Confirmar" />
+            <Button fx:id="btnConfirma" mnemonicParsing="false" onAction="#btnConfirmaAction" styleClass="button_branco" stylesheets="@styling.css" text="Confirmar" />
          </children>
       </VBox>
       <VBox alignment="CENTER" layoutX="3.0" layoutY="1.0" prefHeight="680.0" prefWidth="472.0" spacing="20.0">
