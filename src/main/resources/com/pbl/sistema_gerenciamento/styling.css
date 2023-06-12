@@ -13,7 +13,7 @@
     -fx-background-radius: 20px;
     -fx-border-color: #00eeff;
     -fx-border-radius: 20px;
-    -fx-text-fill: #ffffff;
+    -fx-text-fill: #000000;
 }
 
 .button_branco{
@@ -47,7 +47,7 @@
     -fx-background-radius: 20px;
     -fx-border-color: #ff0000;
     -fx-border-radius: 20px;
-    -fx-text-fill: #ffffff;
+    -fx-text-fill: #000000;
 }
 
 .button_criar{
@@ -64,7 +64,7 @@
     -fx-background-radius: 20%;
     -fx-border-color: #00ff00;
     -fx-border-radius: 20%;
-    -fx-text-fill: #ffffff;
+    -fx-text-fill: #000000;
 }
 .text-field {
 	-fx-accent: gray;
