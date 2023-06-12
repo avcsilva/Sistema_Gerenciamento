@@ -91,6 +91,7 @@
                </children>
             </VBox>
             <TextField fx:id="dataf" promptText="Data de Finalização" />
+            <Label fx:id="erro_msg" alignment="CENTER" textFill="RED" />
             <HBox alignment="CENTER" spacing="50.0">
                <children>
                   <Button fx:id="btnFinaliza" mnemonicParsing="false" onAction="#btnFinalizaAction" styleClass="button_branco" stylesheets="@styling.css" text="Finalizar Ordem" />
