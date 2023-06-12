@@ -109,8 +109,8 @@ class OrdemServicoListImplTest {
     void acharPorTecnico() {
         OrdemServicoDAO dao = DAO.getOrdemServicoDAO();
 
-        Tecnico tecn1 = new Tecnico(null, null);
-        Tecnico tecn2 = new Tecnico(null, null);
+        Tecnico tecn1 = new Tecnico("", "", "");
+        Tecnico tecn2 = new Tecnico("", "", "");
 
         tecn1.setId(1);
         tecn2.setId(2);
