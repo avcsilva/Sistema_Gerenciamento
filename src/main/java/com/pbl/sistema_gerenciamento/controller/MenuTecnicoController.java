@@ -56,6 +56,7 @@ public class MenuTecnicoController {
     @FXML
     void btnFaturaAction(ActionEvent event) {
         if (this.tecnico.getOrdemAssociada() == null){
+            this.ordemAssociada.setText("Nenhuma");
             this.erro_msg.setText("Nenhuma ordem associada");
             this.erro_msg.setStyle("-fx-text-fill: red");
         } else {
@@ -231,8 +232,8 @@ public class MenuTecnicoController {
                 this.tecnico.setOrdemAssociada(ordem);
                 DAO.getTecnicoDAO().atualizar(this.tecnico);
                 DAO.getOrdemServicoDAO().atualizar(ordem);
-                this.ordemAssociada.setText("Ordem de serviço associada: " + this.tecnico.getOrdemAssociada().getId());
-                this.erro_msg.setText("Ordem associada com sucesso!");
+                this.ordemAssociada.setText("ID da ordem de serviço associada: " + this.tecnico.getOrdemAssociada().getId());
+                this.erro_msg.setText("ID da ordem associada com sucesso!");
                 this.erro_msg.setStyle("-fx-text-fill: green;");
             }
         }
@@ -240,12 +241,15 @@ public class MenuTecnicoController {
 
     public void setTecnico(Tecnico tecnico) {
         this.tecnico = tecnico;
+        if (this.tecnico.getOrdemAssociada() != null){
+            this.ordemAssociada.setText("ID da ordem de serviço associada: " + this.tecnico.getOrdemAssociada().getId());
+        } else{
+            this.ordemAssociada.setText("Nenhuma");
+        }
     }
 
     @FXML
     void initialize(){
-        if (this.tecnico.getOrdemAssociada() != null){
-            this.ordemAssociada.setText("Ordem de serviço associada: " + this.tecnico.getOrdemAssociada().getId());
-        }
+
     }
 }
