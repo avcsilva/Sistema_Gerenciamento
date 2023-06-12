@@ -111,7 +111,7 @@ class OrdemServicoTest {
     @Test
     void getTecnico() {
         Cliente cliente = new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br");
-        Tecnico tecn = new Tecnico("Mestre", "master@tecno.com");
+        Tecnico tecn = new Tecnico("Mestre", "master@tecno.com", "12345678");
         tecn.setId(7);
 
         OrdemServico ordemServico = new OrdemServico(cliente, "12/12/2012");
@@ -123,13 +123,13 @@ class OrdemServicoTest {
     @Test
     void setTecnico() {
         Cliente cliente = new Cliente("Raynan Azkaban", "999", "991018864", "raynanzinho@uefs.br");
-        Tecnico tecn = new Tecnico("Mestre", "master@tecno.com");
+        Tecnico tecn = new Tecnico("Mestre", "master@tecno.com", "12345678");
         tecn.setId(7);
 
         OrdemServico ordemServico = new OrdemServico(cliente,"12/12/2012");
         ordemServico.setTecnico(tecn);
 
-        tecn = new Tecnico("Senior", "top@tecno.com");
+    tecn = new Tecnico("Senior", "top@tecno.com", "87654321");
         tecn.setId(2);
 
         ordemServico.setTecnico(tecn);
