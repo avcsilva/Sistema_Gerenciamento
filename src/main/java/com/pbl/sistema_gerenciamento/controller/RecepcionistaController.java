@@ -34,6 +34,15 @@ public class RecepcionistaController {
     private TextField recepcionistaNome;
 
     @FXML
+    private TextField senha;
+
+    @FXML
+    private TableColumn<Recepcionista, Integer> tabelaIds;
+
+    @FXML
+    private TableColumn<Recepcionista, String> tabelaSenhas;
+
+    @FXML
     private TableColumn<Recepcionista, String> tabelaEmails;
 
     @FXML
@@ -67,28 +76,31 @@ public class RecepcionistaController {
         } else{
             recep.setEmail(recepcionistaEmail.getText());
             recep.setNome(recepcionistaNome.getText());
+            recep.setSenha(senha.getText());
             DAO.getRecepcionistaDAO().atualizar(recep);
             this.recepsLista.set(this.tabelaReceps.getSelectionModel().getSelectedIndex(), recep);
             this.erro_msg.setText("Recepcionista atualizado com sucesso!");
             this.erro_msg.setStyle("-fx-text-fill: green;");
             recepcionistaNome.clear();
             recepcionistaEmail.clear();
+            senha.clear();
         }
     }
 
     @FXML
     void btnCriaAction(ActionEvent event) {
-        if (recepcionistaNome.getText().isEmpty() || recepcionistaEmail.getText().isEmpty()) {
+        if (recepcionistaNome.getText().isEmpty() || recepcionistaEmail.getText().isEmpty() || senha.getText().isEmpty()) {
             erro_msg.setText("Preencha todos os campos!");
             this.erro_msg.setStyle("-fx-text-fill: red;");
         } else {
-            Recepcionista recep = new Recepcionista(recepcionistaNome.getText(), recepcionistaEmail.getText());
+            Recepcionista recep = new Recepcionista(recepcionistaNome.getText(), recepcionistaEmail.getText(), senha.getText());
             DAO.getRecepcionistaDAO().criar(recep);
             this.erro_msg.setText("Recepcionista criado com sucesso!");
             this.erro_msg.setStyle("-fx-text-fill: green;");
             recepsLista.add(recep);
             recepcionistaNome.clear();
             recepcionistaEmail.clear();
+            senha.clear();
         }
     }
 
@@ -98,8 +110,9 @@ public class RecepcionistaController {
 
         this.tabelaNomes.setCellValueFactory(new PropertyValueFactory<Recepcionista, String>("nome"));
         this.tabelaEmails.setCellValueFactory(new PropertyValueFactory<Recepcionista, String>("email"));
+        this.tabelaSenhas.setCellValueFactory(new PropertyValueFactory<Recepcionista, String>("senha"));
+        this.tabelaIds.setCellValueFactory(new PropertyValueFactory<Recepcionista, Integer>("id"));
 
         this.tabelaReceps.setItems(recepsLista);
     }
-
 }
