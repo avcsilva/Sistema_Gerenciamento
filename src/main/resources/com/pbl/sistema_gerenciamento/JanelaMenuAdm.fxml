@@ -10,14 +10,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="523.0" prefWidth="886.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="523.0" prefWidth="886.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pbl.sistema_gerenciamento.controller.MenuAdmController">
    <children>
       <VBox layoutX="143.0" prefHeight="523.0" prefWidth="743.0" style="-fx-background-color: #1F3352;">
          <children>
             <HBox prefHeight="179.0" prefWidth="780.0" spacing="130.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="150.0" styleClass="button_branco" stylesheets="@styling.css" text="GerirRecepcionistas">
+                  <Button fx:id="btnGereRecep" mnemonicParsing="false" onAction="#btnGereRecepAction" prefHeight="70.0" prefWidth="150.0" styleClass="button_branco" stylesheets="@styling.css" text="GerirRecepcionistas">
                      <graphic>
                         <ImageView fitHeight="22.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -26,7 +25,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="150.0" styleClass="button_branco" stylesheets="@styling.css" text="GerirTécnicos">
+                  <Button fx:id="btnGereTecn" mnemonicParsing="false" onAction="#btnGereTecnAction" prefHeight="70.0" prefWidth="150.0" styleClass="button_branco" stylesheets="@styling.css" text="GerirTécnicos">
                      <graphic>
                         <ImageView fitHeight="31.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -35,7 +34,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="150.0" styleClass="button_branco" stylesheets="@styling.css" text="GerirClientes">
+                  <Button fx:id="btnGereClie" mnemonicParsing="false" onAction="#btnGereClieAction" prefHeight="70.0" prefWidth="150.0" styleClass="button_branco" stylesheets="@styling.css" text="GerirClientes">
                      <graphic>
                         <ImageView fitHeight="26.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -51,7 +50,7 @@
             </HBox>
             <HBox prefHeight="185.0" prefWidth="780.0" spacing="130.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="150.0" styleClass="button_branco" stylesheets="@styling.css" text="GerirMontagem">
+                  <Button fx:id="btnGereMont" mnemonicParsing="false" onAction="#btnGereMontAction" prefHeight="70.0" prefWidth="150.0" styleClass="button_branco" stylesheets="@styling.css" text="GerirMontagem">
                      <graphic>
                         <ImageView fitHeight="24.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -60,7 +59,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="150.0" styleClass="button_branco" stylesheets="@styling.css" text="GerirInstalação">
+                  <Button fx:id="btnGereInst" mnemonicParsing="false" onAction="#btnGereInstAction" prefHeight="70.0" prefWidth="150.0" styleClass="button_branco" stylesheets="@styling.css" text="GerirInstalação">
                      <graphic>
                         <ImageView fitHeight="18.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -69,7 +68,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="150.0" styleClass="button_branco" stylesheets="@styling.css" text="GerirLimpeza">
+                  <Button fx:id="btnGereLimp" mnemonicParsing="false" onAction="#btnGereLimpAction" prefHeight="70.0" prefWidth="150.0" styleClass="button_branco" stylesheets="@styling.css" text="GerirLimpeza">
                      <graphic>
                         <ImageView fitHeight="28.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -85,7 +84,7 @@
             </HBox>
             <HBox prefHeight="193.0" prefWidth="780.0" spacing="90.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="174.0" styleClass="button_branco" stylesheets="@styling.css" text="GerirComponentePc">
+                  <Button fx:id="btnGereCompc" mnemonicParsing="false" onAction="#btnGereCompcAction" prefHeight="70.0" prefWidth="174.0" styleClass="button_branco" stylesheets="@styling.css" text="GerirComponentePc">
                      <graphic>
                         <ImageView fitHeight="25.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -94,7 +93,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="214.0" styleClass="button_branco" stylesheets="@styling.css" text="GerirComponenenteOutro">
+                  <Button fx:id="btnGereCompout" mnemonicParsing="false" onAction="#btnGereCompoutAction" prefHeight="70.0" prefWidth="214.0" styleClass="button_branco" stylesheets="@styling.css" text="GerirComponenenteOutro">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -103,7 +102,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="182.0" styleClass="button_branco" stylesheets="@styling.css" text="GerirOrdemdeServiços">
+                  <Button fx:id="btnGereOrdem" mnemonicParsing="false" onAction="#btnGereOrdemAction" prefHeight="70.0" prefWidth="182.0" styleClass="button_branco" stylesheets="@styling.css" text="GerirOrdemdeServiços">
                      <graphic>
                         <ImageView fitHeight="24.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
