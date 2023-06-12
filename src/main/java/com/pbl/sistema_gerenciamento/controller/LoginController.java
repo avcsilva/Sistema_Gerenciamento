@@ -1,6 +1,10 @@
 package com.pbl.sistema_gerenciamento.controller;
 
 import com.pbl.sistema_gerenciamento.HelloApplication;
+import com.pbl.sistema_gerenciamento.dao.DAO;
+import com.pbl.sistema_gerenciamento.model.Administrador;
+import com.pbl.sistema_gerenciamento.model.Recepcionista;
+import com.pbl.sistema_gerenciamento.model.Tecnico;
 import com.pbl.sistema_gerenciamento.utils.StageController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -54,24 +58,48 @@ public class LoginController {
                         e.printStackTrace();
                     }
                 } else if (this.tipoUsuario.getSelectionModel().getSelectedItem().equals("Técnico")){
-                    try {
-                        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("JanelaMenuTecnico.fxml"));
-                        Scene scene = new Scene(fxmlLoader.load());
-                        Stage stage = StageController.getStage(event);
-                        stage.setScene(scene);
-                        stage.centerOnScreen();
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                    Tecnico tecn = DAO.getTecnicoDAO().acharPorId(Integer.parseInt(loginBox.getText()));
+                    if (tecn == null){
+                        this.erro_msg.setText("Técnico não encontrado!");
+                        this.erro_msg.setStyle("-fx-text-fill: red;");
+                    }
+                    else {
+                        if (!tecn.getSenha().equals(senhaBox.getText())){
+                            this.erro_msg.setText("Senha incorreta!");
+                            this.erro_msg.setStyle("-fx-text-fill: red;");
+                        }
+                        else {
+                            try {
+                                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("JanelaMenuTecnico.fxml"));
+                                Scene scene = new Scene(fxmlLoader.load());
+                                Stage stage = StageController.getStage(event);
+                                stage.setScene(scene);
+                                stage.centerOnScreen();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
                     }
                 } else{
-                    try {
-                        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("JanelaMenuRecepcionista.fxml"));
-                        Scene scene = new Scene(fxmlLoader.load());
-                        Stage stage = StageController.getStage(event);
-                        stage.setScene(scene);
-                        stage.centerOnScreen();
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                    Recepcionista recep = DAO.getRecepcionistaDAO().acharPorId(Integer.parseInt(loginBox.getText()));
+                    if (recep == null){
+                        this.erro_msg.setText("Recepcionista não encontrado!");
+                        this.erro_msg.setStyle("-fx-text-fill: red;");
+                    } else {
+                        if (!recep.getSenha().equals(senhaBox.getText())){
+                            this.erro_msg.setText("Senha incorreta!");
+                            this.erro_msg.setStyle("-fx-text-fill: red;");
+                        } else {
+                            try {
+                                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("JanelaMenuRecepcionista.fxml"));
+                                Scene scene = new Scene(fxmlLoader.load());
+                                Stage stage = StageController.getStage(event);
+                                stage.setScene(scene);
+                                stage.centerOnScreen();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
                     }
                 }
             }
