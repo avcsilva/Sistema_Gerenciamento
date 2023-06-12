@@ -55,6 +55,11 @@ public class FinalizaOrdemController {
 
     public void setTecnico(Tecnico tecnico) {
         this.tecnico = tecnico;
+        this.id.setText(Integer.toString(this.tecnico.getOrdemAssociada().getId()));
+        this.cliente.setText(this.tecnico.getOrdemAssociada().getCliente().getNome());
+        this.datac.setText(this.tecnico.getOrdemAssociada().getCriacao());
+        this.custo.setText(Double.toString(this.tecnico.getOrdemAssociada().getCusto()));
+        this.preco.setText(Double.toString(this.tecnico.getOrdemAssociada().getPreco()));
     }
 
     @FXML
@@ -90,12 +95,5 @@ public class FinalizaOrdemController {
     void initialize(){
         ObservableList<String> metodos = FXCollections.observableArrayList("Dinheiro", "Cartão de Crédito", "Cartão de Débito", "PIX");
         this.metPag.setItems(metodos);
-
-        this.id.setText(Integer.toString(this.tecnico.getOrdemAssociada().getId()));
-        this.cliente.setText(this.tecnico.getOrdemAssociada().getCliente().getNome());
-        this.datac.setText(this.tecnico.getOrdemAssociada().getCriacao());
-        this.custo.setText(Double.toString(this.tecnico.getOrdemAssociada().getCusto()));
-        this.preco.setText(Double.toString(this.tecnico.getOrdemAssociada().getPreco()));
-
     }
 }
