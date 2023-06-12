@@ -44,7 +44,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <ComboBox prefHeight="32.0" prefWidth="189.0" styleClass="choice-box" stylesheets="@styling.css" />
+            <ComboBox fx:id="tipoUsuario" prefHeight="32.0" prefWidth="189.0" styleClass="choice-box" stylesheets="@styling.css" />
             <ImageView fitHeight="410.0" fitWidth="447.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img_computador.png" />

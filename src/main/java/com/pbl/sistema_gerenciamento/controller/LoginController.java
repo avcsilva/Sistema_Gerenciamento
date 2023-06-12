@@ -2,12 +2,10 @@ package com.pbl.sistema_gerenciamento.controller;
 
 import com.pbl.sistema_gerenciamento.HelloApplication;
 import com.pbl.sistema_gerenciamento.utils.StageController;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -16,19 +14,16 @@ import java.io.IOException;
 public class LoginController {
 
     @FXML
-    private Button btncontinuar;
-
-    @FXML
-    private Label erro;
-
-    @FXML
     private TextField loginBox;
 
     @FXML
     private TextField senhaBox;
 
     @FXML
-    void btncontinuarAction(ActionEvent event) {
+    private ComboBox<?> tipoUsuario;
+
+    @FXML
+    void initialize(){
         if (loginBox.getText().isEmpty() && senhaBox.getText().isEmpty()) {
             this.erro.setText("Login e senha não podem ser vazios");
             this.erro.setStyle("-fx-text-fill: red;");
@@ -44,5 +39,4 @@ public class LoginController {
             }
         }
     }
-
 }

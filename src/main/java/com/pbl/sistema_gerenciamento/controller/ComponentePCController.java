@@ -109,10 +109,6 @@ public class ComponentePCController {
                 ComponentePC componentePC = new ComponentePC(Double.parseDouble(this.componentepcPreco.getText()), Double.parseDouble(this.componentepcCusto.getText()), this.componentepcNome.getText(), this.componentepcFabricante.getText());
                 DAO.getComponentePCDAO().criar(componentePC);
                 this.componentespcLista.add(componentePC);
-                this.componentepcNome.clear();
-                this.componentepcFabricante.clear();
-                this.componentepcPreco.clear();
-                this.componentepcCusto.clear();
                 this.erro_msg.setText("ComponentePC criado com sucesso!");
                 this.erro_msg.setStyle("-fx-text-fill: green;");
             } catch (NumberFormatException e){
