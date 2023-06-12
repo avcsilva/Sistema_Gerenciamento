@@ -77,7 +77,7 @@ public class LoginController {
                                 Stage stage = StageController.getStage(event);
                                 stage.setScene(scene);
                                 stage.setTitle("Menu Técnico");
-                                stage.setResizable(true);
+                                stage.setResizable(false);
                                 stage.centerOnScreen();
 
                                 MenuTecnicoController controller = fxmlLoader.getController();
