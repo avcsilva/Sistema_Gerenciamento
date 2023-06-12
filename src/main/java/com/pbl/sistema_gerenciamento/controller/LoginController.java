@@ -75,6 +75,9 @@ public class LoginController {
                                 Stage stage = StageController.getStage(event);
                                 stage.setScene(scene);
                                 stage.centerOnScreen();
+
+                                MenuTecnicoController controller = fxmlLoader.getController();
+                                controller.setTecnico(tecn);
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
@@ -96,6 +99,9 @@ public class LoginController {
                                 Stage stage = StageController.getStage(event);
                                 stage.setScene(scene);
                                 stage.centerOnScreen();
+
+                                MenuRecepcionistaController controller = fxmlLoader.getController();
+                                controller.setRecepcionista(recep);
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }

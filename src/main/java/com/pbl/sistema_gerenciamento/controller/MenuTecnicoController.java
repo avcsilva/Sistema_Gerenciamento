@@ -1,5 +1,6 @@
 package com.pbl.sistema_gerenciamento.controller;
 
+import com.pbl.sistema_gerenciamento.model.Tecnico;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -39,6 +40,8 @@ public class MenuTecnicoController {
 
     @FXML
     private Label ordemAssociada;
+
+    private Tecnico tecnico;
 
     @FXML
     void btnFaturaAction(ActionEvent event) {
@@ -85,4 +88,12 @@ public class MenuTecnicoController {
 
     }
 
+    public void setTecnico(Tecnico tecnico) {
+        this.tecnico = tecnico;
+    }
+
+    @FXML
+    void initialize(){
+
+    }
 }
