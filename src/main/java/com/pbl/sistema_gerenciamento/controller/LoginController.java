@@ -53,6 +53,8 @@ public class LoginController {
                         Scene scene = new Scene(fxmlLoader.load());
                         Stage stage = StageController.getStage(event);
                         stage.setScene(scene);
+                        stage.setTitle("Menu Administrador");
+                        stage.setResizable(true);
                         stage.centerOnScreen();
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -74,6 +76,8 @@ public class LoginController {
                                 Scene scene = new Scene(fxmlLoader.load());
                                 Stage stage = StageController.getStage(event);
                                 stage.setScene(scene);
+                                stage.setTitle("Menu Técnico");
+                                stage.setResizable(true);
                                 stage.centerOnScreen();
 
                                 MenuTecnicoController controller = fxmlLoader.getController();
@@ -98,6 +102,8 @@ public class LoginController {
                                 Scene scene = new Scene(fxmlLoader.load());
                                 Stage stage = StageController.getStage(event);
                                 stage.setScene(scene);
+                                stage.setTitle("Menu Recepcionista");
+                                stage.setResizable(true);
                                 stage.centerOnScreen();
 
                                 MenuRecepcionistaController controller = fxmlLoader.getController();

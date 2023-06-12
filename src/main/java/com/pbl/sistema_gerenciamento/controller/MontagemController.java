@@ -63,6 +63,8 @@ public class MontagemController {
             Scene scene = new Scene(fxmlLoader.load());
             Stage stage = StageController.getStage(event);
             stage.setScene(scene);
+            stage.setTitle("Gerenciar Montagem");
+            stage.setResizable(true);
             stage.centerOnScreen();
         } catch (IOException e) {
             e.printStackTrace();

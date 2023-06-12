@@ -70,8 +70,9 @@ public class OrdemServicoController {
             Scene scene = new Scene(fxmlLoader.load());
             Stage stage = StageController.getStage(event);
             stage.setScene(scene);
-            stage.centerOnScreen();
+            stage.setTitle("Gerenciar Ordem de Serviço");
             stage.setResizable(true);
+            stage.centerOnScreen();
         } catch (IOException e){
             e.printStackTrace();
         }

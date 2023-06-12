@@ -188,6 +188,8 @@ public class GereOrdemServicoController {
                 Scene scene = new Scene(fxmlLoader.load());
                 Stage stage = StageController.getStage(event);
                 stage.setScene(scene);
+                stage.setTitle("Registro de ordem de serviço");
+                stage.setResizable(true);
                 stage.centerOnScreen();
             } catch (IOException e){
                 e.printStackTrace();
