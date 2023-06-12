@@ -46,6 +46,8 @@
             <TextField fx:id="tecnicoNome" stylesheets="@styling.css" />
             <Label layoutX="10.0" layoutY="136.0" text="E-mail" textFill="WHITE" />
             <TextField fx:id="tecnicoEmail" layoutX="10.0" layoutY="153.0" stylesheets="@styling.css" />
+            <Label text="Senha" textFill="WHITE" />
+            <TextField fx:id="senha" stylesheets="@styling.css" />
             <Label fx:id="erro_msg" textFill="RED">
                <font>
                   <Font name="System Bold" size="12.0" />
