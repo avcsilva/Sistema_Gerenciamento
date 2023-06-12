@@ -35,18 +35,45 @@ public class LoginController {
 
     @FXML
     void btnConfirmaAction(ActionEvent event) {
-        if (loginBox.getText().isEmpty() && senhaBox.getText().isEmpty()) {
-            this.erro_msg.setText("Login e senha não podem ser vazios");
+        if (this.tipoUsuario.getSelectionModel().getSelectedItem().isEmpty()){
+            this.erro_msg.setText("Selecione um tipo de usuário!");
             this.erro_msg.setStyle("-fx-text-fill: red;");
         } else {
-            try{
-                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ALGUMAJANELAQUIPORFAVOR.fxml"));
-                Scene scene = new Scene(fxmlLoader.load());
-                Stage stage = StageController.getStage(event);
-                stage.setScene(scene);
-                stage.centerOnScreen();
-            } catch (IOException e){
-                e.printStackTrace();
+            if (loginBox.getText().isEmpty() && senhaBox.getText().isEmpty()) {
+                this.erro_msg.setText("Login e senha não podem ser vazios");
+                this.erro_msg.setStyle("-fx-text-fill: red;");
+            } else {
+                if (this.tipoUsuario.getSelectionModel().getSelectedItem().equals("Administrador")){
+                    try {
+                        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("JanelaMenuAdm.fxml"));
+                        Scene scene = new Scene(fxmlLoader.load());
+                        Stage stage = StageController.getStage(event);
+                        stage.setScene(scene);
+                        stage.centerOnScreen();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else if (this.tipoUsuario.getSelectionModel().getSelectedItem().equals("Técnico")){
+                    try {
+                        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("JanelaMenuTecnico.fxml"));
+                        Scene scene = new Scene(fxmlLoader.load());
+                        Stage stage = StageController.getStage(event);
+                        stage.setScene(scene);
+                        stage.centerOnScreen();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else{
+                    try {
+                        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("JanelaMenuRecepcionista.fxml"));
+                        Scene scene = new Scene(fxmlLoader.load());
+                        Stage stage = StageController.getStage(event);
+                        stage.setScene(scene);
+                        stage.centerOnScreen();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
         }
     }
