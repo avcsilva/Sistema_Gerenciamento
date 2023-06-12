@@ -16,6 +16,6 @@ public class Administrador extends Usuario {
      * @param email o e-mail do Usuário
      */
     public Administrador(String nome, String email) {
-        super(nome, email);
+        super(nome, email, "admin");
     }
 }
