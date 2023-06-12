@@ -33,6 +33,7 @@ public class OrdemServico implements Serializable {
         this.criacao = criacao;
         this.preco = 0.0;
         this.custo = 0.0;
+        this.listaServicos = new ArrayList<Servico>();
     }
 
     /**
