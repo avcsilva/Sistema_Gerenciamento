@@ -16,6 +16,7 @@ public class Tecnico extends Usuario {
      */
     public Tecnico(String nome, String email, String senha) {
         super(nome, email, senha);
+        this.ordemAssociada = null;
     }
 
     public OrdemServico getOrdemAssociada() {
