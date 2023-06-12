@@ -12,7 +12,7 @@ public class Tecnico extends Usuario {
      * @param nome o nome do Técnico
      * @param email o e-mail do Técnico
      */
-    public Tecnico(String nome, String email) {
-        super(nome, email);
+    public Tecnico(String nome, String email, String senha) {
+        super(nome, email, senha);
     }
 }

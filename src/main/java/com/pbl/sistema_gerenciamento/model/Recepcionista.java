@@ -14,7 +14,7 @@ public class Recepcionista extends Usuario {
      * @param nome o nome do Recepcionista
      * @param email o e-mail do Recepcionista
      */
-    public Recepcionista(String nome, String email) {
-        super(nome, email);
+    public Recepcionista(String nome, String email, String senha) {
+        super(nome, email, senha);
     }
 }
