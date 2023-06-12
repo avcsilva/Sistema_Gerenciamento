@@ -237,7 +237,7 @@ public class GereOrdemServicoController {
     @FXML
     void initialize(){
         this.ordemServico = new OrdemServico(null, null);
-        this.ordemServico.setStatus("Aberta");
+        this.ordemServico.setStatus("em aberto");
 
         this.instalacoes = FXCollections.observableArrayList();
         this.limpezas = FXCollections.observableArrayList();
