@@ -92,9 +92,9 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Button mnemonicParsing="false" styleClass="button_branco" stylesheets="@styling.css">
+            <Button fx:id="btnSair" mnemonicParsing="false" onAction="#btnVoltarPagina" styleClass="button_branco" stylesheets="@styling.css">
                <graphic>
-                  <ImageView fx:id="btnSair" fitHeight="38.0" fitWidth="42.0" onDragDetected="#btnVoltarPagina" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="38.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Logout.png" />
                      </image>
