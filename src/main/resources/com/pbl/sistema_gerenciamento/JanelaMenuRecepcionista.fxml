@@ -77,7 +77,7 @@
       </VBox>
       <VBox alignment="CENTER" prefHeight="523.0" prefWidth="150.0" style="-fx-background-color: #13233D;">
          <children>
-            <ImageView fitHeight="62.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="86.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@keyboard.png" />
                </image>
@@ -92,6 +92,18 @@
                   <Font size="20.0" />
                </font>
             </Label>
+            <Button mnemonicParsing="false" styleClass="button_branco" stylesheets="@styling.css">
+               <graphic>
+                  <ImageView fx:id="btnSair" fitHeight="38.0" fitWidth="42.0" onDragDetected="#btnVoltarPagina" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Logout.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <VBox.margin>
+                  <Insets top="50.0" />
+               </VBox.margin>
+            </Button>
          </children>
       </VBox>
    </children>

@@ -2,6 +2,7 @@ package com.pbl.sistema_gerenciamento.controller;
 
 import com.pbl.sistema_gerenciamento.HelloApplication;
 import com.pbl.sistema_gerenciamento.model.Recepcionista;
+import com.pbl.sistema_gerenciamento.utils.StageController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -132,6 +133,26 @@ public class MenuRecepcionistaController {
 
     @FXML
     void initialize(){
+
+    }
+
+    @FXML
+    void btnVoltarPagina(ActionEvent event) {
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("JanelaLogin.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = StageController.getStage(event);
+            stage.setScene(scene);
+            stage.setTitle("Login");
+            stage.setResizable(false);
+            stage.centerOnScreen();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.showAndWait();
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 }

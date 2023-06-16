@@ -120,7 +120,7 @@
       </VBox>
       <VBox alignment="CENTER" prefHeight="523.0" prefWidth="150.0" style="-fx-background-color: #13233D;">
          <children>
-            <ImageView fitHeight="62.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="97.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@tec.png" />
                </image>
@@ -135,6 +135,18 @@
                   <Font size="20.0" />
                </font>
             </Label>
+            <Button fx:id="btnSair" mnemonicParsing="false" onAction="#btnVoltarPagina" prefHeight="56.0" prefWidth="44.0" styleClass="button_branco" stylesheets="@styling.css">
+               <VBox.margin>
+                  <Insets top="50.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="41.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Logout.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </VBox>
       <VBox alignment="TOP_CENTER" layoutX="145.0" prefHeight="79.0" prefWidth="742.0" style="-fx-background-color: #13233D;">
