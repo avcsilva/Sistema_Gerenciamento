@@ -30,6 +30,9 @@ public class MenuRecepcionistaController {
     @FXML
     private Button btnGereOrdem;
 
+    @FXML
+    private Button btnSair;
+
     private Recepcionista recepcionista;
 
     @FXML
@@ -146,10 +149,6 @@ public class MenuRecepcionistaController {
             stage.setTitle("Login");
             stage.setResizable(false);
             stage.centerOnScreen();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.showAndWait();
-
-
         } catch (IOException e) {
             e.printStackTrace();
         }

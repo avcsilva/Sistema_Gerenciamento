@@ -224,11 +224,6 @@ public class MenuAdmController {
             stage.setTitle("Login");
             stage.setResizable(false);
             stage.centerOnScreen();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.showAndWait();
-
-
-
         } catch (IOException e) {
             e.printStackTrace();
         }

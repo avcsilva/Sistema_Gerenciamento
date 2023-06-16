@@ -46,6 +46,9 @@ public class MenuTecnicoController {
     private Button btnPegaOrd;
 
     @FXML
+    private Button btnSair;
+
+    @FXML
     private Label erro_msg;
 
     @FXML
@@ -263,10 +266,6 @@ public class MenuTecnicoController {
             stage.setTitle("Login");
             stage.setResizable(false);
             stage.centerOnScreen();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.showAndWait();
-
-
         } catch (IOException e) {
             e.printStackTrace();
         }
