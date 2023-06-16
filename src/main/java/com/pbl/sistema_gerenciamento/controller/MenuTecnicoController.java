@@ -183,7 +183,7 @@ public class MenuTecnicoController {
     @FXML
     void btnGereMontAction(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("JanelaMontagem"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("JanelaMontagem.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
 
             Stage stage = new Stage();
