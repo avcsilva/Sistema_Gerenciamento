@@ -58,7 +58,10 @@
           <TableColumn fx:id="colunaId" prefWidth="75.0" text="ID" />
           <TableColumn fx:id="colunaStatus" prefWidth="75.0" text="Status" />
             <TableColumn fx:id="colunaNomeCliente" prefWidth="75.0" text="Cliente" />
-            <TableColumn fx:id="colunaData" prefWidth="75.0" text="Data criação" />
+            <TableColumn fx:id="colunaDatac" prefWidth="75.0" text="Data criação" />
+            <TableColumn fx:id="colunaDataf" prefWidth="75.0" text="Data finalização" />
+            <TableColumn fx:id="colunaPreco" prefWidth="75.0" text="Preço" />
+            <TableColumn fx:id="colunaCusto" prefWidth="75.0" text="Custo" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

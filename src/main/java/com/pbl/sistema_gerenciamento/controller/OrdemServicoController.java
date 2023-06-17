@@ -36,10 +36,19 @@ public class OrdemServicoController {
     private TableColumn<OrdemServico, Cliente> colunaNomeCliente;
 
     @FXML
-    private TableColumn<OrdemServico, String> colunaData;
+    private TableColumn<OrdemServico, String> colunaDatac;
 
     @FXML
     private TableColumn<OrdemServico, String> colunaStatus;
+
+    @FXML
+    private TableColumn<OrdemServico, String> colunaDataf;
+
+    @FXML
+    private TableColumn<OrdemServico, Double> colunaPreco;
+
+    @FXML
+    private TableColumn<OrdemServico, Double> colunaCusto;
 
     @FXML
     private Label erro_msg;
@@ -85,8 +94,11 @@ public class OrdemServicoController {
 
         this.colunaId.setCellValueFactory(new PropertyValueFactory<OrdemServico, Integer>("id"));
         this.colunaNomeCliente.setCellValueFactory(new PropertyValueFactory<OrdemServico, Cliente>("clienteNome"));
-        this.colunaData.setCellValueFactory(new PropertyValueFactory<OrdemServico, String>("criacao"));
+        this.colunaDatac.setCellValueFactory(new PropertyValueFactory<OrdemServico, String>("criacao"));
         this.colunaStatus.setCellValueFactory(new PropertyValueFactory<OrdemServico, String>("status"));
+        this.colunaDataf.setCellValueFactory(new PropertyValueFactory<OrdemServico, String>("finalizacao"));
+        this.colunaPreco.setCellValueFactory(new PropertyValueFactory<OrdemServico, Double>("preco"));
+        this.colunaCusto.setCellValueFactory(new PropertyValueFactory<OrdemServico, Double>("custo"));
 
         this.tabelaOrdens.setItems(this.ordensLista);
     }
