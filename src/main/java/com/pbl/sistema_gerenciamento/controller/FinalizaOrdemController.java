@@ -64,13 +64,19 @@ public class FinalizaOrdemController {
 
     @FXML
     void btnCancelaAction(ActionEvent event) {
-        OrdemServico ordem = this.tecnico.getOrdemAssociada();
-        ordem.setTecnico(null);
-        ordem.setStatus("cancelada");
-        DAO.getOrdemServicoDAO().atualizar(ordem);
-        this.tecnico.setOrdemAssociada(null);
-        DAO.getTecnicoDAO().atualizar(this.tecnico);
-        this.dialogStage.close();
+        if (this.dataf.getText().isEmpty()){
+            this.erro_msg.setText("Digite a data de finalização!");
+        }
+        else {
+            OrdemServico ordem = this.tecnico.getOrdemAssociada();
+            ordem.setTecnico(null);
+            ordem.setStatus("cancelada");
+            ordem.setFinalizacao(this.dataf.getText());
+            DAO.getOrdemServicoDAO().atualizar(ordem);
+            this.tecnico.setOrdemAssociada(null);
+            DAO.getTecnicoDAO().atualizar(this.tecnico);
+            this.dialogStage.close();
+        }
     }
 
     @FXML
