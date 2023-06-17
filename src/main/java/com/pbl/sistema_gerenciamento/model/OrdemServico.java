@@ -31,6 +31,7 @@ public class OrdemServico implements Serializable {
     public OrdemServico(Cliente cliente, String criacao) {
         this.cliente = cliente;
         this.criacao = criacao;
+        this.finalizacao = "a definir";
         this.preco = 0.0;
         this.custo = 0.0;
         this.listaServicos = new ArrayList<Servico>();
@@ -168,7 +169,7 @@ public class OrdemServico implements Serializable {
     }
 
     public String getClienteNome() {
-        return cliente.getNome();
+        return cliente.getId() + ": " + cliente.getNome();
     }
 
     /**
