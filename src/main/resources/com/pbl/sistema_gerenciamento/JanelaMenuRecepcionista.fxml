@@ -92,6 +92,11 @@
                   <Font size="20.0" />
                </font>
             </Label>
+            <Label fx:id="textNome" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
             <Button fx:id="btnSair" mnemonicParsing="false" onAction="#btnVoltarPagina" styleClass="button_branco" stylesheets="@styling.css">
                <graphic>
                   <ImageView fitHeight="38.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">

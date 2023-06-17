@@ -135,6 +135,11 @@
                   <Font size="20.0" />
                </font>
             </Label>
+            <Label fx:id="textNome" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
             <Button fx:id="btnSair" mnemonicParsing="false" onAction="#btnVoltarPagina" prefHeight="56.0" prefWidth="44.0" styleClass="button_branco" stylesheets="@styling.css">
                <VBox.margin>
                   <Insets top="50.0" />
