@@ -39,7 +39,7 @@ public class LoginController {
 
     @FXML
     void btnConfirmaAction(ActionEvent event) {
-        if (this.tipoUsuario.getSelectionModel().getSelectedItem().isEmpty()){
+        if (this.tipoUsuario.getSelectionModel().getSelectedItem() == null){
             this.erro_msg.setText("Selecione um tipo de usuário!");
             this.erro_msg.setStyle("-fx-text-fill: red;");
         } else {
