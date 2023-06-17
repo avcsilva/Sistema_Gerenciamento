@@ -20,6 +20,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class GereOrdemServicoController {
 
@@ -51,16 +52,16 @@ public class GereOrdemServicoController {
     private Button btnRmvMont;
 
     @FXML
-    private ChoiceBox<Cliente> choiceCliente;
+    private ChoiceBox<Integer> choiceCliente;
 
     @FXML
-    private ChoiceBox<Instalacao> choiceInst;
+    private ChoiceBox<Integer> choiceInst;
 
     @FXML
-    private ChoiceBox<Limpeza> choiceLimp;
+    private ChoiceBox<Integer> choiceLimp;
 
     @FXML
-    private ChoiceBox<Montagem> choiceMont;
+    private ChoiceBox<Integer> choiceMont;
 
     @FXML
     private Label clienteDefinido;
@@ -108,7 +109,7 @@ public class GereOrdemServicoController {
 
     @FXML
     void btnAddClienteAction(ActionEvent event) {
-        Cliente cliente = this.choiceCliente.getSelectionModel().getSelectedItem();
+        Cliente cliente = DAO.getClienteDAO().acharPorId(this.choiceCliente.getSelectionModel().getSelectedItem());
         if (cliente == null){
             this.msg_erro.setText("Selecione um cliente");
             this.msg_erro.setStyle("-fx-text-fill: red");
@@ -135,7 +136,7 @@ public class GereOrdemServicoController {
 
     @FXML
     void btnAddInstAction(ActionEvent event) {
-        Instalacao instalacao = this.choiceInst.getSelectionModel().getSelectedItem();
+        Instalacao instalacao = DAO.getInstalacaoDAO().acharPorId(this.choiceInst.getSelectionModel().getSelectedItem());
         if (instalacao == null){
             this.msg_erro.setText("Selecione uma instalação");
             this.msg_erro.setStyle("-fx-text-fill: red");
@@ -149,7 +150,7 @@ public class GereOrdemServicoController {
 
     @FXML
     void btnAddLimpAction(ActionEvent event) {
-        Limpeza limpeza = this.choiceLimp.getSelectionModel().getSelectedItem();
+        Limpeza limpeza = DAO.getLimpezaDAO().acharPorId(this.choiceLimp.getSelectionModel().getSelectedItem());
         if(limpeza == null){
             this.msg_erro.setText("Selecione uma limpeza");
             this.msg_erro.setStyle("-fx-text-fill: red;");
@@ -164,7 +165,7 @@ public class GereOrdemServicoController {
 
     @FXML
     void btnAddMontAction(ActionEvent event) {
-        Montagem montagem = this.choiceMont.getSelectionModel().getSelectedItem();
+        Montagem montagem = DAO.getMontagemDAO().acharPorId(this.choiceMont.getSelectionModel().getSelectedItem());
         if (montagem == null){
             this.msg_erro.setText("Selecione uma montagem");
             this.msg_erro.setStyle("-fx-text-fill: red;");
@@ -245,14 +246,31 @@ public class GereOrdemServicoController {
         this.limpezas = FXCollections.observableArrayList();
         this.montagens = FXCollections.observableArrayList();
 
-        ObservableList<Cliente> clientes = FXCollections.observableArrayList(DAO.getClienteDAO().acharTodos());
-        choiceCliente.setItems(clientes);
-        ObservableList<Instalacao> instalacoes = FXCollections.observableArrayList(DAO.getInstalacaoDAO().acharTodos());
-        choiceInst.setItems(instalacoes);
-        ObservableList<Limpeza> limpezas = FXCollections.observableArrayList(DAO.getLimpezaDAO().acharTodos());
-        choiceLimp.setItems(limpezas);
-        ObservableList<Montagem> montagens = FXCollections.observableArrayList(DAO.getMontagemDAO().acharTodos());
-        choiceMont.setItems(montagens);
+
+        ArrayList<Integer> clienteIds = new ArrayList<Integer>();
+        for(Cliente cliente : DAO.getClienteDAO().acharTodos()){
+            clienteIds.add(cliente.getId());
+        }
+        choiceCliente.setItems(FXCollections.observableArrayList(clienteIds));
+
+        ArrayList<Integer> instalacoesIds = new ArrayList<Integer>();
+        for(Instalacao instalacao : DAO.getInstalacaoDAO().acharTodos()){
+            instalacoesIds.add(instalacao.getId());
+        }
+        choiceInst.setItems(FXCollections.observableArrayList(instalacoesIds));
+
+        ArrayList<Integer> limpezasIds = new ArrayList<Integer>();
+        for(Limpeza limpeza : DAO.getLimpezaDAO().acharTodos()){
+            limpezasIds.add(limpeza.getId());
+        }
+        choiceLimp.setItems(FXCollections.observableArrayList(limpezasIds));
+
+        ArrayList<Integer> montagensIds = new ArrayList<Integer>();
+        for(Montagem montagem : DAO.getMontagemDAO().acharTodos()){
+            montagensIds.add(montagem.getId());
+        }
+        choiceMont.setItems(FXCollections.observableArrayList(montagensIds));
+
 
         this.colunaLimpPreco.setCellValueFactory(new PropertyValueFactory<Limpeza, Double>("preco"));
         this.colunaInstPreco.setCellValueFactory(new PropertyValueFactory<Instalacao, Double>("preco"));

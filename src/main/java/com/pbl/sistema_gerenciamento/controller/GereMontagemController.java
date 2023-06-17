@@ -22,6 +22,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class GereMontagemController {
 
@@ -35,10 +36,10 @@ public class GereMontagemController {
     private Button btnRmv;
 
     @FXML
-    private ChoiceBox<ComponenteOutro> choiceCompOutr;
+    private ChoiceBox<Integer> choiceCompOutr;
 
     @FXML
-    private ChoiceBox<ComponentePC> choiceCompPC;
+    private ChoiceBox<Integer> choiceCompPC;
 
     @FXML
     private Label erro_msg;
@@ -78,8 +79,8 @@ public class GereMontagemController {
 
     @FXML
     void btnAddAction(ActionEvent event) {
-        ComponenteOutro compOut = this.choiceCompOutr.getSelectionModel().getSelectedItem();
-        ComponentePC compPC = this.choiceCompPC.getSelectionModel().getSelectedItem();
+        ComponenteOutro compOut = DAO.getComponenteOutroDAO().acharPorId(this.choiceCompOutr.getSelectionModel().getSelectedItem());
+        ComponentePC compPC = DAO.getComponentePCDAO().acharPorId(this.choiceCompPC.getSelectionModel().getSelectedItem());
         if(compOut == null && compPC == null){
             this.erro_msg.setText("Componente não selecionado");
             this.erro_msg.setStyle("-fx-text-fill: red");
@@ -144,11 +145,16 @@ public class GereMontagemController {
         this.compsOutLista = FXCollections.observableArrayList();
         this.compsPCLista = FXCollections.observableArrayList();
 
-        ObservableList<ComponenteOutro> compoutList = FXCollections.observableArrayList(DAO.getComponenteOutroDAO().acharTodos());
-        ObservableList<ComponentePC> comppcList = FXCollections.observableArrayList(DAO.getComponentePCDAO().acharTodos());
-
-        this.choiceCompOutr.setItems(compoutList);
-        this.choiceCompPC.setItems(comppcList);
+        ArrayList<Integer> idsOutros = new ArrayList<Integer>();
+        ArrayList<Integer> idsPC = new ArrayList<Integer>();
+        for(ComponenteOutro compOut : DAO.getComponenteOutroDAO().acharTodos()){
+            idsOutros.add(compOut.getId());
+        }
+        for(ComponentePC compPC : DAO.getComponentePCDAO().acharTodos()){
+            idsPC.add(compPC.getId());
+        }
+        this.choiceCompOutr.setItems(FXCollections.observableArrayList(idsOutros));
+        this.choiceCompPC.setItems(FXCollections.observableArrayList(idsPC));
 
         this.tabelaOutroCusto.setCellValueFactory(new PropertyValueFactory<ComponenteOutro, Double>("custo"));
         this.tabelaOutroPreco.setCellValueFactory(new PropertyValueFactory<ComponenteOutro, String>("preco"));
