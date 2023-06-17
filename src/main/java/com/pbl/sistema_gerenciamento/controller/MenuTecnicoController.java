@@ -227,6 +227,7 @@ public class MenuTecnicoController {
         else{
             OrdemServico ordem = DAO.getOrdemServicoDAO().proximaOrdem();
             if (ordem == null){
+                this.ordemAssociada.setText("Nenhuma");
                 this.erro_msg.setText("Não há ordens de serviço disponíveis!");
                 this.erro_msg.setStyle("-fx-text-fill: red;");
             } else {
