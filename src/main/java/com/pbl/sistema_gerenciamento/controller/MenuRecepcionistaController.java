@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -32,6 +33,9 @@ public class MenuRecepcionistaController {
 
     @FXML
     private Button btnSair;
+
+    @FXML
+    private Label textNome;
 
     private Recepcionista recepcionista;
 
@@ -132,6 +136,7 @@ public class MenuRecepcionistaController {
 
     public void setRecepcionista(Recepcionista recepcionista) {
         this.recepcionista = recepcionista;
+        this.textNome.setText(this.recepcionista.getNome());
     }
 
     @FXML

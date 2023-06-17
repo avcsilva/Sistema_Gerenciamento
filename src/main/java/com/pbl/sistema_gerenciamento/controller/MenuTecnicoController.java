@@ -54,6 +54,9 @@ public class MenuTecnicoController {
     @FXML
     private Label ordemAssociada;
 
+    @FXML
+    private Label textNome;
+
     private Tecnico tecnico;
 
     @FXML
@@ -245,6 +248,7 @@ public class MenuTecnicoController {
 
     public void setTecnico(Tecnico tecnico) {
         this.tecnico = tecnico;
+        this.textNome.setText(this.tecnico.getNome());
         if (this.tecnico.getOrdemAssociada() != null){
             this.ordemAssociada.setText("ID da ordem de serviço associada: " + this.tecnico.getOrdemAssociada().getId());
         } else{
