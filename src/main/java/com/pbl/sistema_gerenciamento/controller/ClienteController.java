@@ -50,6 +50,9 @@ public class ClienteController {
     @FXML
     private TableColumn<Cliente, String> tabelaTelefones;
 
+    @FXML
+    private TableColumn<Cliente, Integer> tabelaIds;
+
     private ObservableList<Cliente> clientesLista;
 
     /**
@@ -135,6 +138,7 @@ public class ClienteController {
         this.tabelaEnderecos.setCellValueFactory(new PropertyValueFactory<Cliente, String>("endereco"));
         this.tabelaTelefones.setCellValueFactory(new PropertyValueFactory<Cliente, String>("telefone"));
         this.tabelaEmails.setCellValueFactory(new PropertyValueFactory<Cliente, String>("email"));
+        this.tabelaIds.setCellValueFactory(new PropertyValueFactory<Cliente, Integer>("id"));
 
         this.tabelaClientes.setItems(clientesLista);
     }

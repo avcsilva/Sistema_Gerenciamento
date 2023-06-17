@@ -55,6 +55,7 @@
       </VBox>
       <TableView fx:id="tabelaMontagens" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
         <columns>
+            <TableColumn fx:id="tabelaIds" prefWidth="75.0" text="ID" />
           <TableColumn fx:id="tabelaPrecos" prefWidth="75.0" text="Preço" />
           <TableColumn fx:id="tabelaCustos" prefWidth="75.0" text="Custo" />
         </columns>

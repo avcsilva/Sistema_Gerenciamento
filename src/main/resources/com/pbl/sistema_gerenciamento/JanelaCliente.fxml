@@ -58,6 +58,7 @@
       </VBox>
       <TableView fx:id="tabelaClientes" editable="true" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffff; -fx-selection-bar: lightblue; -fx-selection-bar-non-focused: gray;" GridPane.columnIndex="1">
         <columns>
+            <TableColumn fx:id="tabelaIds" prefWidth="75.0" text="ID" />
           <TableColumn fx:id="tabelaNomes" prefWidth="75.0" text="Nome" />
           <TableColumn fx:id="tabelaEnderecos" prefWidth="75.0" text="Endereço" />
             <TableColumn fx:id="tabelaTelefones" prefWidth="75.0" text="Telefone" />

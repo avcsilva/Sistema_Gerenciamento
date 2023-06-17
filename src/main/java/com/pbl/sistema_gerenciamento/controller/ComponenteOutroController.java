@@ -48,6 +48,9 @@ public class ComponenteOutroController {
     @FXML
     private TableColumn<ComponenteOutro, Double> tabelaPrecos;
 
+    @FXML
+    private TableColumn<ComponenteOutro, Integer> tabelaIds;
+
     private ObservableList<ComponenteOutro> componentesoutrosLista;
 
     @FXML
@@ -123,6 +126,7 @@ ComponenteOutro componenteOutro = tabelaCompOut.getSelectionModel().getSelectedI
         this.tabelaCustos.setCellValueFactory(new PropertyValueFactory<ComponenteOutro, Double>("custo"));
         this.tabelaDescricoes.setCellValueFactory(new PropertyValueFactory<ComponenteOutro, String>("descricao"));
         this.tabelaPrecos.setCellValueFactory(new PropertyValueFactory<ComponenteOutro, Double>("preco"));
+        this.tabelaIds.setCellValueFactory(new PropertyValueFactory<ComponenteOutro, Integer>("id"));
 
         this.tabelaCompOut.setItems(componentesoutrosLista);
     }

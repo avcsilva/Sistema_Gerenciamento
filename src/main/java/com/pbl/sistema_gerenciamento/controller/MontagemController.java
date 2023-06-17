@@ -39,6 +39,9 @@ public class MontagemController {
     @FXML
     private TableColumn<Montagem, Double> tabelaPrecos;
 
+    @FXML
+    private TableColumn<Montagem, Integer> tabelaIds;
+
     private ObservableList<Montagem> montagemList;
 
     @FXML
@@ -76,6 +79,7 @@ public class MontagemController {
         this.montagemList = FXCollections.observableArrayList(DAO.getMontagemDAO().acharTodos());
         this.tabelaPrecos.setCellValueFactory(new PropertyValueFactory<Montagem, Double>("preco"));
         this.tabelaCustos.setCellValueFactory(new PropertyValueFactory<Montagem, Double>("custo"));
+        this.tabelaIds.setCellValueFactory(new PropertyValueFactory<Montagem, Integer>("id"));
         this.tabelaMontagens.setItems(this.montagemList);
     }
 }

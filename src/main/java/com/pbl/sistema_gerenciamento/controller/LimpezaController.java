@@ -37,6 +37,9 @@ public class LimpezaController {
     private TableColumn<Limpeza, Double> tabelaPrecos;
 
     @FXML
+    private TableColumn<Limpeza, Integer> tabelaIds;
+
+    @FXML
     private ObservableList<Limpeza> limpezaList;
 
     @FXML
@@ -102,6 +105,7 @@ public class LimpezaController {
         this.limpezaList = FXCollections.observableArrayList(DAO.getLimpezaDAO().acharTodos());
 
         this.tabelaPrecos.setCellValueFactory(new PropertyValueFactory<Limpeza, Double>("preco"));
+        this.tabelaIds.setCellValueFactory(new PropertyValueFactory<Limpeza, Integer>("id"));
 
         this.tabelaLimpeza.setItems(limpezaList);
     }

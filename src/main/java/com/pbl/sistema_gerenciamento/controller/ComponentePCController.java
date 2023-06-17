@@ -54,6 +54,9 @@ public class ComponentePCController {
     @FXML
     private TableColumn<ComponentePC, Double> tabelaPrecos;
 
+    @FXML
+    private TableColumn<ComponentePC, Integer> tabelaIds;
+
     private ObservableList<ComponentePC> componentespcLista;
 
     @FXML
@@ -126,6 +129,7 @@ public class ComponentePCController {
         this.tabelaFabricantes.setCellValueFactory(new PropertyValueFactory<ComponentePC, String>("fabricante"));
         this.tabelaPrecos.setCellValueFactory(new PropertyValueFactory<ComponentePC, Double>("preco"));
         this.tabelaCustos.setCellValueFactory(new PropertyValueFactory<ComponentePC, Double>("custo"));
+        this.tabelaIds.setCellValueFactory(new PropertyValueFactory<ComponentePC, Integer>("id"));
 
         this.tabelaCompPC.setItems(componentespcLista);
     }

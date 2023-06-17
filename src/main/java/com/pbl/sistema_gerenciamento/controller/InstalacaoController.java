@@ -48,6 +48,9 @@ public class InstalacaoController {
     @FXML
     private TableColumn<Instalacao, String> tabelaSO;
 
+    @FXML
+    private TableColumn<Instalacao, Integer> tabelaIds;
+
     private ObservableList<Instalacao> instalacaoList;
 
     @FXML
@@ -125,6 +128,7 @@ public class InstalacaoController {
         this.tabelaPrecos.setCellValueFactory(new PropertyValueFactory<Instalacao, Double>("preco"));
         this.tabelaProgramas.setCellValueFactory(new PropertyValueFactory<Instalacao, String>("programa"));
         this.tabelaSO.setCellValueFactory(new PropertyValueFactory<Instalacao, String>("sistemaOperacional"));
+        this.tabelaIds.setCellValueFactory(new PropertyValueFactory<Instalacao, Integer>("id"));
 
         this.tabelaInstals.setItems(this.instalacaoList);
     }

@@ -59,6 +59,7 @@
       </VBox>
       <TableView fx:id="tabelaCompPC" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
         <columns>
+            <TableColumn fx:id="tabelaIds" prefWidth="75.0" text="ID" />
           <TableColumn fx:id="tabelaNomes" prefWidth="75.0" style="-fx-selection-bar: lightblue; -fx-selection-bar-non-focused: gray;" text="Nome" />
           <TableColumn fx:id="tabelaFabricantes" prefWidth="75.0" style="-fx-selection-bar: lightblue; -fx-selection-bar-non-focused: gray;" text="Fabricante" />
             <TableColumn fx:id="tabelaPrecos" prefWidth="75.0" style="-fx-selection-bar: lightblue; -fx-selection-bar-non-focused: gray;" text="Preço" />
